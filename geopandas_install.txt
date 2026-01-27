@@ -1,0 +1,6 @@
+# Instalação do Geopandas pelo Anaconda prompt
+
+conda create -n geo_env python=3.13.9
+conda activate geo_env
+conda install -c conda-forge geopandas
+python -c "import geopandas as gpd; print(gpd.__version__)"
