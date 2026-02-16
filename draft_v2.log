@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.16)  16 FEB 2026 18:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.16)  16 FEB 2026 18:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -805,12 +805,6 @@ LaTeX Warning: Label `subsec:statistical-summaries' multiply defined.
 
 LaTeX Warning: Label `sec:sampling' multiply defined.
 
-
-LaTeX Warning: Label `fig:evenness' multiply defined.
-
-
-LaTeX Warning: Label `fig:evenness' multiply defined.
-
 )
 \openout1 = `draft_v2.aux'.
 
@@ -970,7 +964,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--23
  []
 
 ) [4]
-runsystem(latexminted cleantemp  --timestamp 20260216180113 2DA1764935312B36611344878998369A)...executed safely (allowed).
+runsystem(latexminted cleantemp  --timestamp 20260216183613 2DA1764935312B36611344878998369A)...executed safely (allowed).
 
 (./draft_v2.aux)
  ***********
@@ -984,10 +978,10 @@ Package rerunfilecheck Info: File `draft_v2.out' has not changed.
 (rerunfilecheck)             Checksum: CDFDB1B30F7FC2BA8887585A8463D619;521.
  ) 
 Here is how much of TeX's memory you used:
- 39076 strings out of 469514
- 951550 string characters out of 5468199
- 1556891 words of memory out of 5000000
- 67099 multiletter control sequences out of 15000+600000
+ 39078 strings out of 469514
+ 951648 string characters out of 5468199
+ 1557031 words of memory out of 5000000
+ 67101 multiletter control sequences out of 15000+600000
  637263 words of font info for 60 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  99i,8n,118p,796b,635s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1013,5 +1007,5 @@ PDF statistics:
 !     parser = self._parser_class(**kwargs)
 ! TypeError: ArgParser.__init__() got an unexpected keyword argument 'color'
 ! ...\renan\AppData\Roaming\TinyTeX\bin\windows\runscript.tlu:933: command failed with exit code 1:
-! python.exe c:\Users\renan\AppData\Roaming\TinyTeX\texmf-dist\scripts\minted\latexminted.py "cleantemp"  "--timestamp" "20260216180113" "2DA1764935312B36611344878998369A"
+! python.exe c:\Users\renan\AppData\Roaming\TinyTeX\texmf-dist\scripts\minted\latexminted.py "cleantemp"  "--timestamp" "20260216183613" "2DA1764935312B36611344878998369A"
 ! system returned with code 1
