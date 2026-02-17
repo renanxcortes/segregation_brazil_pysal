@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.16)  16 FEB 2026 19:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.16)  17 FEB 2026 10:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -371,44 +371,45 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 42
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [1
 
-{c:/Users/renan/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/renan/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}]
-<figures/seg_profile_4314902.png, id=13, 495.56572pt x 580.63783pt>
+{c:/Users/renan/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/Users/renan/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}] [2] [3] [4] [5] [6]
+<figures/seg_profile_4314902.png, id=28, 495.56572pt x 580.63783pt>
 File: figures/seg_profile_4314902.png Graphic file (type png)
 <use figures/seg_profile_4314902.png>
-Package pdftex.def Info: figures/seg_profile_4314902.png  used on input line 106.
+Package pdftex.def Info: figures/seg_profile_4314902.png  used on input line 132.
 (pdftex.def)             Requested size: 218.51521pt x 256.02188pt.
-<figures/seg_profile_3550308.png, id=15, 496.18517pt x 580.63783pt>
+<figures/seg_profile_3550308.png, id=30, 496.18517pt x 580.63783pt>
 File: figures/seg_profile_3550308.png Graphic file (type png)
 <use figures/seg_profile_3550308.png>
-Package pdftex.def Info: figures/seg_profile_3550308.png  used on input line 113.
+Package pdftex.def Info: figures/seg_profile_3550308.png  used on input line 139.
 (pdftex.def)             Requested size: 218.51521pt x 255.71179pt.
-<figures/seg_profile_3304557.png, id=16, 541.19905pt x 580.63783pt>
+<figures/seg_profile_3304557.png, id=31, 541.19905pt x 580.63783pt>
 File: figures/seg_profile_3304557.png Graphic file (type png)
 <use figures/seg_profile_3304557.png>
-Package pdftex.def Info: figures/seg_profile_3304557.png  used on input line 122.
+Package pdftex.def Info: figures/seg_profile_3304557.png  used on input line 148.
 (pdftex.def)             Requested size: 218.51521pt x 234.43939pt.
-<figures/seg_profile_3106200.png, id=17, 473.88472pt x 580.63783pt>
+<figures/seg_profile_3106200.png, id=32, 473.88472pt x 580.63783pt>
 File: figures/seg_profile_3106200.png Graphic file (type png)
 <use figures/seg_profile_3106200.png>
-Package pdftex.def Info: figures/seg_profile_3106200.png  used on input line 129.
+Package pdftex.def Info: figures/seg_profile_3106200.png  used on input line 155.
 (pdftex.def)             Requested size: 218.51521pt x 267.74341pt.
-<figures/grid_plot_4314902_systematic.png, id=18, 1003.8303pt x 715.473pt>
+<figures/grid_plot_4314902_systematic.png, id=33, 1003.8303pt x 715.473pt>
 File: figures/grid_plot_4314902_systematic.png Graphic file (type png)
 <use figures/grid_plot_4314902_systematic.png>
-Package pdftex.def Info: figures/grid_plot_4314902_systematic.png  used on input line 144.
+Package pdftex.def Info: figures/grid_plot_4314902_systematic.png  used on input line 170.
 (pdftex.def)             Requested size: 450.69417pt x 321.22842pt.
-<figures/grid_plot_4314902_evenness.png, id=19, 1002.3849pt x 715.473pt>
+[7] [8 <./figures/seg_profile_4314902.png> <./figures/seg_profile_3550308.png> <./figures/seg_profile_3304557.png> <./figures/seg_profile_3106200.png>]
+<figures/grid_plot_4314902_evenness.png, id=45, 1002.3849pt x 715.473pt>
 File: figures/grid_plot_4314902_evenness.png Graphic file (type png)
 <use figures/grid_plot_4314902_evenness.png>
-Package pdftex.def Info: figures/grid_plot_4314902_evenness.png  used on input line 151.
+Package pdftex.def Info: figures/grid_plot_4314902_evenness.png  used on input line 177.
 (pdftex.def)             Requested size: 450.69417pt x 321.68695pt.
-[2 <./figures/grid_plot_4314902_systematic.png>] [3 <./figures/seg_profile_4314902.png> <./figures/seg_profile_3550308.png> <./figures/seg_profile_3304557.png> <./figures/seg_profile_3106200.png>]
-<figures/grid_plot_4314902_geographic_permutation.png, id=31, 1076.823pt x 668.7384pt>
+[9 <./figures/grid_plot_4314902_systematic.png>]
+<figures/grid_plot_4314902_geographic_permutation.png, id=50, 1076.823pt x 668.7384pt>
 File: figures/grid_plot_4314902_geographic_permutation.png Graphic file (type png)
 <use figures/grid_plot_4314902_geographic_permutation.png>
-Package pdftex.def Info: figures/grid_plot_4314902_geographic_permutation.png  used on input line 158.
+Package pdftex.def Info: figures/grid_plot_4314902_geographic_permutation.png  used on input line 184.
 (pdftex.def)             Requested size: 450.69417pt x 279.88861pt.
-(./draft_v4.bbl [4 <./figures/grid_plot_4314902_evenness.png> <./figures/grid_plot_4314902_geographic_permutation.png>]
+(./draft_v4.bbl [10 <./figures/grid_plot_4314902_evenness.png> <./figures/grid_plot_4314902_geographic_permutation.png>]
 Underfull \hbox (badness 1939) in paragraph at lines 14--21
 []\T1/lmr/m/n/12 Sharrelle Bar-ber, Ana V. Diez Roux, Letí-cia Car-doso, Si-mone San-tos, Veron-
  []
@@ -424,21 +425,21 @@ Underfull \hbox (badness 1048) in paragraph at lines 14--21
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--62
+Underfull \hbox (badness 10000) in paragraph at lines 60--64
 []\T1/lmr/m/n/12 Ana Paula Vas-con-ce-los Gonçalves and Ju-lia Celia Mer-cedes Strauch.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--62
+Underfull \hbox (badness 10000) in paragraph at lines 60--64
 \T1/lmr/m/n/12 Seg-re-gação racial em belo hor-i-zonte: o que mu-dou em mais de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 58--62
+Underfull \hbox (badness 10000) in paragraph at lines 60--64
 \T1/lmr/m/n/12 uma dé-cada?  \T1/lmr/m/it/12 Cader-nos Metrópole\T1/lmr/m/n/12 , 28(65), 2 2026.  URL
  []
 
-[5]) [6] (./draft_v4.aux)
+[11]) [12] (./draft_v4.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -448,18 +449,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6333 strings out of 469514
- 106786 string characters out of 5468199
- 501791 words of memory out of 5000000
- 34875 multiletter control sequences out of 15000+600000
+ 6345 strings out of 469514
+ 107131 string characters out of 5468199
+ 504789 words of memory out of 5000000
+ 34887 multiletter control sequences out of 15000+600000
  672961 words of font info for 70 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 59i,8n,67p,412b,512s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 59i,8n,67p,1758b,512s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Users/renan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/renan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/renan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/renan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/renan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/renan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/renan/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on draft_v4.pdf (6 pages, 16084271 bytes).
+Output written on draft_v4.pdf (12 pages, 16105838 bytes).
 PDF statistics:
- 75 PDF objects out of 1000 (max. 8388607)
- 37 compressed objects within 1 object stream
+ 95 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  40 words of extra memory for PDF output out of 10000 (max. 10000000)
 
