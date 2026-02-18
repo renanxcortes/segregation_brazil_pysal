@@ -1,0 +1,137 @@
+\documentclass[12pt,a4paper]{article}
+
+% -------------------------------------------------
+% PACKAGES
+% -------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath, amssymb}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{float}
+
+% Bibliography with biblatex (recommended)
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\addbibresource{references.bib}
+
+% -------------------------------------------------
+% TITLE INFORMATION
+% -------------------------------------------------
+\title{\textbf{Title of the Scientific Paper}}
+
+\author{
+    First Author\thanks{Corresponding author: email@example.com} \\
+    \small Department, University, Country
+    \and
+    Second Author \\
+    \small Department, University, Country
+}
+
+\date{\today}
+
+% -------------------------------------------------
+% DOCUMENT
+% -------------------------------------------------
+\usepackage{Sweave}
+\begin{document}
+\input{draft_v1-concordance}
+
+\maketitle
+
+\begin{abstract}
+This is the abstract of the scientific paper. It should briefly present the objective, methodology, main results, and conclusions. Citations can also appear here if necessary \parencite{smith2020}.
+\end{abstract}
+
+\noindent\textbf{Keywords:} keyword1; keyword2; keyword3
+
+\onehalfspacing
+
+% -------------------------------------------------
+\section{Introduction}
+
+Introduce the research problem and provide background. 
+Cite references as needed \parencite{doe2019}.
+
+\subsection{Motivation}
+
+Explain why the study is relevant.
+
+\subsection{Objectives}
+
+Clearly state the objectives of the paper.
+
+% -------------------------------------------------
+\section{Materials and Methods}
+
+Describe the methodology used.
+
+\subsection{Study Design}
+
+Provide details of experimental or analytical design.
+
+\subsection{Statistical Analysis}
+
+Include equations if necessary:
+
+\begin{equation}
+Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i
+\end{equation}
+
+% -------------------------------------------------
+\section{Results}
+
+Present findings clearly.
+
+\subsection{Descriptive Statistics}
+
+Example of a professional table:
+
+\begin{table}[H]
+\centering
+\caption{Descriptive statistics of the sample.}
+\begin{tabular}{lccc}
+\toprule
+Variable & Mean & SD & N \\
+\midrule
+Variable 1 & 10.5 & 2.3 & 100 \\
+Variable 2 & 5.7  & 1.8 & 100 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Figures}
+
+Example of figure insertion:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{grid_plot_4314100_systematic.png}
+\caption{Example of a figure.}
+\end{figure}
+
+% -------------------------------------------------
+\section{Discussion}
+
+Interpret the results and compare with literature \parencite{smith2020}.
+
+% -------------------------------------------------
+\section{Conclusion}
+
+Summarize main findings and implications.
+
+% -------------------------------------------------
+\section*{Acknowledgments}
+
+Optional acknowledgment section.
+
+% -------------------------------------------------
+\printbibliography
+
+\end{document}
