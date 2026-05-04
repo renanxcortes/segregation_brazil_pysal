@@ -1,0 +1,6 @@
+Act like you're a researcher about to submit an abstract to a congresso, and would like to combine the two attached files.
+
+The first file (cortes2019.pdf) is a published paper that depicts the PySAL segregation module.
+The second file (draft_v4.pdf) is an unfinished draft that applies the segregation module in the brazilian context in four selected cities.
+
+The abstract should have around four pages (in microsoft word with Font Times New Roman of size 11) and four Keywords.
