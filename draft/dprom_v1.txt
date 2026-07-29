@@ -1,0 +1,17 @@
+You're a researcher in Geographical Data Science and needs to  write a Chapter for a book of Demographic Data that comprises research of Applications in Spatial Data Science.
+
+This chapter if focused on residential racial segregation for black and brown ppopulation in Brazil and it is heavily based on the attached paper "cortes2019.pdf" where an inferential framework for single value and two-values (comparative) inference is presented using a simulation based approach.
+
+This draft needs to be anchored in the current literature of segregation in Brazil and can be based on the attached papers:
+"souza_ampla_segregacao_brasil.pdf"
+"segregacao_fortaleza.pdf"
+"sao_paulo_londres_more_segregated.pdf"
+"marianazerbone,+1+SEGREGAÇÃO+RACIAL+NO+BRASIL.pdf"
+
+Also mention different approaches of segregation relating public health such as present in "barber2018_segregacao_ELSA.pdf".
+
+The innovation of this chapter is due to the application of this inferential framework to selected cities in Brasil: Porto Alegre, Belo Horizonte,  São Paulo and Rio de Janeiro. Each map of the city is attached as png where the gradiente color representes the share of black and brown population in each cencus tract of 2022.
+
+For each city, make a short description of the map depicting the highlighted zones.
+
+

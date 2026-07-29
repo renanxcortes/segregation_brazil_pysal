@@ -1,0 +1,15 @@
+You're a researcher in Geographical Data Science and needs to  write na Introduction section focused on the methodological literature of segregation indexes for a book of Demographic Data that comprises research of Applications in Spatial Data Science. This section is part of a larger chapter.
+
+This section needs to be heavily based on the attached paper "cortes2019.pdf" where an inferential framework for single value and two-values (comparative) inference is presented using a simulation based approach.
+
+This sections needs to highlight the main topics of the papers below possibly highlighting the dimensions of the indexes, challenges when assessing segregation and eventual inferential framework developed:
+
+"massey1988.pdf"
+"ransom2000_sampling_segregation_multinomial.pdf"
+"lee2015_empirical_bayes_dissimilarity_index_inference_framework.pdf"
+"allen2015_more_reliable_inference.pdf"
+"t2_t_3_artigo_rey2021_comparative.pdf"
+
+I'm also attaching a review (JCSO_segregation_reviewer_2.pdf) that points out the limitations of the current methodology highlighting potentally statistical flaws of cortes2019.pdf due to the absence of formal definition of the null hypothesis in each approach for inferential framework of single point segregation measures. Please address this in the discussion to state that these limitations are aware and will mention them as caveats.
+
+In the end of this section highlights that the chapter makes advancements in measuring segregation in Brazil taking into consideration these inferential frameworks.

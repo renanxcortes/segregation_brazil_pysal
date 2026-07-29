@@ -1,0 +1,5 @@
+Seguindo: https://github.com/rstudio/rstudio/issues/9019
+
+Coloquei
+
+"Use tinytex when compiling .tex files" in Tools -> Global Options -> RSweave
