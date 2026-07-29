@@ -1,0 +1,105 @@
+Segregation in foreign-born vs. native-born na Suécia
+
+foreign-born tends to homophily e tem menor mobilidade
+
+Como que eles fizeram esse contrafactual?
+perform simulations that maintain the real distribution of amenities and
+residences, lifestyle choices, and mobility ranges but where visit patterns are
+altered. In this no-destination preference simulation, for each recorded trip
+in our dataset, we substitute the original destination with a random nearby
+location (within 1 km) of the same type (e.g., bar, restaurant, café, see more
+details in the “Methods”section).
+
+
+Artigo bem denso
+Literatura cada vez mais rápida
+
+Socio-spatial segregation and human mobility: A review of
+empirical evidence
+Onde vcs pegam esses dados de mobile phone location?
+
+- Most populated áreas
+
+Selection of key segregation metrics
+
+
+
+Subsidiio na Alemanha, segregação
+
+
+
+
+Embedding da segregação
+da pessoa
+do lugar
+
+
+
+
+Quantos empregos vc acessa em 30 minutos? ponderado pelo custo
+
+pela facilidade de uso
+
+
+30 min, street network
+
+
+% de empregos da cidade sobreo total
+
+
+
+
+
+Diminui o problema de MAUP
+reagregar H3
+
+combina com a grade 
+interpolação dessimetria
+grade estatística do IBGE
+
+
+setor censitário por um recenseador,, 200, 300 domicilio
+
+2 etapas
+
+grade H3 pro Brasil inteiro
+
+Usa do H3 de vocês
+
+H3, as quebras ficam, os tamanhos dos hexágonos
+as quebras estão padronizadas
+escala 7, 8 e 9
+varias os km quadrados
+
+
+IBGE não pode usar o termo região metropolitana, é pela constituição federal
+
+segregação em diferentes escalas, pra ver se muda mto
+análise de MAUP, sensibilidade, dá uma diferença no RJ, quanto as obras das olimpiadas, o efeito ficava estatisticamente significante
+
+
+Flávia Feitosa - UFABC
+Ela deve ser parecrista
+Ela é a maior do Brasil
+
+
+Ao longo do tempo é melhor do que 
+
+
+Rankig mudou de 2010 pra 2022, comparativo entre as cidades
+
+
+Categoria de referência: contrafactusal pra um denominador comum
+
+
+
+
+
+
+cnef
+que o IBGE criou pra geooclaizar
+
+
+cadastro único, em 15 minutos
+
+https://ipeagit.github.io/geocodebr/articles/geocodebr.html
