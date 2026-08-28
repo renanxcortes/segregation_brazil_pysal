@@ -15,10 +15,19 @@ def load_census(csv_path: str | Path) -> pd.DataFrame:
     ``pop_total`` and ``pp_total`` (preta + parda), and municipality / UF codes.
     """
     usecols = ["CD_SETOR", *RACE_VARS]
-    df = pd.read_csv(csv_path, sep=";", usecols=usecols, dtype={"CD_SETOR": str})
+    df = pd.read_csv(
+        csv_path,
+        sep=";",
+        usecols=usecols,
+        dtype={"CD_SETOR": str, **{v: str for v in RACE_VARS}},
+    )
 
     df[RACE_VARS] = (
-        df[RACE_VARS].replace("X", 0).apply(pd.to_numeric, errors="coerce").fillna(0).astype("int64")
+        df[RACE_VARS]
+        .replace({"X": None})
+        .apply(pd.to_numeric, errors="coerce")
+        .fillna(0)
+        .astype("int64")
     )
 
     df["pop_total"] = df[RACE_VARS].sum(axis=1).astype("int64")
