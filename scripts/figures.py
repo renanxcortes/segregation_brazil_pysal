@@ -341,6 +341,96 @@ def fig_correlation() -> None:
             print(f"  {a:24s} {b:24s} {r:+.3f}")
 
 
+MUNICIPIO_NAMES = ROOT / "outputs" / "municipio_names.csv"
+
+# The three contrasting dimensions shown as ranked bar charts: an evenness
+# measure (spatial sorting), an exposure measure (composition-driven), and a
+# spatial-proximity measure (clustering of minority tracts).
+RANK_MEASURES = ["Dissim", "Isolation", "RelativeClustering"]
+
+
+def _municipio_names() -> pd.DataFrame:
+    """COD_MUNICIPIO -> NM_MUN, built from the shapefiles and cached to CSV."""
+    if not MUNICIPIO_NAMES.exists():
+        import build_municipio_names
+        build_municipio_names.build()
+    return pd.read_csv(MUNICIPIO_NAMES, dtype={"COD_MUNICIPIO": str})
+
+
+def fig_rankings() -> None:
+    """§5.3 - which cities are most segregated, and does it depend on the
+    dimension?
+
+    Horizontal bar charts of the top-15 cities for three contrasting measures
+    (Dissim, Isolation, RelativeClustering), plus a 9x9 Kendall-tau matrix of
+    the city rankings across all nine measures (``table3_rank_correlation.tex``).
+    """
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    df = load().merge(_municipio_names(), on="COD_MUNICIPIO", how="left")
+    df["label"] = df["NM_MUN"] + " (" + df["UF"] + ")"
+
+    fig, axes = plt.subplots(1, 3, figsize=(16, 6))
+    for ax, m in zip(axes, RANK_MEASURES):
+        top = (df.nlargest(15, m)[["label", m]]
+               .set_index("label")[m][::-1])
+        top.plot.barh(ax=ax, color="#4c72b0")
+        ax.set_title(f"Top 15 cities - {MEASURE_LABELS[m]}")
+        ax.set_xlabel(MEASURE_LABELS[m])
+        ax.set_ylabel("")
+        ax.tick_params(axis="y", labelsize=8)
+    fig.suptitle(f"Most-segregated cities by dimension ({len(df)} cities, 2022)",
+                 fontsize=13)
+    fig.tight_layout(rect=(0, 0, 1, 0.96))
+    FIGDIR.mkdir(parents=True, exist_ok=True)
+    fig.savefig(FIGDIR / "fig_rankings.png", dpi=200, bbox_inches="tight")
+    plt.close(fig)
+
+    # --- Kendall-tau of the city rankings across the nine measures -------
+    ranks = df[MEASURES].rank()
+    tau = ranks.corr(method="kendall").round(2)
+
+    disp = tau.copy()
+    disp.index = [MEASURE_LABELS[m] for m in MEASURES]
+    disp.index.name = "Medida"
+    disp.columns = [MEASURE_CODES[m] for m in MEASURES]
+
+    TABLES.mkdir(parents=True, exist_ok=True)
+    latex = disp.to_latex(
+        caption="Correlação de postos de Kendall (tau) entre os "
+                "ordenamentos de cidades pelos nove índices de segregação "
+                "(nível cidade, Censo 2022). Colunas: "
+                "D=Dissimilaridade, SD=Dissimilaridade espacial, G=Gini, "
+                "H=Entropia, Iso=Isolamento, DDI=Isolamento com decaimento, "
+                "RCo=Concentração relativa, RCe=Centralização relativa, "
+                "RCl=Agrupamento relativo.",
+        label="tab:rankcorr",
+        float_format="%.2f",
+    )
+    with open(TABLES / "table3_rank_correlation.tex", "w", encoding="utf-8",
+              newline="\n") as f:
+        f.write(latex)
+
+    # --- Console summary for the Results prose --------------------------
+    for m in RANK_MEASURES:
+        names = df.nlargest(5, m)["label"].tolist()
+        print(f"top 5 {m}: {names}")
+    for a, b in [("Dissim", "Isolation"), ("Dissim", "RelativeClustering"),
+                 ("Isolation", "RelativeClustering")]:
+        sa = set(df.nlargest(5, a)["label"])
+        sb = set(df.nlargest(5, b)["label"])
+        print(f"top-5 overlap {a} vs {b}: {len(sa & sb)} -> {sorted(sa & sb)}")
+    print("\nKendall tau matrix:")
+    print(tau.to_string())
+    off = tau.to_numpy()[~np.eye(len(MEASURES), dtype=bool)]
+    print(f"\ntau range (off-diagonal): {off.min():.2f} - {off.max():.2f}")
+    print(f"Dissim-Isolation Kendall tau: "
+          f"{tau.loc['Dissim', 'Isolation']:.2f}")
+
+
 def _todo(name: str):
     def fn() -> None:
         raise SystemExit(f"{name}: not implemented yet")
@@ -353,7 +443,7 @@ DISPATCH = {
     "table1": table1,
     "fig_distributions": fig_distributions,
     "fig_correlation": fig_correlation,
-    "fig_rankings": _todo("fig_rankings"),
+    "fig_rankings": fig_rankings,
     "fig_regional": _todo("fig_regional"),
     "fig_minorityshare": _todo("fig_minorityshare"),
     "fig_maps": _todo("fig_maps"),

@@ -1,0 +1,320 @@
+COD_MUNICIPIO,NM_MUN
+1100122,Ji-Paraná
+1100205,Porto Velho
+1200401,Rio Branco
+1301902,Itacoatiara
+1302504,Manacapuru
+1302603,Manaus
+1400100,Boa Vista
+1500107,Abaetetuba
+1500602,Altamira
+1500800,Ananindeua
+1501303,Barcarena
+1501402,Belém
+1501709,Bragança
+1501808,Breves
+1502103,Cametá
+1502400,Castanhal
+1503606,Itaituba
+1504208,Marabá
+1504422,Marituba
+1505502,Paragominas
+1505536,Parauapebas
+1506807,Santarém
+1600303,Macapá
+1600600,Santana
+1702109,Araguaína
+1721000,Palmas
+2100055,Açailândia
+2101202,Bacabal
+2101400,Balsas
+2103000,Caxias
+2103307,Codó
+2105302,Imperatriz
+2107506,Paço do Lumiar
+2111201,São José de Ribamar
+2111300,São Luís
+2112209,Timon
+2207702,Parnaíba
+2211001,Teresina
+2303709,Caucaia
+2304202,Crato
+2304400,Fortaleza
+2306405,Itapipoca
+2307304,Juazeiro do Norte
+2307650,Maracanaú
+2307700,Maranguape
+2312908,Sobral
+2403251,Parnamirim
+2408003,Mossoró
+2408102,Natal
+2412005,São Gonçalo do Amarante
+2504009,Campina Grande
+2507507,João Pessoa
+2510808,Patos
+2513703,Santa Rita
+2602902,Cabo de Santo Agostinho
+2603454,Camaragibe
+2604106,Caruaru
+2606002,Garanhuns
+2606804,Igarassu
+2607901,Jaboatão dos Guararapes
+2609600,Olinda
+2610707,Paulista
+2611101,Petrolina
+2611606,Recife
+2613701,São Lourenço da Mata
+2616407,Vitória de Santo Antão
+2700300,Arapiraca
+2704302,Maceió
+2800308,Aracaju
+2802908,Itabaiana
+2803500,Lagarto
+2804805,Nossa Senhora do Socorro
+2900702,Alagoinhas
+2903201,Barreiras
+2905701,Camaçari
+2910727,Eunápolis
+2910800,Feira de Santana
+2913606,Ilhéus
+2914802,Itabuna
+2918001,Jequié
+2918407,Juazeiro
+2919207,Lauro de Freitas
+2919553,Luís Eduardo Magalhães
+2924009,Paulo Afonso
+2925303,Porto Seguro
+2927408,Salvador
+2928703,Santo Antônio de Jesus
+2930709,Simões Filho
+2931350,Teixeira de Freitas
+2933307,Vitória da Conquista
+3103504,Araguari
+3104007,Araxá
+3105608,Barbacena
+3106200,Belo Horizonte
+3106705,Betim
+3118304,Conselheiro Lafaiete
+3118601,Contagem
+3119401,Coronel Fabriciano
+3122306,Divinópolis
+3127701,Governador Valadares
+3129806,Ibirité
+3131307,Ipatinga
+3131703,Itabira
+3134202,Ituiutaba
+3136702,Juiz de Fora
+3138203,Lavras
+3143302,Montes Claros
+3143906,Muriaé
+3144805,Nova Lima
+3145208,Nova Serrana
+3147907,Passos
+3148004,Patos de Minas
+3151800,Poços de Caldas
+3152501,Pouso Alegre
+3154606,Ribeirão das Neves
+3156700,Sabará
+3157807,Santa Luzia
+3167202,Sete Lagoas
+3168606,Teófilo Otoni
+3169901,Ubá
+3170107,Uberaba
+3170206,Uberlândia
+3170701,Varginha
+3171204,Vespasiano
+3201209,Cachoeiro de Itapemirim
+3201308,Cariacica
+3201506,Colatina
+3202405,Guarapari
+3203205,Linhares
+3204906,São Mateus
+3205002,Serra
+3205200,Vila Velha
+3205309,Vitória
+3300100,Angra dos Reis
+3300209,Araruama
+3300407,Barra Mansa
+3300456,Belford Roxo
+3300704,Cabo Frio
+3301009,Campos dos Goytacazes
+3301702,Duque de Caxias
+3301900,Itaboraí
+3302007,Itaguaí
+3302205,Itaperuna
+3302403,Macaé
+3302502,Magé
+3302700,Maricá
+3302858,Mesquita
+3303203,Nilópolis
+3303302,Niterói
+3303401,Nova Friburgo
+3303500,Nova Iguaçu
+3303906,Petrópolis
+3304144,Queimados
+3304201,Resende
+3304524,Rio das Ostras
+3304557,Rio de Janeiro
+3304904,São Gonçalo
+3305109,São João de Meriti
+3305208,São Pedro da Aldeia
+3305802,Teresópolis
+3306305,Volta Redonda
+3501608,Americana
+3502804,Araçatuba
+3503208,Araraquara
+3503307,Araras
+3504008,Assis
+3504107,Atibaia
+3505500,Barretos
+3505708,Barueri
+3506003,Bauru
+3506508,Birigui
+3507506,Botucatu
+3507605,Bragança Paulista
+3509502,Campinas
+3510500,Caraguatatuba
+3510609,Carapicuíba
+3511102,Catanduva
+3513009,Cotia
+3513504,Cubatão
+3513801,Diadema
+3515004,Embu das Artes
+3515707,Ferraz de Vasconcelos
+3516200,Franca
+3516309,Francisco Morato
+3516408,Franco da Rocha
+3518404,Guaratinguetá
+3518701,Guarujá
+3518800,Guarulhos
+3519071,Hortolândia
+3520509,Indaiatuba
+3522109,Itanhaém
+3522208,Itapecerica da Serra
+3522307,Itapetininga
+3522505,Itapevi
+3523107,Itaquaquecetuba
+3523404,Itatiba
+3523909,Itu
+3524402,Jacareí
+3525003,Jandira
+3525300,Jaú
+3525904,Jundiaí
+3526902,Limeira
+3529005,Marília
+3529401,Mauá
+3530607,Mogi das Cruzes
+3530706,Mogi Guaçu
+3534401,Osasco
+3534708,Ourinhos
+3536505,Paulínia
+3538006,Pindamonhangaba
+3538709,Piracicaba
+3539806,Poá
+3541000,Praia Grande
+3541406,Presidente Prudente
+3543303,Ribeirão Pires
+3543402,Ribeirão Preto
+3543907,Rio Claro
+3545209,Salto
+3545803,Santa Bárbara d'Oeste
+3547304,Santana de Parnaíba
+3547809,Santo André
+3548500,Santos
+3548708,São Bernardo do Campo
+3548807,São Caetano do Sul
+3548906,São Carlos
+3549805,São José do Rio Preto
+3549904,São José dos Campos
+3550308,São Paulo
+3551009,São Vicente
+3551702,Sertãozinho
+3552205,Sorocaba
+3552403,Sumaré
+3552502,Suzano
+3552809,Taboão da Serra
+3554003,Tatuí
+3554102,Taubaté
+3556206,Valinhos
+3556503,Várzea Paulista
+3557006,Votorantim
+4100400,Almirante Tamandaré
+4101408,Apucarana
+4101507,Arapongas
+4101804,Araucária
+4103701,Cambé
+4104204,Campo Largo
+4104808,Cascavel
+4105805,Colombo
+4106902,Curitiba
+4107652,Fazenda Rio Grande
+4108304,Foz do Iguaçu
+4109401,Guarapuava
+4113700,Londrina
+4115200,Maringá
+4118204,Paranaguá
+4119152,Pinhais
+4119509,Piraquara
+4119905,Ponta Grossa
+4125506,São José dos Pinhais
+4126256,Sarandi
+4127700,Toledo
+4128104,Umuarama
+4202008,Balneário Camboriú
+4202404,Blumenau
+4202909,Brusque
+4203204,Camboriú
+4204202,Chapecó
+4204608,Criciúma
+4205407,Florianópolis
+4208203,Itajaí
+4208906,Jaraguá do Sul
+4209102,Joinville
+4209300,Lages
+4211900,Palhoça
+4216602,São José
+4218707,Tubarão
+4300604,Alvorada
+4301602,Bagé
+4302105,Bento Gonçalves
+4303103,Cachoeirinha
+4304606,Canoas
+4305108,Caxias do Sul
+4307005,Erechim
+4309209,Gravataí
+4313409,Novo Hamburgo
+4314100,Passo Fundo
+4314407,Pelotas
+4314902,Porto Alegre
+4315602,Rio Grande
+4316808,Santa Cruz do Sul
+4316907,Santa Maria
+4318705,São Leopoldo
+4320008,Sapucaia do Sul
+4322400,Uruguaiana
+4323002,Viamão
+5002704,Campo Grande
+5003702,Dourados
+5008305,Três Lagoas
+5103403,Cuiabá
+5107602,Rondonópolis
+5107909,Sinop
+5107925,Sorriso
+5107958,Tangará da Serra
+5108402,Várzea Grande
+5200258,Águas Lindas de Goiás
+5201108,Anápolis
+5201405,Aparecida de Goiânia
+5205109,Catalão
+5208004,Formosa
+5208707,Goiânia
+5211503,Itumbiara
+5211909,Jataí
+5212501,Luziânia
+5215231,Novo Gama
+5217609,Planaltina
+5218805,Rio Verde
+5220454,Senador Canedo
+5221403,Trindade
+5221858,Valparaíso de Goiás
+5300108,Brasília
