@@ -431,6 +431,68 @@ def fig_rankings() -> None:
           f"{tau.loc['Dissim', 'Isolation']:.2f}")
 
 
+def fig_regional() -> None:
+    """§5.4 - regional patterns: distribution of each measure by macro-region.
+
+    3x3 grid, one box plot per measure with the five macro-regions on the x
+    axis (Norte, Nordeste, Centro-Oeste, Sudeste, Sul). Also writes the
+    region x nine-measure median table (``table4_regional.tex``), used for the
+    Sousa Filho et al. (2023) comparison: do South/Southeast lead on every
+    dimension, or only on the evenness measures?
+    """
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    df = load()
+    short = {"Norte": "Norte", "Nordeste": "NE", "Centro-Oeste": "CO",
+             "Sudeste": "SE", "Sul": "Sul"}
+
+    fig, axes = plt.subplots(3, 3, figsize=(14, 12))
+    for ax, m in zip(axes.ravel(), MEASURES):
+        data = [df.loc[df["REGION"] == r, m].dropna().to_numpy()
+                for r in REGION_ORDER]
+        ax.boxplot(data, tick_labels=[short[r] for r in REGION_ORDER])
+        ax.set_title(MEASURE_LABELS[m])
+        ax.tick_params(axis="x", labelsize=8)
+    fig.suptitle(f"Each segregation measure by macro-region "
+                 f"({len(df)} cities, 2022)", fontsize=13)
+    fig.tight_layout(rect=(0, 0, 1, 0.97))
+    FIGDIR.mkdir(parents=True, exist_ok=True)
+    fig.savefig(FIGDIR / "fig_regional.png", dpi=200, bbox_inches="tight")
+    plt.close(fig)
+
+    # --- Region x nine-measure median table -----------------------------
+    med = df.groupby("REGION")[MEASURES].median().reindex(REGION_ORDER).round(3)
+
+    disp = med.copy()
+    disp.index.name = "Região"
+    disp.columns = [MEASURE_CODES[m] for m in MEASURES]
+
+    TABLES.mkdir(parents=True, exist_ok=True)
+    latex = disp.to_latex(
+        caption="Mediana de cada índice de segregação por macrorregião "
+                "(nível cidade, Censo 2022). Colunas: "
+                "D=Dissimilaridade, SD=Dissimilaridade espacial, G=Gini, "
+                "H=Entropia, Iso=Isolamento, DDI=Isolamento com decaimento, "
+                "RCo=Concentração relativa, RCe=Centralização relativa, "
+                "RCl=Agrupamento relativo.",
+        label="tab:regional",
+        float_format="%.3f",
+    )
+    with open(TABLES / "table4_regional.tex", "w", encoding="utf-8",
+              newline="\n") as f:
+        f.write(latex)
+
+    # --- Console summary for the Results prose --------------------------
+    print(med.to_string())
+    print("\nregion ordering by median (highest -> lowest):")
+    for m in MEASURES:
+        order = med[m].sort_values(ascending=False)
+        print(f"  {m:24s} " +
+              " > ".join(f"{r}({v:.3f})" for r, v in order.items()))
+
+
 def _todo(name: str):
     def fn() -> None:
         raise SystemExit(f"{name}: not implemented yet")
@@ -444,7 +506,7 @@ DISPATCH = {
     "fig_distributions": fig_distributions,
     "fig_correlation": fig_correlation,
     "fig_rankings": fig_rankings,
-    "fig_regional": _todo("fig_regional"),
+    "fig_regional": fig_regional,
     "fig_minorityshare": _todo("fig_minorityshare"),
     "fig_maps": _todo("fig_maps"),
 }
