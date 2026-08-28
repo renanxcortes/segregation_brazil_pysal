@@ -1,0 +1,199 @@
+\documentclass[12pt,a4paper]{article}
+
+%% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{natbib}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+
+\geometry{margin=2.5cm}
+\graphicspath{{../figures/}}
+
+%% Title and Author
+\title{Multidimensional Racial Residential Segregation across Brazilian Cities:\\
+A Nationwide Assessment with 2022 Census Data}
+
+\author{
+Renan Xavier Cortes\\
+Department of Statistics\\
+Federal University of Rio Grande do Sul\\
+Porto Alegre, Brazil\\
+\texttt{renan.cortes@ufrgs.br}
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+% TODO(task23)
+\end{abstract}
+
+\noindent\textbf{Keywords:} residential segregation; race; Brazil; spatial demography; 2022 Census
+
+\section{Introduction}\label{sec:intro}
+% TODO(task18)
+
+\section{Racial segregation in Brazil}\label{sec:brazil}
+% TODO(task19)
+
+\section{Data and methods}\label{sec:methods}
+% TODO(task20)
+
+\input{../outputs/tables/table1_descriptive.tex}
+
+\section{Results}\label{sec:results}
+% TODO(task21)
+
+\subsection{How segregated are Brazilian cities?}\label{sec:dist}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{fig_distributions.png}
+\caption{Distribution of segregation indices across Brazilian cities.}
+\label{fig:distributions}
+\end{figure}
+
+\input{../outputs/tables/table_summary_stats.tex}
+
+\subsection{Do the dimensions agree?}\label{sec:agree}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{fig_correlation.png}
+\caption{Correlation matrix of segregation measures across cities.}
+\label{fig:correlation}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{fig_measure_clustering.png}
+\caption{Clustering dimension of segregation measures.}
+\label{fig:clustering}
+\end{figure}
+
+\input{../outputs/tables/table2_correlation.tex}
+
+\subsection{Which cities are most segregated?}\label{sec:rank}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{fig_rankings.png}
+\caption{Rankings of cities by segregation indices.}
+\label{fig:rankings}
+\end{figure}
+
+\input{../outputs/tables/table3_rank_correlation.tex}
+
+\subsection{Regional patterns}\label{sec:region}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{fig_regional.png}
+\caption{Regional variation in segregation measures.}
+\label{fig:regional}
+\end{figure}
+
+\input{../outputs/tables/table4_regional.tex}
+
+\subsection{Minority share and segregation}\label{sec:share}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{fig_minorityshare.png}
+\caption{Relationship between minority share and segregation.}
+\label{fig:minorityshare}
+\end{figure}
+
+\subsection{The spatial texture of segregation}\label{sec:maps}
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}[b]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{fig_map_national_dissim.png}
+\caption{Dissimilarity index}
+\label{fig:map-dissim}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.48\textwidth}
+\centering
+\includegraphics[width=\textwidth]{fig_map_national_spatial.png}
+\caption{Spatial clustering}
+\label{fig:map-spatial}
+\end{subfigure}
+\caption{National-scale maps of racial residential segregation.}
+\label{fig:maps-national}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}[b]{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{seg_profile_4314902.png}
+\caption{Porto Alegre}
+\label{fig:city-pa}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{seg_profile_3550308.png}
+\caption{São Paulo}
+\label{fig:city-sp}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{seg_profile_3304557.png}
+\caption{Rio de Janeiro}
+\label{fig:city-rj}
+\end{subfigure}
+
+\begin{subfigure}[b]{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{seg_profile_3106200.png}
+\caption{Belo Horizonte}
+\label{fig:city-bh}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{seg_profile_4205407.png}
+\caption{Florianópolis}
+\label{fig:city-fl}
+\end{subfigure}
+\hfill
+\begin{subfigure}[b]{0.32\textwidth}
+\centering
+\includegraphics[width=\textwidth]{seg_profile_2611606.png}
+\caption{Recife}
+\label{fig:city-rc}
+\end{subfigure}
+
+\caption{Segregation profiles for six major Brazilian cities.}
+\label{fig:maps-cities}
+\end{figure}
+
+\section{Discussion}\label{sec:discussion}
+% TODO(task22)
+
+\section{Reproducibility}\label{sec:repro}
+% TODO(task22)
+
+\section{Conclusion}\label{sec:conclusion}
+% TODO(task22)
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}
