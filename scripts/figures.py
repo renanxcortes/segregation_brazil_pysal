@@ -559,6 +559,110 @@ def fig_minorityshare() -> None:
           f"ppp range {df['ppp'].min():.3f}-{df['ppp'].max():.3f}")
 
 
+# §5.6 - six illustrative cities for the tract-level composition maps:
+# Porto Alegre, Sao Paulo, Rio de Janeiro, Belo Horizonte, Florianopolis, Recife.
+ILLUSTRATIVE = ["4314902", "3550308", "3304557", "3106200", "4205407", "2611606"]
+
+MUNICIPIO_POLYGONS = ROOT / "outputs" / "municipio_polygons.gpkg"
+CENSUS_CSV = (ROOT / "Agregados_por_setores_cor_ou_raca_BR_csv"
+              / "Agregados_por_setores_cor_ou_raca_BR.csv")
+
+MAP_TITLES = {
+    "Dissim": "Dissimilaridade (D) - cidades > 100 mil hab., Censo 2022",
+    "SpatialDissim": "Dissimilaridade espacial - cidades > 100 mil hab., "
+                     "Censo 2022",
+}
+
+
+def fig_maps() -> None:
+    """§5.6 - national choropleths + illustrative city composition maps.
+
+    Two Brazil-wide municipality choropleths (one polygon per universe city)
+    coloured by ``Dissim`` and ``SpatialDissim`` (cmap ``YlOrRd``, cities with
+    no estimate -> light grey), plus refreshed tract-level ``ppp`` composition
+    maps (``seg_profile_<code>.png``) for six illustrative cities. City maps get
+    a ``contextily`` basemap when the network is available; offline they render
+    without one.
+    """
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    import geopandas as gpd
+
+    FIGDIR.mkdir(parents=True, exist_ok=True)
+
+    # --- National municipality choropleths -------------------------------
+    if not MUNICIPIO_POLYGONS.exists():
+        raise SystemExit(
+            f"{MUNICIPIO_POLYGONS} not found - run "
+            f"'python scripts/build_municipio_polygons.py' first")
+
+    df = load()[["COD_MUNICIPIO", "Dissim", "SpatialDissim"]]
+    poly = gpd.read_file(MUNICIPIO_POLYGONS).rename(
+        columns={"CD_MUN": "COD_MUNICIPIO"})
+    poly["COD_MUNICIPIO"] = poly["COD_MUNICIPIO"].astype(str)
+    # Left join so no city polygon is ever dropped (fixes the plan's sketch,
+    # which merged against a .set_index frame and raised KeyError).
+    poly = poly.merge(df, on="COD_MUNICIPIO", how="left")
+    n_missing = int(poly["Dissim"].isna().sum())
+    print(f"fig_maps: {len(poly)} municipality polygons, "
+          f"{n_missing} without an estimate")
+
+    for col, fname in [("Dissim", "fig_map_national_dissim.png"),
+                       ("SpatialDissim", "fig_map_national_spatial.png")]:
+        fig, ax = plt.subplots(figsize=(9, 10))
+        poly.plot(column=col, ax=ax, legend=True, cmap="YlOrRd",
+                  edgecolor="white", linewidth=0.15,
+                  legend_kwds={"shrink": 0.6, "label": col},
+                  missing_kwds={"color": "lightgrey", "label": "sem estimativa"})
+        ax.set_axis_off()
+        ax.set_title(MAP_TITLES[col], fontsize=12)
+        fig.savefig(FIGDIR / fname, dpi=200, bbox_inches="tight")
+        plt.close(fig)
+
+    # --- Illustrative tract-level composition maps ----------------------
+    import sys
+    sys.path.insert(0, str(ROOT))
+    from segbr.census import load_census
+    from segbr.cities import build_city_gdf
+
+    census = load_census(CENSUS_CSV)
+    names = _municipio_names().set_index("COD_MUNICIPIO")["NM_MUN"].to_dict()
+
+    basemap_ok = None
+    for code in ILLUSTRATIVE:
+        g = build_city_gdf(code, census, ROOT / "shapefiles_2022")
+        g["ppp"] = g["pp_total"] / g["pop_total"]
+
+        fig, ax = plt.subplots(figsize=(8, 8))
+        g.plot(column="ppp", ax=ax, cmap="YlOrRd", legend=True,
+               vmin=0, vmax=1, edgecolor="face", linewidth=0,
+               legend_kwds={"shrink": 0.7,
+                            "label": "proporcao preta+parda"})
+        try:
+            import contextily as cx
+            # Esri's grey canvas: a muted basemap that stays legible under the
+            # YlOrRd fill, and (unlike OSM / CartoDB here) not rate-limited.
+            cx.add_basemap(ax, crs=g.crs,
+                           source=cx.providers.Esri.WorldGrayCanvas)
+            basemap_ok = True
+        except Exception as exc:
+            if basemap_ok is None:
+                print(f"fig_maps: contextily basemap unavailable ({exc!r}); "
+                      f"rendering city maps without a basemap")
+            basemap_ok = False
+        ax.set_axis_off()
+        ax.set_title(f"{names.get(code, code)} - composicao preta+parda por "
+                     f"setor (Censo 2022)", fontsize=11)
+        fig.savefig(FIGDIR / f"seg_profile_{code}.png", dpi=250,
+                    bbox_inches="tight")
+        plt.close(fig)
+        print(f"  seg_profile_{code}.png  ({names.get(code, code)}, "
+              f"{len(g)} tracts, ppp {g['ppp'].min():.2f}-{g['ppp'].max():.2f})")
+
+    print(f"fig_maps: basemap {'rendered' if basemap_ok else 'skipped'}")
+
+
 def _todo(name: str):
     def fn() -> None:
         raise SystemExit(f"{name}: not implemented yet")
@@ -574,7 +678,7 @@ DISPATCH = {
     "fig_rankings": fig_rankings,
     "fig_regional": fig_regional,
     "fig_minorityshare": fig_minorityshare,
-    "fig_maps": _todo("fig_maps"),
+    "fig_maps": fig_maps,
 }
 
 
