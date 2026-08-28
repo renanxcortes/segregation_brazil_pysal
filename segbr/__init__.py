@@ -3,6 +3,7 @@
 from segbr.census import load_census, municipality_universe
 from segbr.cities import build_city_gdf
 from segbr.measures import MEASURES, compute_profile
+from segbr.pipeline import run_all
 
 __all__ = [
     "load_census",
@@ -10,4 +11,5 @@ __all__ = [
     "build_city_gdf",
     "MEASURES",
     "compute_profile",
+    "run_all",
 ]
