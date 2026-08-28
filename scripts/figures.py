@@ -493,6 +493,72 @@ def fig_regional() -> None:
               " > ".join(f"{r}({v:.3f})" for r, v in order.items()))
 
 
+def fig_minorityshare() -> None:
+    """§5.5 - does segregation scale with the size of the preta+parda group?
+
+    3x3 grid, one panel per measure: scatter of that measure (y) against the
+    city preta+parda population share ``ppp`` (x) across the analyzed cities,
+    points colored by macro-region, with a per-panel LOESS smoother
+    (``frac=0.5``). Descriptive only - no r, p-values or fitted coefficients
+    are printed. The RelativeConcentration panel clips its y-display to hide
+    ~9 cities with far-negative outliers (near -2); a visible note marks the
+    crop.
+    """
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    try:
+        from statsmodels.nonparametric.smoothers_lowess import lowess
+    except Exception:
+        lowess = None
+
+    df = load()
+
+    # Region palette: matplotlib default cycle keyed to REGION_ORDER, matching
+    # the (implicit) ordering fig_distributions relies on.
+    cycle = plt.rcParams["axes.prop_cycle"].by_key()["color"]
+    region_colors = {r: cycle[i % len(cycle)]
+                     for i, r in enumerate(REGION_ORDER)}
+
+    # Panels where the LOESS is fitted on all data but the y-axis is cropped
+    # for readability. Only RelativeConcentration needs it (long left tail).
+    ylim_crop = {"RelativeConcentration": (-1.05, 0.75)}
+
+    fig, axes = plt.subplots(3, 3, figsize=(14, 12))
+    for ax, m in zip(axes.ravel(), MEASURES):
+        for region in REGION_ORDER:
+            sub = df[df["REGION"] == region]
+            ax.scatter(sub["ppp"], sub[m], s=12, alpha=0.55,
+                       color=region_colors[region], label=region,
+                       edgecolors="none")
+        if lowess is not None:
+            fit = df[["ppp", m]].dropna().sort_values("ppp")
+            sm = lowess(fit[m], fit["ppp"], frac=0.5)
+            ax.plot(sm[:, 0], sm[:, 1], color="black", lw=1.8)
+        ax.set_title(MEASURE_LABELS[m])
+        ax.set_xlabel("share preta+parda")
+        if m in ylim_crop:
+            lo, hi = ylim_crop[m]
+            n_hidden = int((df[m] < lo).sum())
+            ax.set_ylim(lo, hi)
+            ax.text(0.02, 0.03,
+                    f"y-axis cropped at {lo:g}; {n_hidden} cities below "
+                    f"(min {df[m].min():.2f}) not shown",
+                    transform=ax.transAxes, fontsize=7, color="firebrick",
+                    va="bottom")
+    axes.ravel()[0].legend(fontsize=7)
+    fig.suptitle(f"Each segregation measure vs preta+parda population share "
+                 f"({len(df)} cities, 2022)", fontsize=13)
+    fig.tight_layout(rect=(0, 0, 1, 0.97))
+    FIGDIR.mkdir(parents=True, exist_ok=True)
+    fig.savefig(FIGDIR / "fig_minorityshare.png", dpi=200, bbox_inches="tight")
+    plt.close(fig)
+
+    print(f"fig_minorityshare: {len(df)} cities, "
+          f"ppp range {df['ppp'].min():.3f}-{df['ppp'].max():.3f}")
+
+
 def _todo(name: str):
     def fn() -> None:
         raise SystemExit(f"{name}: not implemented yet")
@@ -507,7 +573,7 @@ DISPATCH = {
     "fig_correlation": fig_correlation,
     "fig_rankings": fig_rankings,
     "fig_regional": fig_regional,
-    "fig_minorityshare": _todo("fig_minorityshare"),
+    "fig_minorityshare": fig_minorityshare,
     "fig_maps": _todo("fig_maps"),
 }
 
