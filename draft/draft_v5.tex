@@ -118,9 +118,12 @@ Computing all nine indices for all 319 cities took about five minutes of wall-cl
 The dissimilarity index carries a known upward bias when tracts are small, so raw $D$ is not perfectly comparable across cities that differ in census granularity \citep{cortese1976further, carrington1997measuring, allen2015more}. We report unadjusted indices, apply no bias correction and treat this as a limitation (Section~\ref{sec:discussion}). No hypothesis tests, null models or Monte Carlo simulation are used.
 
 \section{Results}\label{sec:results}
-% TODO(task21)
+
+We present results across six themes: the overall level of segregation, the agreement among the dimensions, the identity of the most segregated cities, regional patterns, the role of minority-group size, and the spatial texture of the phenomenon. Every figure and table reported below covers the full set of 319 cities.
 
 \subsection{How segregated are Brazilian cities?}\label{sec:dist}
+
+Table~\ref{tab:summary} and Figure~\ref{fig:distributions} summarise the nine indices across the 319 cities. The evenness measures are low to moderate. Dissimilarity has a mean of 0.210 and a median of 0.201, ranging from 0.081 to 0.458 across the 319 cities; Gini averages 0.292 (range 0.115 to 0.562), Entropy 0.053 and Spatial Dissimilarity 0.131. A typical Brazilian city therefore records a $D$ near 0.20, low to moderate by international standards and in keeping with the existing Brazilian literature. The two exposure indices are much higher: Isolation and Distance-Decay Isolation average 0.569 and 0.575, with medians close to 0.585. As Section~\ref{sec:share} shows, this level reflects the size of the \emph{preta}$+$\emph{parda} population rather than the intensity of spatial sorting. Figure~\ref{fig:distributions} shows the evenness measures shifted to the right in the Southeast and South, while Isolation and Distance-Decay Isolation concentrate at high values in the North and Northeast and at low values in the South. Among the remaining indices, Relative Concentration spans a wide interval, from $-1.999$ to 0.571, with a pronounced left tail discussed in Section~\ref{sec:discussion}; Relative Centralization stays tightly around zero ($-0.304$ to 0.163); and Relative Clustering averages 0.081.
 
 \begin{figure}[h]
 \centering
@@ -132,6 +135,8 @@ The dissimilarity index carries a known upward bias when tracts are small, so ra
 \input{../outputs/tables/table_summary_stats.tex}
 
 \subsection{Do the dimensions agree?}\label{sec:agree}
+
+Figure~\ref{fig:correlation} and Table~\ref{tab:corr} report Spearman rank correlations between the nine indices across cities. The four evenness measures form a tight block: every pairwise correlation is at least 0.92, with Dissimilarity and Gini effectively identical ($\rho \approx 1.00$), Gini and Entropy at 0.98, and Dissimilarity and Spatial Dissimilarity at 0.96. The two exposure measures are likewise near-interchangeable, correlating at $\rho = 0.99$ with each other. Across cities, however, Isolation relates to Dissimilarity at $\rho = -0.41$: a negative association, so that cities with more uneven distributions tend to record lower isolation. Isolation and Relative Clustering correlate at $\rho = -0.87$. Relative Concentration is close to orthogonal to the evenness measures ($\rho$ between 0.02 and 0.10), and Relative Centralization is only weakly linked to any other index ($|\rho| \le 0.36$). An eigendecomposition of the correlation matrix indicates that two components account for about 80\% of the variance among the nine indices and three for about 92\%; Figure~\ref{fig:clustering} groups the measures on the same basis. Dissimilarity thus summarises the evenness dimension well, but it is not a sufficient summary of racial segregation overall: the Brazilian urban system varies along at least two, and arguably three, distinct axes.
 
 \begin{figure}[h]
 \centering
@@ -151,6 +156,8 @@ The dissimilarity index carries a known upward bias when tracts are small, so ra
 
 \subsection{Which cities are most segregated?}\label{sec:rank}
 
+Figure~\ref{fig:rankings} ranks cities on each index and Table~\ref{tab:rankcorr} reports Kendall rank correlations between the rankings. The cities with the highest Dissimilarity are Nova Lima (MG, 0.458), Vit\'oria (ES), Niter\'oi (RJ), Salvador (BA) and Santana de Parna\'iba (SP) --- affluent metropolitan cores and high-income suburbs drawn from several regions. The ranking by Isolation is entirely different: Sim\~oes Filho (BA), Manacapuru (AM), Bragan\c{c}a (PA), Cod\'o (MA) and Salvador (BA) lead, almost all of them in Bahia, Par\'a, Maranh\~ao or Amazonas, where the \emph{preta}$+$\emph{parda} share is locally very high. The ranking by Relative Clustering is different again: Balne\'ario Cambori\'u (SC, 1.012), Santa Cruz do Sul (RS), Porto Alegre (RS) and Florian\'opolis (SC) top the list, almost all of them in Rio Grande do Sul and Santa Catarina. Kendall's $\tau$ between the Dissimilarity and Isolation rankings is $-0.26$, and their top-five lists overlap in at most one city (Salvador). ``The most segregated city in Brazil'' therefore has no answer that does not depend on the dimension chosen.
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig_rankings.png}
@@ -161,6 +168,8 @@ The dissimilarity index carries a known upward bias when tracts are small, so ra
 \input{../outputs/tables/table3_rank_correlation.tex}
 
 \subsection{Regional patterns}\label{sec:region}
+
+Table~\ref{tab:regional} and Figure~\ref{fig:regional} give the median of each index by macro-region. The evenness measures, Relative Clustering and Relative Concentration all rise broadly from the North and Northeast towards the Southeast and South. Median Dissimilarity moves from 0.176 in the North to 0.219 in the Southeast and 0.217 in the South; median Relative Clustering from $-0.058$ in the North to 0.206 in the South; and median Relative Concentration from $-0.649$ in the North to 0.096 in the South. This pattern confirms and extends the finding of \citet{deSouza2023nationwide_english} --- who reported the South and Southeast as most segregated on Dissimilarity with 2010 data --- to the 2022 Census and to every evenness measure as well as to clustering. The exposure dimension inverts completely. Median Isolation is 0.790 in the North and 0.741 in the Northeast against 0.329 in the South, and Distance-Decay Isolation runs from 0.832 in the North to 0.323 in the South. Relative Centralization varies negligibly across regions, with a spread of about 0.037 between the extreme regional medians. These regional medians are unweighted across cities.
 
 \begin{figure}[h]
 \centering
@@ -173,6 +182,8 @@ The dissimilarity index carries a known upward bias when tracts are small, so ra
 
 \subsection{Minority share and segregation}\label{sec:share}
 
+Figure~\ref{fig:minorityshare} plots each index against the city-wide \emph{preta}$+$\emph{parda} share, together with a LOESS smoother. Isolation and Distance-Decay Isolation increase almost linearly with the minority share, the points hugging the diagonal. This is close to an arithmetic identity: when a group is spread evenly, its isolation index approaches its population share, so a rising curve here is not evidence of stronger spatial sorting in cities where the minority is larger. The evenness measures show a weak negative relationship with the minority share. Relative Clustering declines more steeply as the share grows, and Relative Concentration shows a moderate negative pattern that steepens at the highest shares. Relative Centralization is essentially flat across the range. No test is carried out; the description refers only to the scatter and its smoother.
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig_minorityshare.png}
@@ -181,6 +192,8 @@ The dissimilarity index carries a known upward bias when tracts are small, so ra
 \end{figure}
 
 \subsection{The spatial texture of segregation}\label{sec:maps}
+
+Figure~\ref{fig:maps-national} maps the 319 cities as one dot each, coloured by Dissimilarity and by Spatial Dissimilarity, over a light state-boundary layer. The higher-scoring cities form a visible cluster in the Southeast and South, while the North, Northeast and Centre-West appear consistently paler; the two panels tell the same story. Figure~\ref{fig:maps-cities} shows tract-level maps of the \emph{preta}$+$\emph{parda} share for six large cities --- Porto Alegre, S\~ao Paulo, Rio de Janeiro, Belo Horizonte, Florian\'opolis and Recife. Each displays the classic centre--periphery gradient: pale, low-minority-share areas in the affluent urban core and darker areas towards the periphery. S\~ao Paulo and Recife are the clearest instances of this arrangement. Together the two sets of maps make concrete the numerical patterns of the preceding subsections: the regional concentration of evenness in the South and Southeast, and, within individual cities, the core--periphery structure that underlies the city-level indices.
 
 \begin{figure}[h]
 \centering
@@ -194,7 +207,7 @@ The dissimilarity index carries a known upward bias when tracts are small, so ra
 \begin{subfigure}[b]{0.48\textwidth}
 \centering
 \includegraphics[width=\textwidth]{fig_map_national_spatial.png}
-\caption{Spatial clustering}
+\caption{Spatial Dissimilarity index}
 \label{fig:map-spatial}
 \end{subfigure}
 \caption{National-scale maps of racial residential segregation.}
