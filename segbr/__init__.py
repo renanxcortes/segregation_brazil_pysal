@@ -2,5 +2,12 @@
 
 from segbr.census import load_census, municipality_universe
 from segbr.cities import build_city_gdf
+from segbr.measures import MEASURES, compute_profile
 
-__all__ = ["load_census", "municipality_universe", "build_city_gdf"]
+__all__ = [
+    "load_census",
+    "municipality_universe",
+    "build_city_gdf",
+    "MEASURES",
+    "compute_profile",
+]
