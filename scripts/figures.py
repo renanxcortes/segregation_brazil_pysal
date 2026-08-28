@@ -221,6 +221,126 @@ def fig_distributions() -> None:
     print(stats.to_string())
 
 
+# Compact column codes for the 9x9 LaTeX correlation matrix (a full-label
+# header would overflow the page). Row labels keep the readable MEASURE_LABELS.
+MEASURE_CODES = {
+    "Dissim": "D",
+    "SpatialDissim": "SD",
+    "Gini": "G",
+    "Entropy": "H",
+    "Isolation": "Iso",
+    "DistanceDecayIsolation": "DDI",
+    "RelativeConcentration": "RCo",
+    "RelativeCentralization": "RCe",
+    "RelativeClustering": "RCl",
+}
+
+
+def fig_correlation() -> None:
+    """§5.2 - do the nine dimensions agree?
+
+    Spearman rank-correlation of the nine measures across the analyzed cities.
+    Writes a printed-value heatmap (``fig_correlation.png``), the 9x9 matrix as
+    LaTeX (``table2_correlation.tex``), and a companion dendrogram +
+    scree summary (``fig_measure_clustering.png``) built from 1 - |rho|.
+    """
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    import numpy as np
+    from scipy.cluster.hierarchy import dendrogram, linkage
+    from scipy.spatial.distance import squareform
+
+    df = load()
+    corr = df[MEASURES].corr(method="spearman")
+    labels = [MEASURE_LABELS[m] for m in MEASURES]
+
+    # --- Heatmap -----------------------------------------------------------
+    fig, ax = plt.subplots(figsize=(9, 8))
+    im = ax.imshow(corr.to_numpy(), vmin=-1, vmax=1, cmap="RdBu_r")
+    ax.set_xticks(range(len(MEASURES)))
+    ax.set_xticklabels(labels, rotation=45, ha="right")
+    ax.set_yticks(range(len(MEASURES)))
+    ax.set_yticklabels(labels)
+    for i in range(len(MEASURES)):
+        for j in range(len(MEASURES)):
+            v = corr.iloc[i, j]
+            ax.text(j, i, f"{v:.2f}", ha="center", va="center", fontsize=7,
+                    color="white" if abs(v) > 0.6 else "black")
+    fig.colorbar(im, ax=ax, shrink=0.8, label="Spearman rho")
+    ax.set_title(f"Inter-measure Spearman correlation "
+                 f"({len(df)} cities, 2022)", fontsize=12)
+    fig.tight_layout()
+    FIGDIR.mkdir(parents=True, exist_ok=True)
+    fig.savefig(FIGDIR / "fig_correlation.png", dpi=200, bbox_inches="tight")
+    plt.close(fig)
+
+    # --- Hierarchical clustering + PCA scree on 1 - |rho| -----------------
+    dist = 1.0 - corr.abs().to_numpy()
+    np.fill_diagonal(dist, 0.0)
+    dist = (dist + dist.T) / 2.0
+    Z = linkage(squareform(dist, checks=False), method="average")
+
+    eigvals = np.linalg.eigvalsh(corr.to_numpy())[::-1]
+    explained = eigvals / eigvals.sum()
+
+    fig, (axd, axs) = plt.subplots(1, 2, figsize=(13, 5))
+    dendrogram(Z, labels=labels, ax=axd, leaf_rotation=90)
+    axd.set_title("Measure clustering (average linkage, 1 - |rho|)")
+    axd.set_ylabel("distance")
+    axs.bar(range(1, len(explained) + 1), explained, color="#4c72b0")
+    axs.plot(range(1, len(explained) + 1), np.cumsum(explained),
+             "-o", color="#c44e52")
+    axs.set_title("PCA on the correlation matrix")
+    axs.set_xlabel("component")
+    axs.set_ylabel("variance explained")
+    axs.set_xticks(range(1, len(explained) + 1))
+    fig.tight_layout()
+    fig.savefig(FIGDIR / "fig_measure_clustering.png", dpi=200,
+                bbox_inches="tight")
+    plt.close(fig)
+
+    # --- LaTeX table -----------------------------------------------------
+    disp = corr.round(2).copy()
+    disp.index = labels
+    disp.index.name = "Medida"
+    disp.columns = [MEASURE_CODES[m] for m in MEASURES]
+
+    TABLES.mkdir(parents=True, exist_ok=True)
+    latex = disp.to_latex(
+        caption="Correlação de Spearman entre os nove índices de segregação "
+                "(nível cidade, Censo 2022). Colunas: "
+                "D=Dissimilaridade, SD=Dissimilaridade espacial, G=Gini, "
+                "H=Entropia, Iso=Isolamento, DDI=Isolamento com decaimento, "
+                "RCo=Concentração relativa, RCe=Centralização relativa, "
+                "RCl=Agrupamento relativo.",
+        label="tab:corr",
+        float_format="%.2f",
+    )
+    with open(TABLES / "table2_correlation.tex", "w", encoding="utf-8",
+              newline="\n") as f:
+        f.write(latex)
+
+    print(corr.round(2).to_string())
+    print()
+    print("PCA variance explained:", np.round(explained, 3).tolist())
+    print("cumulative:", np.round(np.cumsum(explained), 3).tolist())
+
+    # Redundant (|rho| > 0.9) and distinct (|rho| < 0.5) pairs.
+    pairs = []
+    for i in range(len(MEASURES)):
+        for j in range(i + 1, len(MEASURES)):
+            pairs.append((MEASURES[i], MEASURES[j], corr.iloc[i, j]))
+    print("\nredundant |rho|>0.9:")
+    for a, b, r in sorted(pairs, key=lambda p: -abs(p[2])):
+        if abs(r) > 0.9:
+            print(f"  {a:24s} {b:24s} {r:+.3f}")
+    print("distinct |rho|<0.5:")
+    for a, b, r in sorted(pairs, key=lambda p: abs(p[2])):
+        if abs(r) < 0.5:
+            print(f"  {a:24s} {b:24s} {r:+.3f}")
+
+
 def _todo(name: str):
     def fn() -> None:
         raise SystemExit(f"{name}: not implemented yet")
@@ -232,7 +352,7 @@ def _todo(name: str):
 DISPATCH = {
     "table1": table1,
     "fig_distributions": fig_distributions,
-    "fig_correlation": _todo("fig_correlation"),
+    "fig_correlation": fig_correlation,
     "fig_rankings": _todo("fig_rankings"),
     "fig_regional": _todo("fig_regional"),
     "fig_minorityshare": _todo("fig_minorityshare"),
