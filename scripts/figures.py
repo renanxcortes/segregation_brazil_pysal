@@ -125,6 +125,102 @@ def table1() -> None:
     print(out.to_string())
 
 
+# Readable panel titles for the nine measures.
+MEASURE_LABELS = {
+    "Dissim": "Dissimilarity (D)",
+    "SpatialDissim": "Spatial Dissimilarity",
+    "Gini": "Gini",
+    "Entropy": "Entropy (H)",
+    "Isolation": "Isolation",
+    "DistanceDecayIsolation": "Distance-Decay Isolation",
+    "RelativeConcentration": "Relative Concentration",
+    "RelativeCentralization": "Relative Centralization",
+    "RelativeClustering": "Relative Clustering",
+}
+
+# Per-measure x-range for the KDE panels. The six evenness/exposure measures
+# live in [0, 1]; Entropy is tiny and right-skewed so we crop hard. The three
+# spatial-proximity measures can be negative; RelativeConcentration has a long
+# left tail (~9 cities near -2) that we crop for readability.
+MEASURE_XLIM = {
+    "Dissim": (0.0, 0.5),
+    "SpatialDissim": (0.0, 0.4),
+    "Gini": (0.0, 0.65),
+    "Entropy": (0.0, 0.25),
+    "Isolation": (0.0, 1.0),
+    "DistanceDecayIsolation": (0.0, 1.0),
+    "RelativeConcentration": (-1.0, 0.7),
+    "RelativeCentralization": (-0.35, 0.2),
+    "RelativeClustering": (-0.45, 1.05),
+}
+
+
+def fig_distributions() -> None:
+    """§5.1 - distribution of each of the nine measures across the 319 cities.
+
+    3x3 grid, one panel per measure, with a per-region KDE overlay. Also writes
+    the summary-stats table (nine measures x {mean, std, 25%, 50%, 75%, min,
+    max}).
+    """
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    import numpy as np
+    from scipy.stats import gaussian_kde
+
+    df = load()
+
+    fig, axes = plt.subplots(3, 3, figsize=(13, 11))
+    for ax, m in zip(axes.ravel(), MEASURES):
+        lo, hi = MEASURE_XLIM[m]
+        grid = np.linspace(lo, hi, 400)
+        for region in REGION_ORDER:
+            vals = df.loc[df["REGION"] == region, m].to_numpy()
+            if vals.size < 2 or np.ptp(vals) == 0:
+                continue
+            kde = gaussian_kde(vals)
+            ax.plot(grid, kde(grid), label=region, lw=1.4)
+        ax.set_title(MEASURE_LABELS[m])
+        ax.set_xlim(lo, hi)
+        ax.set_yticks([])
+        ax.set_ylabel("")
+    axes.ravel()[0].legend(fontsize=7)
+    fig.suptitle("Distribution of each segregation measure by macro-region "
+                 "(2022, 319 cities)", fontsize=13)
+    fig.tight_layout(rect=(0, 0, 1, 0.97))
+    FIGDIR.mkdir(parents=True, exist_ok=True)
+    fig.savefig(FIGDIR / "fig_distributions.png", dpi=200, bbox_inches="tight")
+    plt.close(fig)
+
+    # Summary-stats table: nine measures x seven statistics.
+    stats = (df[MEASURES]
+             .describe(percentiles=[0.25, 0.5, 0.75]).T
+             [["mean", "std", "25%", "50%", "75%", "min", "max"]]
+             .round(3))
+    stats.index = [MEASURE_LABELS[m] for m in stats.index]
+    stats.index.name = "Medida"
+
+    # LaTeX-safe display labels (no bare _ % & # so the file \input-s cleanly).
+    disp = stats.rename(columns={
+        "mean": "Média", "std": "Desvio-padrão",
+        "25%": "P25", "50%": "Mediana", "75%": "P75",
+        "min": "Mínimo", "max": "Máximo",
+    })
+
+    TABLES.mkdir(parents=True, exist_ok=True)
+    latex = disp.to_latex(
+        caption="Estatísticas descritivas dos nove índices de segregação "
+                "(todas as 319 cidades, Censo 2022).",
+        label="tab:summary",
+        float_format="%.3f",
+    )
+    with open(TABLES / "table_summary_stats.tex", "w", encoding="utf-8",
+              newline="\n") as f:
+        f.write(latex)
+
+    print(stats.to_string())
+
+
 def _todo(name: str):
     def fn() -> None:
         raise SystemExit(f"{name}: not implemented yet")
@@ -135,7 +231,7 @@ def _todo(name: str):
 # functions; the `all` dispatch below iterates this dict in order.
 DISPATCH = {
     "table1": table1,
-    "fig_distributions": _todo("fig_distributions"),
+    "fig_distributions": fig_distributions,
     "fig_correlation": _todo("fig_correlation"),
     "fig_rankings": _todo("fig_rankings"),
     "fig_regional": _todo("fig_regional"),
