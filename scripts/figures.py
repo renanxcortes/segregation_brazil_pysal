@@ -65,6 +65,20 @@ def load() -> pd.DataFrame:
     return df
 
 
+def _resizebox_tabular(latex: str) -> str:
+    """Wrap the ``tabular`` block emitted by ``to_latex`` in ``\\resizebox``.
+
+    Keeps ``\\caption``/``\\label`` (which ``to_latex`` places before the
+    ``tabular``) outside the box; only the ``tabular`` is scaled to
+    ``\\textwidth``. Used for the two wide 8-column numeric tables.
+    """
+    latex = latex.replace(
+        r"\begin{tabular}", "\\resizebox{\\textwidth}{!}{%\n\\begin{tabular}", 1)
+    latex = latex.replace(
+        r"\end{tabular}", "\\end{tabular}%\n}", 1)
+    return latex
+
+
 def table1() -> None:
     """Descriptive Table 1: cities analyzed per macro-region + Brasil total.
 
@@ -110,7 +124,8 @@ def table1() -> None:
         "ppp_med": "PPP (mediana)",
         "ppp_max": "PPP (máx.)",
     })
-    disp.index.name = "Região"
+    # Do not emit the pandas index-name row (would print "Região & & ... \\").
+    disp.index.name = None
 
     TABLES.mkdir(parents=True, exist_ok=True)
     latex = disp.to_latex(
@@ -118,6 +133,9 @@ def table1() -> None:
         label="tab:descriptive",
         float_format="%.3f",
     )
+    # Wide 8-column numeric table: wrap the tabular in \resizebox so it fits the
+    # text width (graphicx is loaded by the paper).
+    latex = _resizebox_tabular(latex)
     with open(TABLES / "table1_descriptive.tex", "w", encoding="utf-8",
               newline="\n") as f:
         f.write(latex)
@@ -198,7 +216,8 @@ def fig_distributions() -> None:
              [["mean", "std", "25%", "50%", "75%", "min", "max"]]
              .round(3))
     stats.index = [MEASURE_LABELS[m] for m in stats.index]
-    stats.index.name = "Medida"
+    # Do not emit the pandas index-name row.
+    stats.index.name = None
 
     # LaTeX-safe display labels (no bare _ % & # so the file \input-s cleanly).
     disp = stats.rename(columns={
@@ -214,6 +233,8 @@ def fig_distributions() -> None:
         label="tab:summary",
         float_format="%.3f",
     )
+    # Wide 8-column numeric table: wrap the tabular in \resizebox.
+    latex = _resizebox_tabular(latex)
     with open(TABLES / "table_summary_stats.tex", "w", encoding="utf-8",
               newline="\n") as f:
         f.write(latex)
@@ -303,7 +324,7 @@ def fig_correlation() -> None:
     # --- LaTeX table -----------------------------------------------------
     disp = corr.round(2).copy()
     disp.index = labels
-    disp.index.name = "Medida"
+    disp.index.name = None  # do not emit the pandas index-name row
     disp.columns = [MEASURE_CODES[m] for m in MEASURES]
 
     TABLES.mkdir(parents=True, exist_ok=True)
@@ -395,7 +416,7 @@ def fig_rankings() -> None:
 
     disp = tau.copy()
     disp.index = [MEASURE_LABELS[m] for m in MEASURES]
-    disp.index.name = "Medida"
+    disp.index.name = None  # do not emit the pandas index-name row
     disp.columns = [MEASURE_CODES[m] for m in MEASURES]
 
     TABLES.mkdir(parents=True, exist_ok=True)
@@ -466,7 +487,7 @@ def fig_regional() -> None:
     med = df.groupby("REGION")[MEASURES].median().reindex(REGION_ORDER).round(3)
 
     disp = med.copy()
-    disp.index.name = "Região"
+    disp.index.name = None  # do not emit the pandas index-name row
     disp.columns = [MEASURE_CODES[m] for m in MEASURES]
 
     TABLES.mkdir(parents=True, exist_ok=True)
