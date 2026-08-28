@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 import pandas as pd
@@ -43,13 +44,11 @@ def run_all(universe_df, census_df, shp_dir, out_path, *, measures=None,
         todo = todo.head(limit)
 
     for rec in todo.itertuples(index=False):
-        row = {
-            "COD_MUNICIPIO": rec.COD_MUNICIPIO,
-            "COD_UF": rec.COD_UF,
-            "pop_total_universe": int(rec.pop_total),
-            "fatal_error": "",
-        }
+        row = {"COD_MUNICIPIO": rec.COD_MUNICIPIO, "COD_UF": rec.COD_UF, "fatal_error": ""}
         try:
+            # Everything that could raise stays inside the try -- never-abort is
+            # load-bearing, so even the pop_total coercion is guarded.
+            row["pop_total_universe"] = int(rec.pop_total)
             gdf = build_city_gdf(rec.COD_MUNICIPIO, census_df, shp_dir)
             prof = compute_profile(gdf, measures=measures, time_budget_s=time_budget_s)
             row["timings"] = str(prof.pop("timings", {}))
@@ -59,7 +58,11 @@ def run_all(universe_df, census_df, shp_dir, out_path, *, measures=None,
 
         records.append(row)
         # Incremental persist after every city -> resumable across a kill.
-        pd.DataFrame(records).to_parquet(out_path, index=False)
+        # Write to a temp file on the same filesystem then atomically replace, so
+        # a kill mid-write cannot corrupt the existing checkpoint.
+        tmp = out_path.with_suffix(out_path.suffix + ".tmp")
+        pd.DataFrame(records).to_parquet(tmp, index=False)
+        os.replace(tmp, out_path)
 
     full = pd.DataFrame(records)
     if full.empty:
