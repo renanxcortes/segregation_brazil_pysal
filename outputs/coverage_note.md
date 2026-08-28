@@ -27,13 +27,28 @@ is that share per city.
 
 ## Tract counts
 
-- **Total tracts analyzed: 231,305** (sum of the parquet `n_tracts` column).
-- The parquet `n_tracts` is **post zero-population drop**: `build_city_gdf`
-  removes census tracts with `pop_total == 0` before any measure is computed.
-  The `n_tracts` in `city_universe_2022.csv` is **pre-drop** (raw tract count
-  from the shapefile). Summed over the universe that pre-drop total is 234,148,
-  so **2,843 zero-population tracts (about 1.2%) were dropped** nationwide.
-- Example: **Sao Paulo -- 26,889 raw tracts vs 26,679 analyzed** (210 dropped).
+Three distinct tract counts exist for these 319 cities and should not be
+conflated:
+
+| Count | Meaning | National total (319 cities) |
+|---|---|---:|
+| Raw shapefile tracts | Geometry rows in `shapefiles_2022/<UF>_setores_CD2022` for the municipality | **238,449** |
+| Census-CSV tracts (`city_universe_2022.csv` `n_tracts`) | `CD_SETOR` row count per municipality in the 2022 colour/race aggregation CSV -- i.e. `municipality_universe`'s `.agg(n_tracts=("CD_SETOR", "size"))`; **not** a shapefile count | **234,148** |
+| Analyzed tracts (parquet `n_tracts`) | Tracts actually fed to the estimators | **231,305** |
+
+**Drop mechanism.** `build_city_gdf` starts from the shapefile geometries,
+left-merges the census race counts onto them, fills unmatched tracts with 0,
+and keeps only tracts with `pop_total > 0`. A shapefile tract is therefore
+excluded when it is **either** a genuine zero-population tract **or** absent
+from the census file (no race row -> filled with 0 -> dropped). Census rows
+with no matching geometry never enter the analysis at all.
+
+- **Raw shapefile -> analyzed: 238,449 -> 231,305, a drop of 7,144 tracts
+  (about 3.0%)** nationwide. Of the raw total, 234,148 have a census row
+  (the 4,301 gap is overwhelmingly shapefile tracts missing from the census
+  file), and of those 2,843 are then dropped for zero population.
+- Example: **Sao Paulo -- 27,301 raw shapefile tracts vs 26,679 analyzed**
+  (622 dropped, 2.3%; its census-CSV count is 26,889).
 
 ## Reference check
 
@@ -86,9 +101,10 @@ spanning **-1.999 to 0.571**. Nine cities sit below -1:
 | 2933307 | Vitoria da Conquista (BA) | 659 | 0.702 | -1.1250 |
 
 **The minimum, RCO = -1.9995, is Santana, Amapa** (`COD_MUNICIPIO = 1600600`).
-It has **198 analyzed tracts** (211 raw, 13 zero-population dropped), 107,360
-colour/race respondents, and **`ppp` = 0.787** -- preta + parda make up nearly
-four-fifths of the population.
+It has **198 analyzed tracts** (211 raw shapefile tracts; 13 dropped -- 8 absent
+from the census file, 5 genuinely zero-population), 107,360 colour/race
+respondents, and **`ppp` = 0.787** -- preta + parda make up nearly four-fifths
+of the population.
 
 This is **not a near-degenerate small city**: Santana has 198 tracts, Feira de
 Santana 1,094. The common thread is that the studied group is the overwhelming
