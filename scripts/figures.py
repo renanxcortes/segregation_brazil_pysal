@@ -564,6 +564,7 @@ def fig_minorityshare() -> None:
 ILLUSTRATIVE = ["4314902", "3550308", "3304557", "3106200", "4205407", "2611606"]
 
 MUNICIPIO_POLYGONS = ROOT / "outputs" / "municipio_polygons.gpkg"
+UF_POLYGONS = ROOT / "outputs" / "uf_polygons.gpkg"
 CENSUS_CSV = (ROOT / "Agregados_por_setores_cor_ou_raca_BR_csv"
               / "Agregados_por_setores_cor_ou_raca_BR.csv")
 
@@ -601,20 +602,36 @@ def fig_maps() -> None:
     poly = gpd.read_file(MUNICIPIO_POLYGONS).rename(
         columns={"CD_MUN": "COD_MUNICIPIO"})
     poly["COD_MUNICIPIO"] = poly["COD_MUNICIPIO"].astype(str)
-    # Left join so no city polygon is ever dropped (fixes the plan's sketch,
-    # which merged against a .set_index frame and raised KeyError).
+    # Left join so no city is ever dropped (fixes the plan's sketch, which
+    # merged against a .set_index frame and raised KeyError).
     poly = poly.merge(df, on="COD_MUNICIPIO", how="left")
     n_missing = int(poly["Dissim"].isna().sum())
-    print(f"fig_maps: {len(poly)} municipality polygons, "
+    print(f"fig_maps: {len(poly)} municipalities, "
           f"{n_missing} without an estimate")
+
+    # One dot per city at an interior point of its municipality, so every city
+    # carries equal visual weight regardless of municipal area (Amazon
+    # municipalities are enormous; the analytical signal is in the dense
+    # Southeast). representative_point() avoids the geographic-CRS centroid
+    # warning and is always inside the polygon.
+    pts = poly.copy()
+    pts["geometry"] = pts.geometry.representative_point()
+    ufs = gpd.read_file(UF_POLYGONS) if UF_POLYGONS.exists() else None
 
     for col, fname in [("Dissim", "fig_map_national_dissim.png"),
                        ("SpatialDissim", "fig_map_national_spatial.png")]:
         fig, ax = plt.subplots(figsize=(9, 10))
-        poly.plot(column=col, ax=ax, legend=True, cmap="YlOrRd",
-                  edgecolor="white", linewidth=0.15,
-                  legend_kwds={"shrink": 0.6, "label": col},
-                  missing_kwds={"color": "lightgrey", "label": "sem estimativa"})
+        if ufs is not None:
+            ufs.plot(ax=ax, color="#eeeeee", edgecolor="#bcbcbc",
+                     linewidth=0.5)
+        miss = pts[pts[col].isna()]
+        if len(miss):
+            miss.plot(ax=ax, color="lightgrey", markersize=16,
+                      edgecolor="white", linewidth=0.3)
+        pts[pts[col].notna()].plot(
+            column=col, ax=ax, cmap="YlOrRd", markersize=28,
+            edgecolor="white", linewidth=0.3, legend=True,
+            legend_kwds={"shrink": 0.6, "label": MEASURE_LABELS[col]})
         ax.set_axis_off()
         ax.set_title(MAP_TITLES[col], fontsize=12)
         fig.savefig(FIGDIR / fname, dpi=200, bbox_inches="tight")
@@ -638,7 +655,7 @@ def fig_maps() -> None:
         g.plot(column="ppp", ax=ax, cmap="YlOrRd", legend=True,
                vmin=0, vmax=1, edgecolor="face", linewidth=0,
                legend_kwds={"shrink": 0.7,
-                            "label": "proporcao preta+parda"})
+                            "label": "proporção preta+parda"})
         try:
             import contextily as cx
             # Esri's grey canvas: a muted basemap that stays legible under the
@@ -652,7 +669,7 @@ def fig_maps() -> None:
                       f"rendering city maps without a basemap")
             basemap_ok = False
         ax.set_axis_off()
-        ax.set_title(f"{names.get(code, code)} - composicao preta+parda por "
+        ax.set_title(f"{names.get(code, code)} - composição preta+parda por "
                      f"setor (Censo 2022)", fontsize=11)
         fig.savefig(FIGDIR / f"seg_profile_{code}.png", dpi=250,
                     bbox_inches="tight")
