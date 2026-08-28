@@ -70,9 +70,52 @@ Segregation is also studied as a determinant of health. \citet{barber2018cardioe
 This literature is methodologically consistent but narrow. It rests overwhelmingly on the dissimilarity index, and therefore on the evenness dimension alone; exposure, clustering, concentration and centralization in the sense of \citet{massey1988dimensions} are rarely measured, and spatial dependence between tracts is rarely modelled. Segregation is typically reduced to one summary statistic computed on administratively defined units, and analysis proceeds by descriptive comparison of that statistic across cities or across time. No study has been at once nationwide, multidimensional and spatially explicit. The present paper supplies that combination for the 2022 Census, computing indices for all five dimensions across the Brazilian urban system; formal quantification of the uncertainty in those estimates is left to future work.
 
 \section{Data and methods}\label{sec:methods}
-% TODO(task20)
+
+\subsection{Data}\label{subsec:data}
+
+The analysis draws on the IBGE Censo Demogr\'afico 2022 release ``Agregados por setores censit\'arios --- cor ou ra\c{c}a'', which reports, for every census tract, the resident population in each of the five colour/race categories: \emph{branca} (V01317), \emph{preta} (V01318), \emph{amarela} (V01319), \emph{parda} (V01320) and \emph{ind\'igena} (V01321). The group under study is the combined \emph{preta} and \emph{parda} population (V01318 $+$ V01320); the reference population is the sum of all five categories. Entries coded ``X'' (suppressed) and blank cells are set to zero. The \emph{local minority share} of a tract is its \emph{preta}$+$\emph{parda} count divided by its total population.
+
+Tract geometries are the IBGE 2022 census-tract shapefiles for all 27 federative units, distributed in the native SIRGAS 2000 reference system; for the distance- and adjacency-based computations they are reprojected to Web Mercator (EPSG:3857). Race counts are joined to the tract polygons on the tract code, and tracts with zero total population are dropped.
+
+The city universe is the 319 municipalities with more than 100{,}000 inhabitants in 2022: 26 in the North, 64 in the Northeast, 25 in the Centre-West, 149 in the Southeast and 55 in the South (Table~\ref{tab:descriptive}). These municipalities contain 238{,}449 shapefile tracts, of which 231{,}305 (about 97\%) enter the analysis; the remaining 3\% are excluded because they carry no population or are absent from the census race file. Across the 319 cities the local minority share ranges from 0.13 to 0.89, with regional medians rising from 0.50 in the Southeast to 0.78 in the North.
 
 \input{../outputs/tables/table1_descriptive.tex}
+
+\subsection{Segregation measures}\label{subsec:measures}
+
+We compute nine single-group indices from the PySAL \texttt{segregation} module (version 2.5.3), chosen to span the five dimensions of residential segregation distinguished by \citet{massey1988dimensions}. \emph{Evenness} is the degree to which the minority group is distributed unequally across neighbourhoods relative to the reference population; \emph{exposure} is the potential for contact or isolation between groups within neighbourhoods; \emph{concentration} is the relative amount of physical space the group occupies; \emph{centralization} is the degree to which the group settles near the urban core; and \emph{clustering} is the extent to which the neighbourhoods it inhabits adjoin one another. Four indices measure evenness --- Dissimilarity ($D$), Spatial Dissimilarity, Gini and Entropy ($H$); two measure exposure --- Isolation and Distance-Decay Isolation; and one each measures concentration (Relative Concentration), centralization (Relative Centralization) and clustering (Relative Clustering). Table~\ref{tab:measures} summarises them.
+
+Four of the nine are aspatial: $D$, Gini, Entropy and Isolation treat tracts as unordered categories and ignore their relative location. The other five are spatially explicit, following the tradition of building tract geography into segregation measurement \citep{rey2004spatial}: Spatial Dissimilarity and Distance-Decay Isolation incorporate inter-tract distance \citep{wong1993spatial, morgan1983distance}, and the three relative indices incorporate adjacency and the spatial configuration of tracts. All indices are computed with PySAL default parameters, including a Queen contiguity weights matrix wherever a neighbourhood definition is required. We report the raw, unadjusted statistics.
+
+\begin{table}[h]
+\centering
+\caption{The nine segregation indices, by dimension of \citet{massey1988dimensions}.}
+\label{tab:measures}
+\small
+\begin{tabular}{llll}
+\toprule
+Index & Dimension & Type & Concept \\
+\midrule
+Dissimilarity ($D$) & Evenness & Aspatial & Unequal spread of the group across tracts \\
+Spatial Dissimilarity & Evenness & Spatial & Evenness adjusted for tract adjacency \\
+Gini & Evenness & Aspatial & Inequality of group shares across tracts \\
+Entropy ($H$) & Evenness & Aspatial & Departure of tract compositions from the city mix \\
+Isolation & Exposure & Aspatial & Expected own-group share of a member's tract \\
+Distance-Decay Isolation & Exposure & Spatial & Isolation weighted by inter-tract distance \\
+Relative Concentration & Concentration & Spatial & Physical space occupied by the group vs.\ the reference \\
+Relative Centralization & Centralization & Spatial & Group settlement near the urban core \\
+Relative Clustering & Clustering & Spatial & Adjacency of the tracts the group inhabits \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Computation}\label{subsec:computation}
+
+The full pipeline --- data cleaning, city assembly and the nine measures --- is packaged as an open \texttt{segbr} module with driver scripts; the code and a pinned environment specification are available in the paper's repository. It runs on PySAL \texttt{segregation} 2.5.3, \texttt{libpysal} 4.14.1, GeoPandas 1.1.2 and Python 3.13 (Anaconda).
+
+Computing all nine indices for all 319 cities took about five minutes of wall-clock time in total. The Gini and distance-decay measures scale quadratically in the number of tracts; the largest city, S\~ao Paulo, with 26{,}679 analysed tracts, took roughly 150 seconds and about 4.3~GB of memory, so no city required approximation or exclusion. All 319 cities yielded a complete nine-measure profile, with no failures and no missing values.
+
+The dissimilarity index carries a known upward bias when tracts are small, so raw $D$ is not perfectly comparable across cities that differ in census granularity \citep{cortese1976further, carrington1997measuring, allen2015more}. We report unadjusted indices, apply no bias correction and treat this as a limitation (Section~\ref{sec:discussion}). No hypothesis tests, null models or Monte Carlo simulation are used.
 
 \section{Results}\label{sec:results}
 % TODO(task21)
