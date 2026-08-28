@@ -100,9 +100,21 @@ def table1() -> None:
         out[c] = out[c].astype(int)
     out = out.round({"ppp_min": 3, "ppp_med": 3, "ppp_max": 3})
 
+    # LaTeX-safe display labels (no bare _ % & # so the file \input-s cleanly).
+    disp = out.rename(columns={
+        "cities": "Cidades",
+        "tracts_min": "Setores (mín.)",
+        "tracts_med": "Setores (mediana)",
+        "tracts_max": "Setores (máx.)",
+        "ppp_min": "PPP (mín.)",
+        "ppp_med": "PPP (mediana)",
+        "ppp_max": "PPP (máx.)",
+    })
+    disp.index.name = "Região"
+
     TABLES.mkdir(parents=True, exist_ok=True)
-    latex = out.to_latex(
-        caption="Cidades analisadas por macrorregiao (Censo 2022).",
+    latex = disp.to_latex(
+        caption="Cidades analisadas por macrorregião (Censo 2022).",
         label="tab:descriptive",
         float_format="%.3f",
     )
