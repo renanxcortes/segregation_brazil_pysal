@@ -35,3 +35,14 @@ def load_census(csv_path: str | Path) -> pd.DataFrame:
     df["COD_MUNICIPIO"] = df["CD_SETOR"].str[:7]
     df["COD_UF"] = df["CD_SETOR"].str[:2]
     return df
+
+
+def municipality_universe(df: pd.DataFrame, threshold: int = 100_000) -> pd.DataFrame:
+    """Municipalities whose total 2022 population exceeds ``threshold``."""
+    grp = (
+        df.groupby(["COD_MUNICIPIO", "COD_UF"], as_index=False)
+        .agg(pop_total=("pop_total", "sum"), n_tracts=("CD_SETOR", "size"))
+    )
+    grp = grp[grp["pop_total"] > threshold]
+    grp = grp.sort_values("pop_total", ascending=False).reset_index(drop=True)
+    return grp[["COD_MUNICIPIO", "COD_UF", "pop_total", "n_tracts"]]

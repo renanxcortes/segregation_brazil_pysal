@@ -1,7 +1,7 @@
 import tempfile
 from pathlib import Path
 
-from segbr.census import load_census
+from segbr.census import load_census, municipality_universe
 
 
 def test_load_census_cleaning_logic():
@@ -73,3 +73,23 @@ def test_load_census_municipio_codes(census_csv):
     poa = df[df["COD_MUNICIPIO"] == "4314902"]
     assert len(poa) > 2000
     assert poa["pop_total"].sum() > 1_000_000
+
+
+def test_municipality_universe(census_csv):
+    df = load_census(census_csv)
+    uni = municipality_universe(df, threshold=100_000)
+    assert list(uni.columns) == ["COD_MUNICIPIO", "COD_UF", "pop_total", "n_tracts"]
+    assert (uni["pop_total"] > 100_000).all()
+    assert uni["pop_total"].is_monotonic_decreasing
+    assert uni["COD_MUNICIPIO"].is_unique
+    # Brazil has on the order of 300-340 municipalities above 100k
+    assert 280 <= len(uni) <= 360
+    # São Paulo is the largest
+    assert uni.iloc[0]["COD_MUNICIPIO"] == "3550308"
+    # Porto Alegre is in the set
+    assert "4314902" in set(uni["COD_MUNICIPIO"])
+
+
+def test_municipality_universe_threshold_monotone(census_csv):
+    df = load_census(census_csv)
+    assert len(municipality_universe(df, 200_000)) < len(municipality_universe(df, 100_000))
