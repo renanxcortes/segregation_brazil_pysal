@@ -92,7 +92,7 @@ Four of the nine are aspatial: $D$, Gini, Entropy and Isolation treat tracts as 
 \caption{The nine segregation indices, by dimension of \citet{massey1988dimensions}.}
 \label{tab:measures}
 \small
-\begin{tabular}{llll}
+\begin{tabular}{lllp{6cm}}
 \toprule
 Index & Dimension & Type & Concept \\
 \midrule
@@ -128,7 +128,7 @@ Table~\ref{tab:summary} and Figure~\ref{fig:distributions} summarise the nine in
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig_distributions.png}
-\caption{Distribution of segregation indices across Brazilian cities.}
+\caption{Distribution of each segregation index across the 319 cities, by macro-region (kernel density estimates).}
 \label{fig:distributions}
 \end{figure}
 
@@ -141,14 +141,14 @@ Figure~\ref{fig:correlation} and Table~\ref{tab:corr} report Spearman rank corre
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig_correlation.png}
-\caption{Correlation matrix of segregation measures across cities.}
+\caption{Spearman rank correlation between the nine segregation indices across the 319 cities.}
 \label{fig:correlation}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig_measure_clustering.png}
-\caption{Clustering dimension of segregation measures.}
+\caption{Hierarchical clustering of the nine indices by rank-correlation distance.}
 \label{fig:clustering}
 \end{figure}
 
@@ -161,7 +161,7 @@ Figure~\ref{fig:rankings} ranks cities on each index and Table~\ref{tab:rankcorr
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig_rankings.png}
-\caption{Rankings of cities by segregation indices.}
+\caption{The fifteen highest-scoring cities on three contrasting indices: Dissimilarity, Isolation and Relative Clustering.}
 \label{fig:rankings}
 \end{figure}
 
@@ -174,7 +174,7 @@ Table~\ref{tab:regional} and Figure~\ref{fig:regional} give the median of each i
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig_regional.png}
-\caption{Regional variation in segregation measures.}
+\caption{Each segregation index by macro-region (box plots), for the 319 cities.}
 \label{fig:regional}
 \end{figure}
 
@@ -187,7 +187,7 @@ Figure~\ref{fig:minorityshare} plots each index against the city-wide \emph{pret
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig_minorityshare.png}
-\caption{Relationship between minority share and segregation.}
+\caption{Each segregation index against the city-wide \emph{preta}$+$\emph{parda} population share, with a LOESS smoother.}
 \label{fig:minorityshare}
 \end{figure}
 
@@ -210,7 +210,7 @@ Figure~\ref{fig:maps-national} maps the 319 cities as one dot each, coloured by 
 \caption{Spatial Dissimilarity index}
 \label{fig:map-spatial}
 \end{subfigure}
-\caption{National-scale maps of racial residential segregation.}
+\caption{Racial residential segregation across the 319 municipalities: one point per city, over state boundaries.}
 \label{fig:maps-national}
 \end{figure}
 
@@ -258,7 +258,7 @@ Figure~\ref{fig:maps-national} maps the 319 cities as one dot each, coloured by 
 \label{fig:city-rc}
 \end{subfigure}
 
-\caption{Segregation profiles for six major Brazilian cities.}
+\caption{Tract-level \emph{preta}$+$\emph{parda} population share for six large cities.}
 \label{fig:maps-cities}
 \end{figure}
 
