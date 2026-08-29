@@ -131,9 +131,12 @@ source via the `\newif\ifanon` toggle near the top of the file.
    vector PDF at ≥ 300 dpi, one file per figure.
 4. **Word-count check.** Confirm the body is ≤ 8,000 words (excl. title, the three
    abstracts, keywords, references) after the Portuguese/Spanish additions.
-5. **Trilingual front matter (Task 27).** Portuguese and Spanish title, ~200-word
-   abstract and ≤ 5 keywords. Commented stubs are in `manuscript.tex`. Keywords
-   should come from a controlled thesaurus (IBICT / UNESCO / ERIC).
+5. **Trilingual front matter — DRAFTED (Task 27).** Portuguese and Spanish title,
+   ~195-word abstract and 5 keywords are now in `manuscript.tex` (immediately
+   after the English keywords). They were produced by translation and **must be
+   proof-read by a native PT and a native ES speaker before submission**;
+   confirm the keywords against a controlled thesaurus (IBICT / UNESCO / ERIC)
+   and adjust if the journal requires exact thesaurus terms.
 6. **ORCID** for every author — obtain / confirm and enter in the submission
    system.
 7. **Author affiliation, biography, funding, acknowledgements, CRediT author
