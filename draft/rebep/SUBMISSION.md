@@ -8,7 +8,7 @@ ABEP, https://rebep.org.br
 
 **Article type:** Original Article (*Artigo Original*) — cap 8,000 words (excluding
 title, abstracts, keywords, references), up to 5 illustrations. This manuscript has
-5 figures + 5 tables; see "still to do" about the illustration count.
+8 figures + 5 tables (must be cut to 5 illustrations for REBEP — see §5).
 
 ---
 
@@ -98,7 +98,8 @@ source via the `\newif\ifanon` toggle near the top of the file.
 > publicly available from IBGE. All code used to assemble the city universe,
 > compute the nine segregation indices and generate every figure and table in this
 > article — the `segbr` Python package, the driver scripts, a pinned environment
-> specification and a manifest of the IBGE source files — is available at
+> specification, a manifest of the IBGE source files (`MANIFEST.md`) and a
+> documented run order — is available at
 > `[REPOSITORY-URL]`. The analysis reproduces end to end from the committed
 > city-level results table with a single command.
 
@@ -161,7 +162,7 @@ source via the `\newif\ifanon` toggle near the top of the file.
 
 | File | Purpose |
 |---|---|
-| `manuscript.tex` | Versioned source of truth. Compiles from `draft/rebep/` (`pdflatex → bibtex → pdflatex × 2`). `\graphicspath` points at `../../figures/`; tables `\input` from `../../outputs/tables/`. 19 pp. at one-and-a-half spacing. |
+| `manuscript.tex` | Versioned source of truth. Compiles from `draft/rebep/` (`pdflatex → bibtex → pdflatex × 2`). `\graphicspath` points at `../../figures/`; tables `\input` from `../../outputs/tables/`. 20 pages at one-and-a-half spacing. The manuscript body mirrors `../draft_v5.tex` verbatim; any edit must be made in both files. |
 | `references.bib` | Copy of `draft/references.bib` (17 entries) — kept local so the package is self-contained. Do not diverge from the original except for ABNT formatting done in Word. |
 | `SUBMISSION.md` | This file. |
 

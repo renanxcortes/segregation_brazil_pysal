@@ -22,8 +22,11 @@ is that share per city.
 - **No (city, measure) pair was time-skipped.** The run used no time budget, so
   no `*_error` / "skipped: time budget" columns exist in the output.
 - Non-fatal rate: **100%** (well above the 97% target).
-- Total wall-clock compute across all cities: ~309 s (dominated by
-  Sao Paulo's `SpatialDissim`, ~208 s).
+- Total wall-clock compute across all cities: ~309 s (dominated by Sao Paulo,
+  whose whole nine-measure profile takes ~208 s). Sao Paulo's slowest single
+  measure is Distance-Decay Isolation (~94 s), then Relative Clustering (~68 s),
+  Spatial Dissimilarity (~26 s) and Gini (~19 s); the other five measures are
+  each under a second.
 
 ## Tract counts
 

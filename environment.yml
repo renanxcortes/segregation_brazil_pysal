@@ -1,0 +1,18 @@
+name: segbr
+channels: [conda-forge]
+dependencies:
+  - python=3.13
+  - geopandas=1.1.2
+  - libpysal=4.14.1
+  - pandas=2.3.3
+  - numpy=2.3.5
+  - scipy
+  - shapely
+  - pyogrio
+  - pyarrow
+  - matplotlib
+  - contextily
+  - statsmodels
+  - pip
+  - pip:
+    - segregation==2.5.3

@@ -1,4 +1,7 @@
-﻿aext-assistant @ file:///C:/b/abs_1bfn_ondsd/croot/aext-assistant_1746560154452/work
+﻿# Machine record from `pip freeze` inside the project's Anaconda base env.
+# Many lines are conda-local `@ file:///...` build paths and are NOT pip-installable.
+# To recreate the environment use environment.yml. This file is a reference for exact versions.
+aext-assistant @ file:///C:/b/abs_1bfn_ondsd/croot/aext-assistant_1746560154452/work
 aext-assistant-server @ file:///C:/b/abs_6f6umrladb/croot/aext-assistant-server_1746552992573/work
 aext-core @ file:///C:/b/abs_a0497039ax/croot/aext-core_1746546102863/work
 aext-core-server @ file:///C:/b/abs_82tjab_7w4/croot/aext-core-server_1746542360244/work

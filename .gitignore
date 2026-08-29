@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+draft/draft_v5.aux
+draft/draft_v5.log
+draft/draft_v5.out
+draft/draft_v5.bbl
+draft/draft_v5.blg
+draft/draft_v5.pdf
+draft/tc_*.txt
+draft/rebep/manuscript.aux
+draft/rebep/manuscript.log
+draft/rebep/manuscript.out
+draft/rebep/manuscript.bbl
+draft/rebep/manuscript.blg
+draft/rebep/manuscript.pdf
+outputs/_*.log
