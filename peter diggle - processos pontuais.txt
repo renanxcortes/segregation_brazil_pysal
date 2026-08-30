@@ -1,0 +1,4 @@
+peter diggle - processos pontuais
+testes de monte carlo p homogeneidade
+
+spde - contínuo -> discreto por eq. dferenciais

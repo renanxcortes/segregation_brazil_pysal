@@ -1,0 +1,9 @@
+You're a researcher and needs to continue working on a draft of a paper draft_v4.pdf
+
+This paper tries to make a contribution to racial segregation in the brazilian context. Currently, the code that generates the graphs in the paper are benig ran in the notebooks the repo like 2_clean_many_cities.ipynb and 7_poa_vs_bh.ipynb
+
+My main inspirations for the paper are the papers inside 
+C:\Users\renan\OneDrive\Área de Trabalho\spatial_papers\papers_segregacao_brasilsouza_ampla_segregacao_brasil.pdf
+C:\Users\renan\OneDrive\Área de Trabalho\spatial_papers\sao_paulo_londres_more_segregated.pdf
+
+Besides that, give me option for this submission that might be interesting for me. After we find a suitable jornal, I'd like to eventually adapt my látex/markdown file to the jornal template.
