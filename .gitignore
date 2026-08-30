@@ -1,6 +1,11 @@
+# --- Build / scratch artefacts ---------------------------------------------
 __pycache__/
 *.pyc
 .pytest_cache/
+.ipynb_checkpoints/
+.Rhistory
+anaconda_projects/
+
 draft/draft_v5.aux
 draft/draft_v5.log
 draft/draft_v5.out
@@ -15,3 +20,42 @@ draft/rebep/manuscript.bbl
 draft/rebep/manuscript.blg
 draft/rebep/manuscript.pdf
 outputs/_*.log
+outputs/*.gpkg.tmp
+
+# --- Large source data: NOT pushable to GitHub (>100 MB per-file limit) ----
+# These are the IBGE inputs the pipeline reads. They are external by design;
+# see MANIFEST.md for where to download them. Nothing here should be committed.
+
+# 2022 Census tract shapefiles (used by the pipeline) and older per-state copies
+shapefiles_2022/
+/[A-Z][A-Z]_setores_CD2022/
+rs_setores_censitarios/
+rs_setores_censitarios.zip
+
+# 2022 Census "cor ou raça" tract aggregates (~192 MB CSV)
+Agregados_por_setores_cor_ou_raca_BR_csv/
+Agregados_por_bairros_demografia_BR.zip
+
+# 2019 Higher-Education microdata (multi-GB CSVs)
+microdados_censo_superior_2019/
+microdados_censo_superior_2019.zip
+
+# Other bulk archives / working copies
+RS_20241211/
+RS_20241211.zip
+IntechOpen-Templates/
+IntechOpen-Templates.zip
+Documentacao_Agregado_dos_Setores_2010_20231030.zip
+
+# Oversized exploratory notebooks (checkpoint-heavy, >100 MB)
+2_clean_many_cities-Renan-SINAPE*.ipynb
+
+# --- Catch-all for anything else too big for GitHub -----------------------
+# Common bulk formats that only ever hold source data here (the analysis
+# outputs live in outputs/ as .parquet / .gpkg / .csv / .tex and are tracked).
+*.CSV
+*.dbf
+*.shp
+*.shx
+*.prj
+*.cpg
