@@ -28,20 +28,20 @@ MEASURES = ["Dissim", "SpatialDissim", "Gini", "Entropy", "Isolation",
             "DistanceDecayIsolation", "RelativeConcentration",
             "RelativeCentralization", "RelativeClustering"]
 
-# Two-digit IBGE UF code -> macro-region. Covers all 27 units.
+# Two-digit IBGE UF code -> macro-region (English names, matching the paper body).
 REGION_BY_UF = {
-    "11": "Norte", "12": "Norte", "13": "Norte", "14": "Norte", "15": "Norte",
-    "16": "Norte", "17": "Norte",
-    "21": "Nordeste", "22": "Nordeste", "23": "Nordeste", "24": "Nordeste",
-    "25": "Nordeste", "26": "Nordeste", "27": "Nordeste", "28": "Nordeste",
-    "29": "Nordeste",
-    "31": "Sudeste", "32": "Sudeste", "33": "Sudeste", "35": "Sudeste",
-    "41": "Sul", "42": "Sul", "43": "Sul",
-    "50": "Centro-Oeste", "51": "Centro-Oeste", "52": "Centro-Oeste",
-    "53": "Centro-Oeste",
+    "11": "North", "12": "North", "13": "North", "14": "North", "15": "North",
+    "16": "North", "17": "North",
+    "21": "Northeast", "22": "Northeast", "23": "Northeast", "24": "Northeast",
+    "25": "Northeast", "26": "Northeast", "27": "Northeast", "28": "Northeast",
+    "29": "Northeast",
+    "31": "Southeast", "32": "Southeast", "33": "Southeast", "35": "Southeast",
+    "41": "South", "42": "South", "43": "South",
+    "50": "Centre-West", "51": "Centre-West", "52": "Centre-West",
+    "53": "Centre-West",
 }
 
-REGION_ORDER = ["Norte", "Nordeste", "Centro-Oeste", "Sudeste", "Sul"]
+REGION_ORDER = ["North", "Northeast", "Centre-West", "Southeast", "South"]
 
 
 def load() -> pd.DataFrame:
@@ -106,7 +106,7 @@ def table1() -> None:
         "ppp_min": [df["ppp"].min()],
         "ppp_med": [df["ppp"].median()],
         "ppp_max": [df["ppp"].max()],
-    }, index=["Brasil"])
+    }, index=["Brazil"])
 
     out = pd.concat([g, total])
     out["cities"] = out["cities"].astype(int)
@@ -116,20 +116,22 @@ def table1() -> None:
 
     # LaTeX-safe display labels (no bare _ % & # so the file \input-s cleanly).
     disp = out.rename(columns={
-        "cities": "Cidades",
-        "tracts_min": "Setores (mín.)",
-        "tracts_med": "Setores (mediana)",
-        "tracts_max": "Setores (máx.)",
-        "ppp_min": "PPP (mín.)",
-        "ppp_med": "PPP (mediana)",
-        "ppp_max": "PPP (máx.)",
+        "cities": "Cities",
+        "tracts_min": "Tracts (min.)",
+        "tracts_med": "Tracts (median)",
+        "tracts_max": "Tracts (max.)",
+        "ppp_min": "Minority share (min.)",
+        "ppp_med": "Minority share (median)",
+        "ppp_max": "Minority share (max.)",
     })
-    # Do not emit the pandas index-name row (would print "Região & & ... \\").
+    # Do not emit the pandas index-name row (would print "index & & ... \\").
     disp.index.name = None
 
     TABLES.mkdir(parents=True, exist_ok=True)
     latex = disp.to_latex(
-        caption="Cidades analisadas por macrorregião (Censo 2022).",
+        caption="Cities analysed by macro-region (2022 Census). "
+                "Minority share is the tract preta and parda population "
+                "as a fraction of the total.",
         label="tab:descriptive",
         float_format="%.3f",
     )
@@ -221,15 +223,15 @@ def fig_distributions() -> None:
 
     # LaTeX-safe display labels (no bare _ % & # so the file \input-s cleanly).
     disp = stats.rename(columns={
-        "mean": "Média", "std": "Desvio-padrão",
-        "25%": "P25", "50%": "Mediana", "75%": "P75",
-        "min": "Mínimo", "max": "Máximo",
+        "mean": "Mean", "std": "SD",
+        "25%": "P25", "50%": "Median", "75%": "P75",
+        "min": "Min.", "max": "Max.",
     })
 
     TABLES.mkdir(parents=True, exist_ok=True)
     latex = disp.to_latex(
-        caption="Estatísticas descritivas dos nove índices de segregação "
-                "(todas as 319 cidades, Censo 2022).",
+        caption="Descriptive statistics of the nine segregation indices "
+                "(all 319 cities, 2022 Census).",
         label="tab:summary",
         float_format="%.3f",
     )
@@ -329,12 +331,12 @@ def fig_correlation() -> None:
 
     TABLES.mkdir(parents=True, exist_ok=True)
     latex = disp.to_latex(
-        caption="Correlação de Spearman entre os nove índices de segregação "
-                "(nível cidade, Censo 2022). Colunas: "
-                "D=Dissimilaridade, SD=Dissimilaridade espacial, G=Gini, "
-                "H=Entropia, Iso=Isolamento, DDI=Isolamento com decaimento, "
-                "RCo=Concentração relativa, RCe=Centralização relativa, "
-                "RCl=Agrupamento relativo.",
+        caption="Spearman rank correlation between the nine segregation "
+                "indices (city level, 2022 Census). Columns: "
+                "D=Dissimilarity, SD=Spatial Dissimilarity, G=Gini, "
+                "H=Entropy, Iso=Isolation, DDI=Distance-Decay Isolation, "
+                "RCo=Relative Concentration, RCe=Relative Centralization, "
+                "RCl=Relative Clustering.",
         label="tab:corr",
         float_format="%.2f",
     )
@@ -421,13 +423,13 @@ def fig_rankings() -> None:
 
     TABLES.mkdir(parents=True, exist_ok=True)
     latex = disp.to_latex(
-        caption="Correlação de postos de Kendall (tau) entre os "
-                "ordenamentos de cidades pelos nove índices de segregação "
-                "(nível cidade, Censo 2022). Colunas: "
-                "D=Dissimilaridade, SD=Dissimilaridade espacial, G=Gini, "
-                "H=Entropia, Iso=Isolamento, DDI=Isolamento com decaimento, "
-                "RCo=Concentração relativa, RCe=Centralização relativa, "
-                "RCl=Agrupamento relativo.",
+        caption="Kendall rank correlation (tau) between the city rankings "
+                "on the nine segregation indices (city level, 2022 Census). "
+                "Columns: "
+                "D=Dissimilarity, SD=Spatial Dissimilarity, G=Gini, "
+                "H=Entropy, Iso=Isolation, DDI=Distance-Decay Isolation, "
+                "RCo=Relative Concentration, RCe=Relative Centralization, "
+                "RCl=Relative Clustering.",
         label="tab:rankcorr",
         float_format="%.2f",
     )
@@ -456,7 +458,7 @@ def fig_regional() -> None:
     """§5.4 - regional patterns: distribution of each measure by macro-region.
 
     3x3 grid, one box plot per measure with the five macro-regions on the x
-    axis (Norte, Nordeste, Centro-Oeste, Sudeste, Sul). Also writes the
+    axis (North, Northeast, Centre-West, Southeast, South). Also writes the
     region x nine-measure median table (``table4_regional.tex``), used for the
     Sousa Filho et al. (2023) comparison: do South/Southeast lead on every
     dimension, or only on the evenness measures?
@@ -466,8 +468,8 @@ def fig_regional() -> None:
     import matplotlib.pyplot as plt
 
     df = load()
-    short = {"Norte": "Norte", "Nordeste": "NE", "Centro-Oeste": "CO",
-             "Sudeste": "SE", "Sul": "Sul"}
+    short = {"North": "N", "Northeast": "NE", "Centre-West": "CW",
+             "Southeast": "SE", "South": "S"}
 
     fig, axes = plt.subplots(3, 3, figsize=(14, 12))
     for ax, m in zip(axes.ravel(), MEASURES):
@@ -492,12 +494,12 @@ def fig_regional() -> None:
 
     TABLES.mkdir(parents=True, exist_ok=True)
     latex = disp.to_latex(
-        caption="Mediana de cada índice de segregação por macrorregião "
-                "(nível cidade, Censo 2022). Colunas: "
-                "D=Dissimilaridade, SD=Dissimilaridade espacial, G=Gini, "
-                "H=Entropia, Iso=Isolamento, DDI=Isolamento com decaimento, "
-                "RCo=Concentração relativa, RCe=Centralização relativa, "
-                "RCl=Agrupamento relativo.",
+        caption="Median of each segregation index by macro-region "
+                "(city level, 2022 Census). Columns: "
+                "D=Dissimilarity, SD=Spatial Dissimilarity, G=Gini, "
+                "H=Entropy, Iso=Isolation, DDI=Distance-Decay Isolation, "
+                "RCo=Relative Concentration, RCe=Relative Centralization, "
+                "RCl=Relative Clustering.",
         label="tab:regional",
         float_format="%.3f",
     )
@@ -590,9 +592,9 @@ CENSUS_CSV = (ROOT / "Agregados_por_setores_cor_ou_raca_BR_csv"
               / "Agregados_por_setores_cor_ou_raca_BR.csv")
 
 MAP_TITLES = {
-    "Dissim": "Dissimilaridade (D) - cidades > 100 mil hab., Censo 2022",
-    "SpatialDissim": "Dissimilaridade espacial - cidades > 100 mil hab., "
-                     "Censo 2022",
+    "Dissim": "Dissimilarity (D) - cities above 100,000 inhabitants, 2022 Census",
+    "SpatialDissim": "Spatial Dissimilarity - cities above 100,000 "
+                     "inhabitants, 2022 Census",
 }
 
 
@@ -676,7 +678,7 @@ def fig_maps() -> None:
         g.plot(column="ppp", ax=ax, cmap="YlOrRd", legend=True,
                vmin=0, vmax=1, edgecolor="face", linewidth=0,
                legend_kwds={"shrink": 0.7,
-                            "label": "proporção preta+parda"})
+                            "label": "preta and parda share"})
         try:
             import contextily as cx
             # Esri's grey canvas: a muted basemap that stays legible under the
@@ -690,8 +692,8 @@ def fig_maps() -> None:
                       f"rendering city maps without a basemap")
             basemap_ok = False
         ax.set_axis_off()
-        ax.set_title(f"{names.get(code, code)} - composição preta+parda por "
-                     f"setor (Censo 2022)", fontsize=11)
+        ax.set_title(f"{names.get(code, code)} - preta and parda share by "
+                     f"tract (2022 Census)", fontsize=11)
         fig.savefig(FIGDIR / f"seg_profile_{code}.png", dpi=250,
                     bbox_inches="tight")
         plt.close(fig)
