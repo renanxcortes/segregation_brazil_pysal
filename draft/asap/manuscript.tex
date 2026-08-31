@@ -1,45 +1,52 @@
-\documentclass[12pt,a4paper]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Multidimensional Racial Residential Segregation across Brazilian Cities
+%% Version 6 -- formatted for Applied Spatial Analysis and Policy (Springer)
+%%
+%% Build:  pdflatex manuscript  ->  bibtex manuscript  ->  pdflatex x2
+%% Class and .bst are bundled in this folder (Springer Nature template).
+%%
+%% Anonymisation: the journal uses double-blind peer review. This file builds
+%% the ANONYMISED version by default (\anontrue). For the identified /
+%% camera-ready version, set \anonfalse below.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% Packages
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
+\documentclass[pdflatex,sn-basic]{sn-jnl}% Springer Nature "Basic" (Harvard, name--year) reference style
+
+%%%% Anonymisation toggle %%%%
+\newif\ifanon
+\anontrue   % <-- default: blinded for double-blind review.  \anonfalse => identified version.
+
+%%%% Packages %%%%
 \usepackage{graphicx}
-\usepackage{amsmath,amssymb}
+\usepackage{amsmath,amssymb,amsfonts}
 \usepackage{booktabs}
-\usepackage{natbib}
-\usepackage{geometry}
-\usepackage{hyperref}
-\usepackage{caption}
-\usepackage{subcaption}
-\usepackage{float}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{textcomp}
 
-\geometry{margin=2.5cm}
-\graphicspath{{../figures/}}
+\graphicspath{{./}{../../figures/}}
 
-%% Title and Author
-\title{Multidimensional Racial Residential Segregation across Brazilian Cities:\\
-A Nationwide Assessment with 2022 Census Data}
-
-\author{
-Renan Xavier Cortes\\
-Department of Statistics\\
-Federal University of Rio Grande do Sul\\
-Porto Alegre, Brazil\\
-\texttt{renan.cortes@ufrgs.br}
-}
-
-\date{\today}
+\raggedbottom
 
 \begin{document}
 
+\title[Multidimensional Racial Residential Segregation across Brazilian Cities]{Multidimensional Racial Residential Segregation across Brazilian Cities: A Nationwide Assessment with 2022 Census Data}
+
+\ifanon
+  \author{\fnm{}\sur{}}
+  \affil{\orgname{Author and affiliation withheld for double-blind peer review}}
+\else
+  \author*[1]{\fnm{Renan Xavier} \sur{Cortes}}\email{renan.cortes@ufrgs.br}
+  \affil*[1]{\orgdiv{Department of Statistics}, \orgname{Federal University of Rio Grande do Sul}, \orgaddress{\city{Porto Alegre}, \country{Brazil}}}
+\fi
+
+\abstract{We provide a nationwide, multidimensional description of racial residential segregation in Brazilian cities. Using 2022 Census tract data, and the combined \emph{preta} and \emph{parda} population against the total population, we study the 319 municipalities above 100{,}000 inhabitants. For each we compute nine segregation indices spanning the five dimensions of Massey and Denton --- evenness, exposure, concentration, centralization and clustering --- with the PySAL segregation module, by point estimation without inference. Evenness segregation is moderate, with a median dissimilarity index near 0.20, and concentrated in the South and Southeast, confirming and extending earlier nationwide work on 2010 data. The four evenness indices are near-redundant (pairwise rank correlations of at least 0.92), but the other dimensions are not: the exposure dimension gives the opposite regional ranking, being highest in the North and Northeast, and this is compositional, as isolation tracks the local size of the minority population. The identity of the most segregated city depends entirely on the dimension chosen, the dissimilarity and isolation rankings correlating at a Kendall's $\tau$ of about $-0.26$. Two to three independent axes of variation underlie the indices. Characterising Brazilian racial segregation through the dissimilarity index alone is insufficient: because the dimensions implicate different policy levers, a multidimensional, spatially explicit approach is needed to monitor and address how Brazilian cities are divided.}
+
+\keywords{Residential segregation, Race, Brazil, 2022 Census, Spatial demography, Urban policy}
+
+\pacs[JEL Classification]{J15, R23, R58}
+
 \maketitle
-
-\begin{abstract}
-We provide a nationwide, multidimensional description of racial residential segregation in Brazilian cities. Using 2022 Census tract data, and the combined \emph{preta} and \emph{parda} population against the total population, we study the 319 municipalities above 100{,}000 inhabitants. For each we compute nine segregation indices spanning the five dimensions of Massey and Denton --- evenness, exposure, concentration, centralization and clustering --- with the PySAL segregation module, by point estimation without inference. Evenness segregation is moderate, with a median dissimilarity index near 0.20, and concentrated in the South and Southeast, confirming and extending earlier nationwide work on 2010 data. The four evenness indices are near-redundant (pairwise rank correlations of at least 0.92), but the other dimensions are not: the exposure dimension gives the opposite regional ranking, being highest in the North and Northeast, and this is compositional, as isolation tracks the local size of the minority population. The identity of the most segregated city depends entirely on the dimension chosen, the dissimilarity and isolation rankings correlating at a Kendall's $\tau$ of about $-0.26$. Two to three independent axes of variation underlie the indices. Characterising Brazilian racial segregation through the dissimilarity index alone is insufficient; a multidimensional, spatially explicit approach is needed.
-\end{abstract}
-
-\noindent\textbf{Keywords:} Residential segregation; Race; Brazil; 2022 Census; Spatial demography
 
 \section{Introduction}\label{sec:intro}
 
@@ -53,7 +60,7 @@ One property of the dissimilarity index warrants caution in cross-city work. Whe
 
 Quantitative research on segregation in Brazil has been methodologically narrow. The large majority of studies, national and metropolitan alike, rely on the dissimilarity index and therefore on the evenness dimension alone; exposure, clustering, concentration and centralization are rarely examined, and spatially explicit measures are rarely used. Most analyses also draw on the 2010 Census or earlier. The reference nationwide study, \citet{deSouza2023nationwide_english}, covers roughly 4{,}595 municipalities but uses 2010 tract data and the dissimilarity index only, finding racial segregation most pronounced in the South and Southeast and disproportionately affecting the self-declared black population. City and metropolitan studies are richer in method and interpretation --- the uneven geographies of racial and socioeconomic segregation across Brazilian metros \citep{barros2018unevengeographies}, the comparison of S\~ao Paulo with London \citep{barros2024saopaulolondres}, coastal real-estate valorisation in Fortaleza \citep{danilofranca2022fortaleza}, segregation change in Belo Horizonte between 2010 and 2022 \citep{strauch2026bh20102022}, and Telles's foundational account of race and urban space \citep{telles2004race} --- but none combines nationwide coverage with multiple dimensions and spatially explicit measures. That combination is the gap this paper addresses.
 
-We provide a nationwide, multidimensional, point-estimation portrait of racial residential segregation in Brazil. Using 2022 Census tract data for the 319 municipalities with more than 100{,}000 inhabitants, we compute nine indices --- four of evenness, two of exposure, and one each of concentration, centralization and clustering --- spanning all five dimensions of \citet{massey1988dimensions}, through an open and fully reproducible pipeline. We address three questions. First, how segregated are Brazilian cities, and how much do the dimensions vary across the urban system? Second, do the dimensions agree with one another, so that a single index is an adequate summary of racial segregation, or do they tell different stories? Third, how does segregation vary across the Brazilian urban system, by macro-region and by the local size of the minority population? Quantifying the uncertainty of these estimates through statistical inference is deliberately outside our scope and is left to future work.
+We provide a nationwide, multidimensional, point-estimation portrait of racial residential segregation in Brazil. Using 2022 Census tract data for the 319 municipalities with more than 100{,}000 inhabitants, we compute nine indices --- four of evenness, two of exposure, and one each of concentration, centralization and clustering --- spanning all five dimensions of \citet{massey1988dimensions}, through an open and fully reproducible pipeline. We address three questions. First, how segregated are Brazilian cities, and how much do the dimensions vary across the urban system? Second, do the dimensions agree with one another, so that a single index is an adequate summary of racial segregation, or do they tell different stories? Third, how does segregation vary across the Brazilian urban system, by macro-region and by the local size of the minority population? Because the choice of measure conditions which cities are flagged as segregated, and therefore where policy attention is directed, getting the measurement right is a practical concern and not only a methodological one; we return to the policy reading in Section~\ref{sec:policy}. Quantifying the uncertainty of these estimates through statistical inference is deliberately outside our scope and is left to future work.
 
 \section{Racial segregation in Brazil}\label{sec:brazil}
 
@@ -79,7 +86,7 @@ Tract geometries are the IBGE 2022 census-tract shapefiles for all 27 federative
 
 The city universe is the 319 municipalities with more than 100{,}000 inhabitants in 2022: 26 in the North, 64 in the Northeast, 25 in the Centre-West, 149 in the Southeast and 55 in the South (Table~\ref{tab:descriptive}). These municipalities contain 238{,}449 shapefile tracts, of which 231{,}305 (about 97\%) enter the analysis; the remaining 3\% are excluded because they carry no population or are absent from the census race file. Across the 319 cities the local minority share ranges from 0.13 to 0.89, with regional medians rising from 0.28 in the South to 0.78 in the North.
 
-\input{../outputs/tables/table1_descriptive.tex}
+\input{tab1_descriptive.tex}
 
 \subsection{Segregation measures}\label{subsec:measures}
 
@@ -88,11 +95,8 @@ We compute nine single-group indices from the PySAL \texttt{segregation} module 
 Four of the nine are aspatial: $D$, Gini, Entropy and Isolation treat tracts as unordered categories and ignore their relative location. The other five are spatially explicit, following the tradition of building tract geography into segregation measurement \citep{rey2004spatial}: Spatial Dissimilarity and Distance-Decay Isolation incorporate inter-tract distance \citep{wong1993spatial, morgan1983distance}, and the three relative indices incorporate adjacency and the spatial configuration of tracts. All indices are computed with PySAL default parameters, including a Queen contiguity weights matrix wherever a neighbourhood definition is required. We report the raw, unadjusted statistics.
 
 \begin{table}[h]
-\centering
-\caption{The nine segregation indices, by dimension of \citet{massey1988dimensions}.}
-\label{tab:measures}
-\small
-\begin{tabular}{lllp{6cm}}
+\caption{The nine segregation indices, by dimension of \citet{massey1988dimensions}.}\label{tab:measures}
+\begin{tabular}{@{}lllp{5.4cm}@{}}
 \toprule
 Index & Dimension & Type & Concept \\
 \midrule
@@ -105,13 +109,13 @@ Distance-Decay Isolation & Exposure & Spatial & Isolation weighted by inter-trac
 Relative Concentration & Concentration & Spatial & Physical space occupied by the group vs.\ the reference \\
 Relative Centralization & Centralization & Spatial & Group settlement near the urban core \\
 Relative Clustering & Clustering & Spatial & Adjacency of the tracts the group inhabits \\
-\bottomrule
+\botrule
 \end{tabular}
 \end{table}
 
 \subsection{Computation}\label{subsec:computation}
 
-The full pipeline --- data cleaning, city assembly and the nine measures --- is packaged as an open \texttt{segbr} module with driver scripts; the code and a pinned environment specification are available in the paper's repository. It runs on PySAL \texttt{segregation} 2.5.3, \texttt{libpysal} 4.14.1, GeoPandas 1.1.2 and Python 3.13 (Anaconda).
+The full pipeline --- data cleaning, city assembly and the nine measures --- is packaged as an open \texttt{segbr} module with driver scripts; the code and a pinned environment specification are available in the paper's repository (Section~\ref{sec:declarations}). It runs on PySAL \texttt{segregation} 2.5.3, \texttt{libpysal} 4.14.1, GeoPandas 1.1.2 and Python 3.13 (Anaconda).
 
 Computing all nine indices for all 319 cities took about five minutes of computation in total. The distance- and adjacency-based measures --- Distance-Decay Isolation, Relative Clustering, Spatial Dissimilarity and Gini --- scale quadratically in the number of tracts; for S\~ao Paulo the first of these alone took about 95 seconds. The largest city, S\~ao Paulo, with 26{,}679 analysed tracts, took roughly 210 seconds and about 4.3~GB of memory, so no city required approximation or exclusion. All 319 cities yielded a complete nine-measure profile, with no failures and no missing values.
 
@@ -128,11 +132,10 @@ Table~\ref{tab:summary} and Figure~\ref{fig:distributions} summarise the nine in
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig_distributions.png}
-\caption{Distribution of each segregation index across the 319 cities, by macro-region (kernel density estimates).}
-\label{fig:distributions}
+\caption{Distribution of each segregation index across the 319 cities, by macro-region (kernel density estimates).}\label{fig:distributions}
 \end{figure}
 
-\input{../outputs/tables/table_summary_stats.tex}
+\input{tab2_summary.tex}
 
 \subsection{Do the dimensions agree?}\label{sec:agree}
 
@@ -141,18 +144,16 @@ Figure~\ref{fig:correlation} and Table~\ref{tab:corr} report Spearman rank corre
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig_correlation.png}
-\caption{Spearman rank correlation between the nine segregation indices across the 319 cities.}
-\label{fig:correlation}
+\caption{Spearman rank correlation between the nine segregation indices across the 319 cities.}\label{fig:correlation}
 \end{figure}
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig_measure_clustering.png}
-\caption{Hierarchical clustering of the nine indices by rank-correlation distance.}
-\label{fig:clustering}
+\caption{Hierarchical clustering of the nine indices by rank-correlation distance.}\label{fig:clustering}
 \end{figure}
 
-\input{../outputs/tables/table2_correlation.tex}
+\input{tab3_correlation.tex}
 
 \subsection{Which cities are most segregated?}\label{sec:rank}
 
@@ -161,11 +162,10 @@ Figure~\ref{fig:rankings} ranks cities on each index and Table~\ref{tab:rankcorr
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig_rankings.png}
-\caption{The fifteen highest-scoring cities on three contrasting indices: Dissimilarity, Isolation and Relative Clustering.}
-\label{fig:rankings}
+\caption{The fifteen highest-scoring cities on three contrasting indices: Dissimilarity, Isolation and Relative Clustering.}\label{fig:rankings}
 \end{figure}
 
-\input{../outputs/tables/table3_rank_correlation.tex}
+\input{tab4_rank_correlation.tex}
 
 \subsection{Regional patterns}\label{sec:region}
 
@@ -174,11 +174,10 @@ Table~\ref{tab:regional} and Figure~\ref{fig:regional} give the median of each i
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig_regional.png}
-\caption{Each segregation index by macro-region (box plots), for the 319 cities.}
-\label{fig:regional}
+\caption{Each segregation index by macro-region (box plots), for the 319 cities.}\label{fig:regional}
 \end{figure}
 
-\input{../outputs/tables/table4_regional.tex}
+\input{tab5_regional.tex}
 
 \subsection{Minority share and segregation}\label{sec:share}
 
@@ -187,79 +186,23 @@ Figure~\ref{fig:minorityshare} plots each index against the city-wide \emph{pret
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{fig_minorityshare.png}
-\caption{Each segregation index against the city-wide \emph{preta}$+$\emph{parda} population share, with a LOESS smoother.}
-\label{fig:minorityshare}
+\caption{Each segregation index against the city-wide \emph{preta}$+$\emph{parda} population share, with a LOESS smoother.}\label{fig:minorityshare}
 \end{figure}
 
 \subsection{The spatial texture of segregation}\label{sec:maps}
 
-Figure~\ref{fig:maps-national} maps the 319 cities as one dot each, coloured by Dissimilarity and by Spatial Dissimilarity, over a light state-boundary layer. The higher-scoring cities form a visible cluster in the Southeast and South, while the North, Northeast and Centre-West appear consistently paler; the two panels tell the same story. Figure~\ref{fig:maps-cities} shows tract-level maps of the \emph{preta}$+$\emph{parda} share for six large cities --- Porto Alegre, S\~ao Paulo, Rio de Janeiro, Belo Horizonte, Florian\'opolis and Recife. Each displays the classic centre--periphery gradient: pale, low-minority-share areas in the affluent urban core and darker areas towards the periphery. S\~ao Paulo and Recife are the clearest instances of this arrangement. Together the two sets of maps make concrete the numerical patterns of the preceding subsections: the regional concentration of evenness in the South and Southeast, and, within individual cities, the core--periphery structure that underlies the city-level indices.
+Figure~\ref{fig:maps-national} maps the 319 cities as one dot each, coloured by (a)~Dissimilarity and (b)~Spatial Dissimilarity, over a light state-boundary layer. The higher-scoring cities form a visible cluster in the Southeast and South, while the North, Northeast and Centre-West appear consistently paler; the two panels tell the same story. Figure~\ref{fig:maps-cities} shows tract-level maps of the \emph{preta}$+$\emph{parda} share for six large cities --- (a)~Porto Alegre, (b)~S\~ao Paulo, (c)~Rio de Janeiro, (d)~Belo Horizonte, (e)~Florian\'opolis and (f)~Recife. Each displays the classic centre--periphery gradient: pale, low-minority-share areas in the affluent urban core and darker areas towards the periphery. S\~ao Paulo and Recife are the clearest instances of this arrangement. Together the two sets of maps make concrete the numerical patterns of the preceding subsections: the regional concentration of evenness in the South and Southeast, and, within individual cities, the core--periphery structure that underlies the city-level indices.
 
 \begin{figure}[h]
 \centering
-\begin{subfigure}[b]{0.48\textwidth}
-\centering
-\includegraphics[width=\textwidth]{fig_map_national_dissim.png}
-\caption{Dissimilarity index}
-\label{fig:map-dissim}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.48\textwidth}
-\centering
-\includegraphics[width=\textwidth]{fig_map_national_spatial.png}
-\caption{Spatial Dissimilarity index}
-\label{fig:map-spatial}
-\end{subfigure}
-\caption{Racial residential segregation across the 319 municipalities: one point per city, over state boundaries.}
-\label{fig:maps-national}
+\includegraphics[width=\textwidth]{fig_maps_national_combined.png}
+\caption{Racial residential segregation across the 319 municipalities, one point per city over state boundaries: (a)~Dissimilarity index, (b)~Spatial Dissimilarity index.}\label{fig:maps-national}
 \end{figure}
 
 \begin{figure}[h]
 \centering
-\begin{subfigure}[b]{0.32\textwidth}
-\centering
-\includegraphics[width=\textwidth]{seg_profile_4314902.png}
-\caption{Porto Alegre}
-\label{fig:city-pa}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.32\textwidth}
-\centering
-\includegraphics[width=\textwidth]{seg_profile_3550308.png}
-\caption{São Paulo}
-\label{fig:city-sp}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.32\textwidth}
-\centering
-\includegraphics[width=\textwidth]{seg_profile_3304557.png}
-\caption{Rio de Janeiro}
-\label{fig:city-rj}
-\end{subfigure}
-
-\begin{subfigure}[b]{0.32\textwidth}
-\centering
-\includegraphics[width=\textwidth]{seg_profile_3106200.png}
-\caption{Belo Horizonte}
-\label{fig:city-bh}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.32\textwidth}
-\centering
-\includegraphics[width=\textwidth]{seg_profile_4205407.png}
-\caption{Florianópolis}
-\label{fig:city-fl}
-\end{subfigure}
-\hfill
-\begin{subfigure}[b]{0.32\textwidth}
-\centering
-\includegraphics[width=\textwidth]{seg_profile_2611606.png}
-\caption{Recife}
-\label{fig:city-rc}
-\end{subfigure}
-
-\caption{Tract-level \emph{preta}$+$\emph{parda} population share for six large cities.}
-\label{fig:maps-cities}
+\includegraphics[width=\textwidth]{fig_maps_cities_combined.png}
+\caption{Tract-level \emph{preta}$+$\emph{parda} population share for six large cities: (a)~Porto Alegre, (b)~S\~ao Paulo, (c)~Rio de Janeiro, (d)~Belo Horizonte, (e)~Florian\'opolis, (f)~Recife.}\label{fig:maps-cities}
 \end{figure}
 
 \section{Discussion}\label{sec:discussion}
@@ -274,15 +217,56 @@ Several limitations qualify these results. First, $D$ and its spatial analogue a
 
 Four extensions follow directly. Simulation-based inference would attach uncertainty to individual values and to comparisons between cities. A spatial-versus-compositional decomposition would separate how much of each between-city difference is locational rather than demographic \citep{rey2021comparative}. A harmonised tract base would allow genuine measurement of change between 2010 and 2022. And street-network-based measures would replace Euclidean distance with travelled distance.
 
-\section{Reproducibility}\label{sec:repro}
+\subsection{Policy implications}\label{sec:policy}
 
-The complete pipeline is public. The \texttt{segbr} Python package performs data loading, city assembly and the computation of the nine measures; driver scripts build the city universe and run the nationwide computation; and further scripts generate every figure and table. A pinned environment specification, a manifest of the IBGE source files (\texttt{MANIFEST.md}) and a documented run order accompany the code. Every figure and table in this paper regenerates from the committed city-level results table with a single command, so the analysis can be reproduced end to end or inspected at any intermediate stage. The repository is available at \url{REPOSITORY-URL}.
+The multidimensional reading has direct consequences for how residential segregation is monitored and addressed. The first concerns monitoring. An indicator system that tracks only the dissimilarity index --- as most Brazilian and international segregation dashboards do --- captures the evenness dimension well but is blind to exposure, concentration and centralization, which move differently across the urban system and, for exposure, in the opposite direction. A fuller dashboard covering all five dimensions is inexpensive to build and maintain given an open computational pipeline of the kind used here, and it would give city and federal agencies a less partial picture of where the population is divided.
+
+The second concerns diagnosis. The mechanism behind high segregation is region-specific, and so is the appropriate response. In the majority-minority cities of the North and Northeast, high isolation is compositional rather than the product of spatial sorting: \emph{preta}$+$\emph{parda} residents are a large share of the population almost everywhere in the city. The relevant lever there is the equalisation of infrastructure, sanitation, transport and public services across neighbourhoods, not residential ``mixing'', which the demographic structure makes neither feasible nor meaningful. In the consolidated metropolitan cores of the Southeast and South, where evenness and clustering are highest and a fragmented, gated urbanism is well documented, the levers are land-use and housing instruments --- inclusionary zoning, the siting of social housing away from the peripheral belt, security-of-tenure programmes in central areas, and the regulation of closed condominiums --- that act on where households are able to live. A programme calibrated to a single index risks targeting the wrong mechanism in a large part of the country.
 
 \section{Conclusion}\label{sec:conclusion}
 
-Racial residential segregation in Brazil is moderate on the evenness dimension, with a median dissimilarity index of about 0.20, and on that dimension it is concentrated in the cities of the South and Southeast --- a picture that the 2022 Census confirms and broadens relative to earlier nationwide work. Evenness, however, is only one of the five dimensions, and the others do not track it. The exposure dimension is highest exactly where evenness is lowest, driven by demographic composition rather than by spatial sorting; clustering singles out the cities of the South; and concentration and centralization vary almost independently of the rest. Characterising Brazilian racial segregation through the dissimilarity index alone is therefore insufficient. A multidimensional, spatially explicit, and --- in future work --- inferential approach is needed to describe how Brazilian cities are actually divided.
+Racial residential segregation in Brazil is moderate on the evenness dimension, with a median dissimilarity index of about 0.20, and on that dimension it is concentrated in the cities of the South and Southeast --- a picture that the 2022 Census confirms and broadens relative to earlier nationwide work. Evenness, however, is only one of the five dimensions, and the others do not track it. The exposure dimension is highest exactly where evenness is lowest, driven by demographic composition rather than by spatial sorting; clustering singles out the cities of the South; and concentration and centralization vary almost independently of the rest. Characterising Brazilian racial segregation through the dissimilarity index alone is therefore insufficient, and because the dimensions point to different policy levers the choice of measure has practical stakes. A multidimensional, spatially explicit, and --- in future work --- inferential approach is needed to describe how Brazilian cities are actually divided.
 
-\bibliographystyle{plainnat}
+\backmatter
+
+\bmhead{Acknowledgements}
+\ifanon
+Omitted for double-blind review.
+\else
+Not applicable.
+\fi
+
+\section*{Statements and Declarations}\label{sec:declarations}
+
+\bmhead{Funding}
+No funding was received for conducting this study.
+
+\bmhead{Competing interests}
+The author has no competing interests to declare that are relevant to the content of this article.
+
+\bmhead{Ethics approval}
+Not applicable. The study uses only publicly available data aggregated by census tract, with no individual-level records and no human participants.
+
+\bmhead{Consent to participate / Consent for publication}
+Not applicable.
+
+\bmhead{Data availability}
+The data are public. The IBGE Censo Demogr\'afico 2022 aggregates by census tract (``Agregados por setores censit\'arios --- cor ou ra\c{c}a'') and the 2022 census-tract shapefiles are distributed by the Instituto Brasileiro de Geografia e Estat\'istica (IBGE) at \url{https://www.ibge.gov.br}. A manifest of the exact source files used (\texttt{MANIFEST.md}) is included with the code.
+
+\bmhead{Code availability}
+\ifanon
+All code used to assemble the city universe, compute the nine segregation indices and generate every figure and table in this article --- the \texttt{segbr} Python package, the driver scripts, a pinned environment specification and a documented run order --- is provided to reviewers as an anonymised archive with this submission and will be released in a public repository on acceptance. The analysis reproduces end to end from the committed city-level results table with a single command.
+\else
+All code used to assemble the city universe, compute the nine segregation indices and generate every figure and table in this article --- the \texttt{segbr} Python package, the driver scripts, a pinned environment specification and a documented run order --- is available at \url{https://github.com/REPOSITORY-URL}. The analysis reproduces end to end from the committed city-level results table with a single command.
+\fi
+
+\bmhead{Author contributions}
+\ifanon
+The manuscript is the work of a single author.
+\else
+R.X.C. is the sole author and is responsible for conceptualisation, methodology, software, formal analysis, writing and visualisation.
+\fi
+
 \bibliography{references}
 
 \end{document}
