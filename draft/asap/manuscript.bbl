@@ -1,0 +1,91 @@
+\begin{thebibliography}{17}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{\url{https://doi.org/#1}}
+\providecommand{\eprint}[2][]{\url{#2}}
+ \bibcommenthead
+
+\bibitem[{Allen et~al(2015)Allen, Burgess, Davidson, and
+  Windmeijer}]{allen2015more}
+Allen R, Burgess S, Davidson R, et~al (2015) More reliable inference for the
+  dissimilarity index of segregation. The Econometrics Journal 18(1):40--66
+
+\bibitem[{Barber et~al(2018)Barber, Diez~Roux, Cardoso, Santos, Toste, James,
+  Barreto, Schmidt, Giatti, and Chor}]{barber2018cardioelsa}
+Barber S, Diez~Roux AV, Cardoso L, et~al (2018) At the intersection of place,
+  race, and health in {B}razil: residential segregation and cardio-metabolic
+  risk factors in the {B}razilian {L}ongitudinal {S}tudy of {A}dult {H}ealth
+  ({ELSA-B}rasil). Social Science \& Medicine 199:67--76.
+  \doi{10.1016/j.socscimed.2017.05.047}
+
+\bibitem[{Barros and Feitosa(2024)}]{barros2024saopaulolondres}
+Barros J, Feitosa FdF (2024) A segrega{\c{c}}{\~a}o {\'e}tnico-racial nas
+  regi{\~o}es metropolitanas de {S}{\~a}o {P}aulo e {L}ondres: reflex{\~o}es
+  sobre um estudo comparativo. Revista Brasileira de Estudos de
+  Popula{\c{c}}{\~a}o 41:1--28. \doi{10.20947/S0102-3098a0262}
+
+\bibitem[{Barros and Feitosa(2018)}]{barros2018unevengeographies}
+Barros J, Feitosa FF (2018) Uneven geographies: exploring the sensitivity of
+  spatial indices of residential segregation. Environment and Planning B: Urban
+  Analytics and City Science 45(6):1073--1089. \doi{10.1177/2399808318760572}
+
+\bibitem[{Carrington and Troske(1997)}]{carrington1997measuring}
+Carrington WJ, Troske KR (1997) On measuring segregation in samples with small
+  units. Journal of Business \& Economic Statistics 15(4):402--409
+
+\bibitem[{Cortese et~al(1976)Cortese, Falk, and Cohen}]{cortese1976further}
+Cortese CF, Falk RF, Cohen JK (1976) Further considerations on the
+  methodological analysis of segregation indices. American Sociological Review
+  pp 630--637
+
+\bibitem[{Duncan and Duncan(1955)}]{duncan1955methodological}
+Duncan OD, Duncan B (1955) A methodological analysis of segregation indexes.
+  American Sociological Review 20(2):210--217
+
+\bibitem[{Fran{\c{c}}a(2022)}]{danilofranca2022fortaleza}
+Fran{\c{c}}a D (2022) Segrega{\c{c}}{\~a}o residencial por ra{\c{c}}a e classe
+  em {F}ortaleza, {S}alvador e {S}{\~a}o {P}aulo. Caderno CRH 35:e022045.
+  \doi{10.9771/ccrh.v35i0.42018}
+
+\bibitem[{Gon{\c{c}}alves and Mercedes~Strauch(2026)}]{strauch2026bh20102022}
+Gon{\c{c}}alves APV, Mercedes~Strauch JC (2026) Segrega{\c{c}}{\~a}o racial em
+  {B}elo {H}orizonte: o que mudou em mais de uma d{\'e}cada? Cadernos
+  Metr{\'o}pole 28(65)
+
+\bibitem[{Massey and Denton(1988)}]{massey1988dimensions}
+Massey DS, Denton NA (1988) The dimensions of residential segregation. Social
+  Forces 67(2):281--315
+
+\bibitem[{Morgan(1983)}]{morgan1983distance}
+Morgan BS (1983) A distance-decay based interaction index to measure
+  residential segregation. Area pp 211--217
+
+\bibitem[{Reardon and Firebaugh(2002)}]{reardon2002measures}
+Reardon SF, Firebaugh G (2002) Measures of multigroup segregation. Sociological
+  Methodology 32(1):33--67
+
+\bibitem[{Rey et~al(2021)Rey, Cortes, and Knaap}]{rey2021comparative}
+Rey S, Cortes R, Knaap E (2021) Comparative spatial segregation analytics.
+  Spatial Demography 9:1--26. \doi{10.1007/s40980-021-00075-w}
+
+\bibitem[{Rey(2004)}]{rey2004spatial}
+Rey SJ (2004) Spatial analysis of regional income inequality. Spatially
+  Integrated Social Science 1:280--299
+
+\bibitem[{Sousa~Filho et~al(2023)Sousa~Filho, Pedeira, Santos, Guimar{\~a}es,
+  Ferreira, Alves, Nascimento, Paiva, Andrade, G{\'o}es, Barreto, and
+  Aquino}]{deSouza2023nationwide_english}
+Sousa~Filho JFd, Pedeira SC, Santos GFd, et~al (2023) Racial and economic
+  segregation in {B}razil: a nationwide analysis of socioeconomic and
+  socio-spatial inequalities. Brazilian Journal of Population Studies 40:1--24.
+  \doi{10.20947/S0102-3098a0247}
+
+\bibitem[{Telles(2004)}]{telles2004race}
+Telles EE (2004) Race in Another America: The Significance of Skin Color in
+  {B}razil. Princeton University Press, Princeton, NJ
+
+\bibitem[{Wong(1993)}]{wong1993spatial}
+Wong DW (1993) Spatial indices of segregation. Urban Studies 30(3):559--572
+
+\end{thebibliography}

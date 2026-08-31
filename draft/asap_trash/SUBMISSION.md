@@ -38,7 +38,7 @@ when it moved submission systems.
 | Section headings | Numbered, decimal, up to three levels (1 / 1.1 / 1.1.1). | Already so. |
 | Figures | Numbered, cited in order, captions below. Preferred formats **EPS / PDF (vector)** or **TIFF**; raster line-art 1200 dpi, halftone 300 dpi, combination 600 dpi. RGB or greyscale. **Subfigures discouraged — one file per figure.** | 8 figures. The two multi-panel figures were pre-composited to single PNGs (`fig_maps_national_combined.png`, `fig_maps_cities_combined.png`) by `scripts`-adjacent tooling. **All 8 are currently PNG — re-export to vector PDF/EPS at the required dpi before the revision stage** (see §5). |
 | Tables | Editable (not images), numbered, captions above, no vertical rules. | 6 tables. `tab1_descriptive.tex` … `tab5_regional.tex` in this folder are `sn-jnl`-adapted copies of `../../outputs/tables/*` (the `\resizebox` wrapper in the originals is incompatible with the `sn-jnl` `table` environment); the "nine indices" table is inline in `manuscript.tex`. booktabs, caption above, no vertical rules. OK. |
-| Statements & Declarations | Section after the conclusion: Funding, Competing interests, Ethics approval, Consent, Data availability, Code availability, Author contributions. For double-blind, the identifying ones also go in the system. | Present as "Statements and Declarations"; anon-aware content. |
+| Statements & Declarations | Section after the conclusion: Funding, Competing interests, Ethics approval, Consent, Data availability, Code availability. **The author-contribution statement must NOT appear in the manuscript or any file** (double-anonymous) — it is entered in the submission system and published by the journal alongside the article. | Present as "Statements and Declarations"; the author-contribution statement has been removed from the manuscript and lives in `author_contributions.md` for pasting into the system. |
 | Data & code availability | Required statement. | Provided (see §4). |
 | ORCID | Required for the corresponding author; entered in the system. | Author to supply. |
 | Cover letter | Standard. | Points in §3. |
@@ -53,7 +53,8 @@ when it moved submission systems.
 | 2 | `manuscript.tex` + `sn-jnl.cls` + `sn-basic.bst` + `references.bib` + `manuscript.bbl` | Source bundle, usually requested at revision. `\graphicspath` points at `./` and `../../figures/`; tables `\input` from `../../outputs/tables/`. |
 | 3–10 | `figure_1` … `figure_8` | One file per figure, **vector PDF or EPS** (or TIFF at required dpi). Order: (1) `fig_distributions`, (2) `fig_correlation`, (3) `fig_measure_clustering`, (4) `fig_rankings`, (5) `fig_regional`, (6) `fig_minorityshare`, (7) `fig_maps_national_combined`, (8) `fig_maps_cities_combined`. Current sources are PNG in `../../figures/` — re-export (see §5). |
 | 11 | Tables | Tables 1–5 (`table1_descriptive`, `table_summary_stats`, `table2_correlation`, `table3_rank_correlation`, `table4_regional`) — rendered from `../../outputs/tables/`. |
-| 12 | `cover_letter.pdf` | See §3. |
+| 12 | `cover_letter.pdf` | Anonymised (no author identifiers, no suggested-reviewers section). Source: `cover_letter.md`. |
+| 12a | `author_contributions.md` | Not uploaded — the statement is pasted into the submission system's "Author contributions" field. |
 | 13 | Anonymised code archive | Zip of the `segbr` package + driver scripts + `environment.yml`/`requirements-lock.txt` + `MANIFEST.md` + run order, with author identifiers removed, OR an anonymous repository view link. Referenced by the Code availability statement in the anon build. |
 
 ---
@@ -131,9 +132,11 @@ together with this paragraph before the camera-ready stage.
 4. **Repository URL + public repo** — set `REPOSITORY-URL` in the `\anonfalse`
    build and in §4; prepare the anonymised code archive for the review stage.
 5. **ORCID** — obtain/confirm; enter in the submission system.
-6. **Author info, funding, competing interests, author contributions** — enter in
-   the submission system (double-blind); the manuscript's Declarations section
-   carries only the non-identifying content in the anon build.
+6. **Author info, funding, competing interests** — enter in the submission system
+   (double-anonymous). **Author contributions:** paste the statement from
+   `author_contributions.md` into the system's "Author contributions" field; it is
+   not in the manuscript (removed per policy) and the journal publishes it with the
+   article. Rewrite it with real initials/roles if authorship changes.
 7. **Word count** — confirm the body is within any limit the journal states
    (none published as of this writing).
 8. **Reference list spot-check** — compile and compare 3–4 entries (a journal
@@ -156,6 +159,8 @@ together with this paragraph before the camera-ready stage.
 | `references.bib` | Derived from `draft/references.bib` (17 entries) — brace-protected titles, de-duplicated DOI fields. |
 | `tab1_descriptive.tex` … `tab5_regional.tex` | `sn-jnl`-adapted copies of `../../outputs/tables/*` (no `\resizebox`). |
 | `fig_maps_national_combined.png`, `fig_maps_cities_combined.png` | Single-file composites of the two multi-panel figures (Springer discourages subfigures). Other 6 figures are pulled from `../../figures/`. |
+| `cover_letter.md` / `cover_letter.pdf` | Anonymised cover letter. |
+| `author_contributions.md` | Author-contribution statement for the submission system (not uploaded, not in the manuscript). |
 | `SUBMISSION.md` | This file. |
 
 Build artifacts (`.aux`, `.log`, `.bbl`, `.blg`, `.out`, `.pdf`) are not committed.
