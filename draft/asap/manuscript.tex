@@ -115,7 +115,7 @@ Relative Clustering & Clustering & Spatial & Adjacency of the tracts the group i
 
 \subsection{Computation}\label{subsec:computation}
 
-The full pipeline --- data cleaning, city assembly and the nine measures --- is packaged as an open \texttt{segbr} module with driver scripts; the code and a pinned environment specification are available in the paper's repository (Section~\ref{sec:declarations}). It runs on PySAL \texttt{segregation} 2.5.3, \texttt{libpysal} 4.14.1, GeoPandas 1.1.2 and Python 3.13 (Anaconda).
+The full pipeline --- data cleaning, city assembly and the nine measures --- is packaged as an open \texttt{segbr} module with driver scripts; the code and a pinned environment specification are provided as an anonymised archive with this submission. It runs on PySAL \texttt{segregation} 2.5.3, \texttt{libpysal} 4.14.1, GeoPandas 1.1.2 and Python 3.13 (Anaconda).
 
 Computing all nine indices for all 319 cities took about five minutes of computation in total. The distance- and adjacency-based measures --- Distance-Decay Isolation, Relative Clustering, Spatial Dissimilarity and Gini --- scale quadratically in the number of tracts; for S\~ao Paulo the first of these alone took about 95 seconds. The largest city, S\~ao Paulo, with 26{,}679 analysed tracts, took roughly 210 seconds and about 4.3~GB of memory, so no city required approximation or exclusion. All 319 cities yielded a complete nine-measure profile, with no failures and no missing values.
 
@@ -228,41 +228,6 @@ The second concerns diagnosis. The mechanism behind high segregation is region-s
 Racial residential segregation in Brazil is moderate on the evenness dimension, with a median dissimilarity index of about 0.20, and on that dimension it is concentrated in the cities of the South and Southeast --- a picture that the 2022 Census confirms and broadens relative to earlier nationwide work. Evenness, however, is only one of the five dimensions, and the others do not track it. The exposure dimension is highest exactly where evenness is lowest, driven by demographic composition rather than by spatial sorting; clustering singles out the cities of the South; and concentration and centralization vary almost independently of the rest. Characterising Brazilian racial segregation through the dissimilarity index alone is therefore insufficient, and because the dimensions point to different policy levers the choice of measure has practical stakes. A multidimensional, spatially explicit, and --- in future work --- inferential approach is needed to describe how Brazilian cities are actually divided.
 
 \backmatter
-
-\bmhead{Acknowledgements}
-\ifanon
-Omitted for double-blind review.
-\else
-Not applicable.
-\fi
-
-\section*{Statements and Declarations}\label{sec:declarations}
-
-\bmhead{Funding}
-No funding was received for conducting this study.
-
-\bmhead{Competing interests}
-The author has no competing interests to declare that are relevant to the content of this article.
-
-\bmhead{Ethics approval}
-Not applicable. The study uses only publicly available data aggregated by census tract, with no individual-level records and no human participants.
-
-\bmhead{Consent to participate / Consent for publication}
-Not applicable.
-
-\bmhead{Data availability}
-The data are public. The IBGE Censo Demogr\'afico 2022 aggregates by census tract (``Agregados por setores censit\'arios --- cor ou ra\c{c}a'') and the 2022 census-tract shapefiles are distributed by the Instituto Brasileiro de Geografia e Estat\'istica (IBGE) at \url{https://www.ibge.gov.br}. A manifest of the exact source files used (\texttt{MANIFEST.md}) is included with the code.
-
-\bmhead{Code availability}
-\ifanon
-All code used to assemble the city universe, compute the nine segregation indices and generate every figure and table in this article --- the \texttt{segbr} Python package, the driver scripts, a pinned environment specification and a documented run order --- is provided to reviewers as an anonymised archive with this submission and will be released in a public repository on acceptance. The analysis reproduces end to end from the committed city-level results table with a single command.
-\else
-All code used to assemble the city universe, compute the nine segregation indices and generate every figure and table in this article --- the \texttt{segbr} Python package, the driver scripts, a pinned environment specification and a documented run order --- is available at \url{https://github.com/REPOSITORY-URL}. The analysis reproduces end to end from the committed city-level results table with a single command.
-\fi
-
-% Author contributions: per the journal's double-anonymous policy this statement
-% is entered in the submission system, not the manuscript. See
-% author_contributions.md.
 
 \bibliography{references}
 
