@@ -18,6 +18,11 @@ draft/rebep/manuscript.log
 draft/rebep/manuscript.out
 draft/rebep/manuscript.bbl
 draft/rebep/manuscript.blg
+draft/rebep/manuscript.docx
+draft/rebep/_reference.docx
+draft/rebep/_manuscript_flat.tex
+draft/rebep/figures_submission/
+draft/rebep/tables_submission/
 draft/rebep/manuscript.pdf
 outputs/_*.log
 outputs/*.gpkg.tmp
