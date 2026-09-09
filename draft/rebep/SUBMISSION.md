@@ -173,18 +173,20 @@ source via the `\newif\ifanon` toggle near the top of the file.
    (not hardcoded) and writes one `.xlsx` per table to
    `draft/rebep/tables_submission/Table1.xlsx` … `Table6.xlsx`, caption in
    row 1. Run with the same Anaconda Python as above.
-9. **Termo de Originalidade / Formulário complementar — DRAFTED, not filed.**
-   Both are Google Docs templates REBEP hosts at fixed URLs (see below);
-   I cannot open/fill a Google Doc directly. `originality_statement_draft.md`
-   and `complementary_info_draft.md` in this folder have ready-to-paste text
-   for every section. Funding and acknowledgements are still blank pending
-   confirmation. The IntechOpen book-chapter question (§3 practical note in
-   the parent journal-options review) is resolved: confirmed with the
-   author (2026-09-08) that the chapter draft (`draft/draft_v4.tex`) was
-   abandoned and never submitted or published, so no conflict with the
-   originality declaration.
-   - Termo de Originalidade: https://docs.google.com/document/d/14E-Y8_d9oX__uXGDaNeUQR6eqyCEo1wS/edit
-   - Formulário complementar: https://docs.google.com/document/d/14Ae33zWhpB3kKFnBYR67zPvlbcb0TNXc/edit
+9. **Termo de Originalidade / Formulário complementar — DONE.** REBEP hosts
+   official Google Docs templates at the URLs below, which I cannot
+   open/fill directly; instead, `forms_submission/Termo_de_Originalidade.pdf`
+   and `forms_submission/Formulario_Informacoes_Complementares.pdf` are
+   self-contained PDFs (built with pandoc/pdflatex from the `.md` sources in
+   the same folder) with all sections complete — funding and acknowledgements
+   confirmed with the author as "none" (2026-09-08), and the IntechOpen
+   book-chapter question resolved (the chapter draft, `draft/draft_v4.tex`,
+   was abandoned and never submitted or published, so no conflict with the
+   originality declaration). These two PDFs are what get uploaded as "Outro"
+   in Step 2; the Google Doc templates are REBEP's own reference version,
+   not required if the generated PDFs are accepted.
+   - Termo de Originalidade (REBEP template): https://docs.google.com/document/d/14E-Y8_d9oX__uXGDaNeUQR6eqyCEo1wS/edit
+   - Formulário complementar (REBEP template): https://docs.google.com/document/d/14Ae33zWhpB3kKFnBYR67zPvlbcb0TNXc/edit
 
 ## 6. Still to do (author to resolve — cannot be automated from here)
 
@@ -196,14 +198,9 @@ source via the `\newif\ifanon` toggle near the top of the file.
 2. **ORCID, affiliation, biography** for every author — entered directly in
    the REBEP submission system, not in the manuscript file; needs personal
    data only the author has.
-3. **Funding and acknowledgements** — blank in `complementary_info_draft.md`;
-   fill in before pasting into the REBEP form.
-4. **Ethics** — public aggregate census data, no human subjects; state "not
-   applicable" where the system asks (already drafted that way in
-   `complementary_info_draft.md`), unless the editor requests otherwise.
-5. **Section numbering** — not specified by REBEP; the current numbered
+3. **Section numbering** — not specified by REBEP; the current numbered
    scheme is fine but confirm against a recent REBEP article's layout.
-6. **After acceptance:** replace the "withheld during peer review" wording
+4. **After acceptance:** replace the "withheld during peer review" wording
    in §Reproducibility (manuscript) and §6 (complementary form) with the
    real repository URL, and make the repo public at that point.
 
@@ -219,11 +216,15 @@ source via the `\newif\ifanon` toggle near the top of the file.
 | `references.bib` | Copy of `draft/references.bib` (17 entries) — kept local so the package is self-contained. |
 | `export_submission_figures.py` | Writes the 5 illustrations as separate 300dpi vector PDFs to `figures_submission/` (gitignored). Needs the Anaconda geopandas/pysal Python (`C:/Users/renan/anaconda3/python.exe`). |
 | `export_submission_tables.py` | Writes the 6 tables as separate editable `.xlsx` files to `tables_submission/` (gitignored). Same Python as above. |
-| `originality_statement_draft.md` | Ready-to-paste text for REBEP's *Termo de Originalidade* Google Doc template. |
-| `complementary_info_draft.md` | Ready-to-paste text for REBEP's *Formulário com informações complementares* (CRediT, acknowledgements, funding, conflicts, ethics, open science). Funding/acknowledgements blank pending confirmation. |
+| `originality_statement_draft.md` | Source text for the *Termo de Originalidade* — all sections final. Converted to PDF in `forms_submission/`. |
+| `complementary_info_draft.md` | Source text for the *Formulário com informações complementares* (CRediT, acknowledgements, funding, conflicts, ethics, open science) — all sections final. Converted to PDF in `forms_submission/`. |
+| `forms_submission/Termo_de_Originalidade.md` + `.pdf` | Clean, submission-ready version (no meta-commentary) of the originality statement, with the author's name/date filled in — this is not part of the anonymised manuscript, so identification here is expected. `.pdf` (gitignored) built via `pandoc ... --pdf-engine=pdflatex`. **Upload the `.pdf` as "Outro" in Step 2.** |
+| `forms_submission/Formulario_Informacoes_Complementares.md` + `.pdf` | Same, for the complementary-information form. **Upload the `.pdf` as "Outro" in Step 2.** |
 | `SUBMISSION.md` | This file. |
 
 Build artifacts (`.aux`, `.log`, `.bbl`, `.blg`, `.pdf`, `.out`, `.docx`,
-`_reference.docx`, `figures_submission/`, `tables_submission/`) are not
-committed; regenerate with `pdflatex`/`bibtex`, `python build_docx.py`,
-`export_submission_figures.py` or `export_submission_tables.py`.
+`_reference.docx`, `figures_submission/`, `tables_submission/`,
+`forms_submission/*.pdf`) are not committed; regenerate with
+`pdflatex`/`bibtex`, `python build_docx.py`, `export_submission_figures.py`,
+`export_submission_tables.py`, or `pandoc <file>.md -o <file>.pdf
+--pdf-engine=pdflatex -V geometry:margin=2.5cm -V fontsize=12pt`.

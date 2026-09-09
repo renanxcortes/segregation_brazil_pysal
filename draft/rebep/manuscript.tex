@@ -222,7 +222,7 @@ Relative Clustering & Clustering & Spatial & Adjacency of the tracts the group i
 
 \subsection{Computation}\label{subsec:computation}
 
-The full pipeline (data cleaning, city assembly and the nine measures) is packaged as an open \texttt{segbr} module with driver scripts; the code and a pinned environment specification are available in the paper's repository. It runs on PySAL \texttt{segregation} 2.5.3, \texttt{libpysal} 4.14.1, GeoPandas 1.1.2 and Python 3.13 (Anaconda).
+The full pipeline (data cleaning, city assembly and the nine measures) is packaged as an open \texttt{segbr} module with driver scripts; the code and a pinned environment specification are available in the paper's repository. It runs on PySAL \texttt{segregation} 2.5.3, \texttt{libpysal} 4.14.1, GeoPandas 1.1.2 and Python 3.13 (Anaconda). Parts of this code were written with the assistance of a large language model (Anthropic Claude, used through the Claude Code command-line tool); every computation was executed and checked by the author, and all results regenerate deterministically from the public IBGE inputs.
 
 Computing all nine indices for all 319 cities took about five minutes of computation in total. The distance- and adjacency-based measures (Distance-Decay Isolation, Relative Clustering, Spatial Dissimilarity and Gini) scale quadratically in the number of tracts; for S\~ao Paulo the first of these alone took about 95 seconds. The largest city, S\~ao Paulo, with 26{,}679 analysed tracts, took roughly 210 seconds and about 4.3~GB of memory, so no city required approximation or exclusion. All 319 cities yielded a complete nine-measure profile, with no failures and no missing values.
 
@@ -342,6 +342,10 @@ The complete pipeline is reproducible. The \texttt{segbr} Python package perform
 \section{Conclusion}\label{sec:conclusion}
 
 Racial residential segregation in Brazil is moderate on the evenness dimension, with a median dissimilarity index of about 0.20, and on that dimension it is concentrated in the cities of the South and Southeast, a picture that the 2022 Census confirms and broadens relative to earlier nationwide work. Evenness, however, is only one of the five dimensions, and the others do not track it. The exposure dimension is highest exactly where evenness is lowest, driven by demographic composition rather than by spatial sorting; clustering singles out the cities of the South; and concentration and centralization vary almost independently of the rest. Characterising Brazilian racial segregation through the dissimilarity index alone is therefore insufficient. A multidimensional, spatially explicit, and, in future work, inferential approach is needed to describe how Brazilian cities are actually divided.
+
+\section*{Use of artificial intelligence tools}
+
+The author used an artificial intelligence tool, Anthropic Claude, accessed through the Claude Code command-line interface, at three stages of this work: (i) assistance in writing and refining the analysis code, namely the \texttt{segbr} package and the scripts that compute the segregation indices and produce the figures and tables; (ii) language editing of the manuscript, including spelling correction, grammar review and readability improvement; and (iii) producing the initial Portuguese and Spanish translations of the title, abstract and keywords, which were subsequently revised. The tool was not used to generate research data, results or scientific interpretations. All code, outputs and text were reviewed and verified by the author, who takes full responsibility for the content of the article.
 
 %% Funding, author contributions (CRediT), acknowledgements and conflict-of-interest
 %% declarations are NOT placed in the manuscript body for REBEP: they go in the

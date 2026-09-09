@@ -1,19 +1,19 @@
-# Formulário com informações complementares — texto para colar no template da REBEP
+---
+title: "Formulário com Informações Complementares da Submissão"
+---
 
-Template oficial (Google Docs, baixar e preencher lá):
-https://docs.google.com/document/d/14Ae33zWhpB3kKFnBYR67zPvlbcb0TNXc/edit
+**Manuscrito:** Multidimensional Racial Residential Segregation across
+Brazilian Cities: A Nationwide Assessment with 2022 Census Data
 
-Não consigo abrir/editar esse Google Doc diretamente (é um link autenticado do
-Google), então aqui vai o texto pronto para colar em cada uma das 6 seções.
-Duas seções (Financiamento, Agradecimentos) têm lacuna — só você sabe a
-resposta.
+**Periódico:** Revista Brasileira de Estudos de População (REBEP)
+
+**Autor:** Renan Xavier Cortes
 
 ---
 
 ## 1. CRediT (contribuição dos autores)
 
 Autor único — todas as categorias CRediT se aplicam a Renan Xavier Cortes:
-
 Conceptualization; Data curation; Formal analysis; Investigation;
 Methodology; Software; Validation; Visualization; Writing – original draft;
 Writing – review & editing.
