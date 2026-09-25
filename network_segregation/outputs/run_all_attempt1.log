@@ -1,0 +1,1040 @@
+Warning 3: Cannot find gdalvrt.xsd (GDAL_DATA is not defined)
+ok   1721000 Palmas
+Warning 3: Cannot find header.dxf (GDAL_DATA is not defined)
+C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\pyogrio\core.py:38: RuntimeWarning: Could not detect GDAL data files. Set GDAL_DATA environment variable to the correct path.
+  _init_gdal_data()
+ok   3552502 Suzano
+ok   3554102 Taubaté
+ok   3505708 Barueri
+FAIL 3205309 Vitória
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 494, in _make_request
+    raise new_e
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 470, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 1125, in _validate_conn
+    conn.connect()
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 827, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 248, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b13675970>, 'Connection to overpass-api.de timed out. (connect timeout=180)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b13675970>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 110, in run_all
+    res = run_city(rec.COD_MUNICIPIO, rec.NM_MUN, race, data_dir, **kw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 41, in run_city
+    G = prepare_graph(downloader(poly_wgs84, graph_path), gdf.crs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\network.py", line 25, in download_walk_graph
+    G = ox.graph_from_polygon(polygon_wgs84, network_type="walk", simplify=True, retain_all=False, truncate_by_edge=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 496, in graph_from_polygon
+    G_buff = _create_graph(response_jsons, bidirectional)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 625, in _create_graph
+    for response_json in response_jsons:
+                         ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 402, in _download_overpass_network
+    yield _overpass_request(OrderedDict(data=query_str))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 469, in _overpass_request
+    response = requests.post(
+               ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 134, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 717, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b13675970>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+FAIL 3154606 Ribeirão das Neves
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 494, in _make_request
+    raise new_e
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 470, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 1125, in _validate_conn
+    conn.connect()
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 827, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 248, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b13601700>, 'Connection to overpass-api.de timed out. (connect timeout=180)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b13601700>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 110, in run_all
+    res = run_city(rec.COD_MUNICIPIO, rec.NM_MUN, race, data_dir, **kw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 41, in run_city
+    G = prepare_graph(downloader(poly_wgs84, graph_path), gdf.crs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\network.py", line 25, in download_walk_graph
+    G = ox.graph_from_polygon(polygon_wgs84, network_type="walk", simplify=True, retain_all=False, truncate_by_edge=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 496, in graph_from_polygon
+    G_buff = _create_graph(response_jsons, bidirectional)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 625, in _create_graph
+    for response_json in response_jsons:
+                         ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 402, in _download_overpass_network
+    yield _overpass_request(OrderedDict(data=query_str))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 469, in _overpass_request
+    response = requests.post(
+               ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 134, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 717, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b13601700>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+FAIL 4314407 Pelotas
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 494, in _make_request
+    raise new_e
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 470, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 1125, in _validate_conn
+    conn.connect()
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 827, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 248, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b13676c60>, 'Connection to overpass-api.de timed out. (connect timeout=180)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b13676c60>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 110, in run_all
+    res = run_city(rec.COD_MUNICIPIO, rec.NM_MUN, race, data_dir, **kw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 41, in run_city
+    G = prepare_graph(downloader(poly_wgs84, graph_path), gdf.crs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\network.py", line 25, in download_walk_graph
+    G = ox.graph_from_polygon(polygon_wgs84, network_type="walk", simplify=True, retain_all=False, truncate_by_edge=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 496, in graph_from_polygon
+    G_buff = _create_graph(response_jsons, bidirectional)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 625, in _create_graph
+    for response_json in response_jsons:
+                         ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 402, in _download_overpass_network
+    yield _overpass_request(OrderedDict(data=query_str))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 469, in _overpass_request
+    response = requests.post(
+               ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 134, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 717, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b13676c60>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+FAIL 4125506 São José dos Pinhais
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 494, in _make_request
+    raise new_e
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 470, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 1125, in _validate_conn
+    conn.connect()
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 827, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 248, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b0e0c05c0>, 'Connection to overpass-api.de timed out. (connect timeout=180)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b0e0c05c0>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 110, in run_all
+    res = run_city(rec.COD_MUNICIPIO, rec.NM_MUN, race, data_dir, **kw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 41, in run_city
+    G = prepare_graph(downloader(poly_wgs84, graph_path), gdf.crs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\network.py", line 25, in download_walk_graph
+    G = ox.graph_from_polygon(polygon_wgs84, network_type="walk", simplify=True, retain_all=False, truncate_by_edge=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 496, in graph_from_polygon
+    G_buff = _create_graph(response_jsons, bidirectional)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 625, in _create_graph
+    for response_json in response_jsons:
+                         ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 402, in _download_overpass_network
+    yield _overpass_request(OrderedDict(data=query_str))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 469, in _overpass_request
+    response = requests.post(
+               ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 134, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 717, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b0e0c05c0>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+FAIL 3551009 São Vicente
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 494, in _make_request
+    raise new_e
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 470, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 1125, in _validate_conn
+    conn.connect()
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 827, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 248, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b0e046510>, 'Connection to overpass-api.de timed out. (connect timeout=180)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b0e046510>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 110, in run_all
+    res = run_city(rec.COD_MUNICIPIO, rec.NM_MUN, race, data_dir, **kw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 41, in run_city
+    G = prepare_graph(downloader(poly_wgs84, graph_path), gdf.crs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\network.py", line 25, in download_walk_graph
+    G = ox.graph_from_polygon(polygon_wgs84, network_type="walk", simplify=True, retain_all=False, truncate_by_edge=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 496, in graph_from_polygon
+    G_buff = _create_graph(response_jsons, bidirectional)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 625, in _create_graph
+    for response_json in response_jsons:
+                         ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 402, in _download_overpass_network
+    yield _overpass_request(OrderedDict(data=query_str))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 469, in _overpass_request
+    response = requests.post(
+               ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 134, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 717, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b0e046510>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+FAIL 1506807 Santarém
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 494, in _make_request
+    raise new_e
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 470, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 1125, in _validate_conn
+    conn.connect()
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 827, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 248, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b13679700>, 'Connection to overpass-api.de timed out. (connect timeout=180)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b13679700>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 110, in run_all
+    res = run_city(rec.COD_MUNICIPIO, rec.NM_MUN, race, data_dir, **kw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 41, in run_city
+    G = prepare_graph(downloader(poly_wgs84, graph_path), gdf.crs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\network.py", line 25, in download_walk_graph
+    G = ox.graph_from_polygon(polygon_wgs84, network_type="walk", simplify=True, retain_all=False, truncate_by_edge=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 496, in graph_from_polygon
+    G_buff = _create_graph(response_jsons, bidirectional)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 625, in _create_graph
+    for response_json in response_jsons:
+                         ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 402, in _download_overpass_network
+    yield _overpass_request(OrderedDict(data=query_str))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 469, in _overpass_request
+    response = requests.post(
+               ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 134, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 717, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b13679700>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+FAIL 3170107 Uberaba
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 494, in _make_request
+    raise new_e
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 470, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 1125, in _validate_conn
+    conn.connect()
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 827, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 248, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b135b0890>, 'Connection to overpass-api.de timed out. (connect timeout=180)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b135b0890>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 110, in run_all
+    res = run_city(rec.COD_MUNICIPIO, rec.NM_MUN, race, data_dir, **kw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 41, in run_city
+    G = prepare_graph(downloader(poly_wgs84, graph_path), gdf.crs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\network.py", line 25, in download_walk_graph
+    G = ox.graph_from_polygon(polygon_wgs84, network_type="walk", simplify=True, retain_all=False, truncate_by_edge=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 496, in graph_from_polygon
+    G_buff = _create_graph(response_jsons, bidirectional)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 625, in _create_graph
+    for response_json in response_jsons:
+                         ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 402, in _download_overpass_network
+    yield _overpass_request(OrderedDict(data=query_str))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 469, in _overpass_request
+    response = requests.post(
+               ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 134, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 717, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b135b0890>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+FAIL 2610707 Paulista
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 494, in _make_request
+    raise new_e
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 470, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 1125, in _validate_conn
+    conn.connect()
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 827, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 248, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b1362a4b0>, 'Connection to overpass-api.de timed out. (connect timeout=180)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b1362a4b0>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 110, in run_all
+    res = run_city(rec.COD_MUNICIPIO, rec.NM_MUN, race, data_dir, **kw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 41, in run_city
+    G = prepare_graph(downloader(poly_wgs84, graph_path), gdf.crs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\network.py", line 25, in download_walk_graph
+    G = ox.graph_from_polygon(polygon_wgs84, network_type="walk", simplify=True, retain_all=False, truncate_by_edge=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 496, in graph_from_polygon
+    G_buff = _create_graph(response_jsons, bidirectional)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 625, in _create_graph
+    for response_json in response_jsons:
+                         ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 402, in _download_overpass_network
+    yield _overpass_request(OrderedDict(data=query_str))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 469, in _overpass_request
+    response = requests.post(
+               ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 134, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 717, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b1362a4b0>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+FAIL 4104808 Cascavel
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 494, in _make_request
+    raise new_e
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 470, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 1125, in _validate_conn
+    conn.connect()
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 827, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 248, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b0e044cb0>, 'Connection to overpass-api.de timed out. (connect timeout=180)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b0e044cb0>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 110, in run_all
+    res = run_city(rec.COD_MUNICIPIO, rec.NM_MUN, race, data_dir, **kw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 41, in run_city
+    G = prepare_graph(downloader(poly_wgs84, graph_path), gdf.crs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\network.py", line 25, in download_walk_graph
+    G = ox.graph_from_polygon(polygon_wgs84, network_type="walk", simplify=True, retain_all=False, truncate_by_edge=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 496, in graph_from_polygon
+    G_buff = _create_graph(response_jsons, bidirectional)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 625, in _create_graph
+    for response_json in response_jsons:
+                         ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 402, in _download_overpass_network
+    yield _overpass_request(OrderedDict(data=query_str))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 469, in _overpass_request
+    response = requests.post(
+               ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 134, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 717, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b0e044cb0>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+FAIL 4304606 Canoas
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 494, in _make_request
+    raise new_e
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 470, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 1125, in _validate_conn
+    conn.connect()
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 827, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 248, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b13600740>, 'Connection to overpass-api.de timed out. (connect timeout=180)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b13600740>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 110, in run_all
+    res = run_city(rec.COD_MUNICIPIO, rec.NM_MUN, race, data_dir, **kw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 41, in run_city
+    G = prepare_graph(downloader(poly_wgs84, graph_path), gdf.crs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\network.py", line 25, in download_walk_graph
+    G = ox.graph_from_polygon(polygon_wgs84, network_type="walk", simplify=True, retain_all=False, truncate_by_edge=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 496, in graph_from_polygon
+    G_buff = _create_graph(response_jsons, bidirectional)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 625, in _create_graph
+    for response_json in response_jsons:
+                         ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 402, in _download_overpass_network
+    yield _overpass_request(OrderedDict(data=query_str))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 469, in _overpass_request
+    response = requests.post(
+               ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 134, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 717, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b13600740>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+FAIL 3541000 Praia Grande
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 494, in _make_request
+    raise new_e
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 470, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 1125, in _validate_conn
+    conn.connect()
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 827, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 248, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b1367afc0>, 'Connection to overpass-api.de timed out. (connect timeout=180)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b1367afc0>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 110, in run_all
+    res = run_city(rec.COD_MUNICIPIO, rec.NM_MUN, race, data_dir, **kw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 41, in run_city
+    G = prepare_graph(downloader(poly_wgs84, graph_path), gdf.crs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\network.py", line 25, in download_walk_graph
+    G = ox.graph_from_polygon(polygon_wgs84, network_type="walk", simplify=True, retain_all=False, truncate_by_edge=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 496, in graph_from_polygon
+    G_buff = _create_graph(response_jsons, bidirectional)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 625, in _create_graph
+    for response_json in response_jsons:
+                         ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 402, in _download_overpass_network
+    yield _overpass_request(OrderedDict(data=query_str))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 469, in _overpass_request
+    response = requests.post(
+               ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 134, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 717, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b1367afc0>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+FAIL 2609600 Olinda
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 239, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] Uma tentativa de conexão falhou porque o componente conectado não respondeu
+corretamente após um período de tempo ou a conexão estabelecida falhou
+porque o host conectado não respondeu
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 793, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 494, in _make_request
+    raise new_e
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 470, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 1125, in _validate_conn
+    conn.connect()
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 827, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connection.py", line 248, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b135de120>, 'Connection to overpass-api.de timed out. (connect timeout=180)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 696, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\connectionpool.py", line 847, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\urllib3\util\retry.py", line 555, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b135de120>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 110, in run_all
+    res = run_city(rec.COD_MUNICIPIO, rec.NM_MUN, race, data_dir, **kw)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\pipeline.py", line 41, in run_city
+    G = prepare_graph(downloader(poly_wgs84, graph_path), gdf.crs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\netseg\network.py", line 25, in download_walk_graph
+    G = ox.graph_from_polygon(polygon_wgs84, network_type="walk", simplify=True, retain_all=False, truncate_by_edge=True)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 496, in graph_from_polygon
+    G_buff = _create_graph(response_jsons, bidirectional)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\graph.py", line 625, in _create_graph
+    for response_json in response_jsons:
+                         ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 402, in _download_overpass_network
+    yield _overpass_request(OrderedDict(data=query_str))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\osmnx\_overpass.py", line 469, in _overpass_request
+    response = requests.post(
+               ^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 134, in post
+    return request("post", url, data=data, json=json, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\api.py", line 71, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 651, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\sessions.py", line 784, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\requests\adapters.py", line 717, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='overpass-api.de', port=443): Max retries exceeded with url: /api/interpreter (Caused by ConnectTimeoutError(<HTTPSConnection(host='overpass-api.de', port=443) at 0x16b135de120>, 'Connection to overpass-api.de timed out. (connect timeout=180)'))
+

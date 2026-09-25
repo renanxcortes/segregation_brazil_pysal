@@ -1,0 +1,24 @@
+name: netseg
+channels: [conda-forge]
+dependencies:
+  - python=3.12
+  - geopandas>=1.0
+  - libpysal>=4.12
+  - osmnx>=2.0
+  - networkx>=3.3
+  - scipy>=1.13
+  - numpy>=2.0
+  - libblas=*=*openblas   # MKL 2026 fails to load a DLL on Windows (0xc06d007f)
+  - pandas>=2.2
+  - pyogrio
+  - pyarrow
+  - shapely>=2.0
+  - statsmodels>=0.14
+  - matplotlib
+  - seaborn
+  - momepy>=0.8
+  - osmium-tool>=1.16
+  - pytest
+  - pip
+  - pip:
+    - segregation==2.5.3

@@ -1,0 +1,12 @@
+Warning 3: Cannot find gdalvrt.xsd (GDAL_DATA is not defined)
+ok   1721000 Palmas
+ok   3552502 Suzano
+ok   3554102 Taubaté
+ok   3505708 Barueri
+Warning 3: Cannot find header.dxf (GDAL_DATA is not defined)
+C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\pyogrio\core.py:38: RuntimeWarning: Could not detect GDAL data files. Set GDAL_DATA environment variable to the correct path.
+  _init_gdal_data()
+download attempt 1 failed (ConnectTimeout); retrying in 120 s
+download attempt 2 failed (ConnectTimeout); retrying in 240 s
+download attempt 3 failed (ConnectTimeout); retrying in 360 s
+download attempt 4 failed (ConnectionError); retrying in 480 s

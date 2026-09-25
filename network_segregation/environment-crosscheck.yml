@@ -1,0 +1,13 @@
+name: netseg-pandana
+channels: [conda-forge]
+dependencies:
+  - python=3.11
+  - libblas=*=*openblas
+  - geopandas
+  - osmnx>=2.0
+  - pandana
+  - pyogrio
+  - pyarrow
+  - pip
+  - pip:
+    - segregation==2.5.3

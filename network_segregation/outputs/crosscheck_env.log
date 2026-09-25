@@ -1,0 +1,1805 @@
+3 channel Terms of Service accepted
+Channels:
+ - conda-forge
+ - defaults
+Platform: win-64
+Collecting package metadata (repodata.json): - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ done
+Solving environment: / - \ done
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 25.11.1
+    latest version: 26.7.2
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+Downloading and Extracting Packages: ...working...python-3.11.16       | 17.6 MB   |            |   0% 
+scipy-1.17.1         | 14.5 MB   |            |   0% [A
+
+pandas-3.0.6         | 13.5 MB   |            |   0% [A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    |            |   0% [A[A[A
+
+
+
+scikit-learn-1.9.1   | 8.9 MB    |            |   0% [A[A[A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    |            |   0% [A[A[A[A[A
+
+
+
+
+
+libspatialite-5.1.0  | 8.3 MB    |            |   0% [A[A[A[A[A[A
+
+
+
+
+
+
+rasterio-1.4.4       | 7.7 MB    |            |   0% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+numpy-2.4.6          | 7.4 MB    |            |   0% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+proj-9.7.1           | 2.9 MB    |            |   0% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+fonttools-4.66.0     | 2.6 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+hdf5-2.2.0           | 2.5 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+pytables-3.11.1      | 1.5 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+libjxl-0.11.2        | 1.1 MB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+pillow-12.3.0        | 942 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pyogrio-0.12.1       | 870 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pyproj-3.7.2         | 859 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+shapely-2.1.2        | 603 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+unicodedata2-18.0.0  | 408 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    |            |   0% [A[A[A
+
+
+
+scikit-learn-1.9.1   | 8.9 MB    |            |   0% [A[A[A[A
+
+pandas-3.0.6         | 13.5 MB   |            |   0% [A[Apython-3.11.16       | 17.6 MB   |            |   0% 
+scipy-1.17.1         | 14.5 MB   |            |   0% [A
+
+
+
+scikit-learn-1.9.1   | 8.9 MB    | #####      |  51% [A[A[A[A
+
+pandas-3.0.6         | 13.5 MB   | 4          |   5% [A[Apython-3.11.16       | 17.6 MB   | 6          |   7% 
+scipy-1.17.1         | 14.5 MB   | 4          |   4% [A
+
+
+
+scikit-learn-1.9.1   | 8.9 MB    | #########5 |  95% [A[A[A[A
+
+pandas-3.0.6         | 13.5 MB   | 9          |   9% [A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | 2          |   2% [A[A[A
+
+
+
+scikit-learn-1.9.1   | 8.9 MB    | ########## | 100% [A[A[A[Apython-3.11.16       | 17.6 MB   | #6         |  17% 
+scipy-1.17.1         | 14.5 MB   | #          |  11% [A
+
+pandas-3.0.6         | 13.5 MB   | #6         |  17% [A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | 6          |   6% [A[A[Apython-3.11.16       | 17.6 MB   | ###1       |  32% 
+scipy-1.17.1         | 14.5 MB   | #8         |  18% [A
+
+pandas-3.0.6         | 13.5 MB   | ##5        |  25% [A[Apython-3.11.16       | 17.6 MB   | ####4      |  44% 
+
+
+libgdal-core-3.12.3  | 9.3 MB    | 9          |   9% [A[A[A
+scipy-1.17.1         | 14.5 MB   | ##4        |  24% [A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    |            |   0% [A[A[A[A[A
+
+pandas-3.0.6         | 13.5 MB   | ###1       |  32% [A[Apython-3.11.16       | 17.6 MB   | ######2    |  63% 
+scipy-1.17.1         | 14.5 MB   | ###3       |  34% [A
+
+pandas-3.0.6         | 13.5 MB   | ###8       |  39% [A[Apython-3.11.16       | 17.6 MB   | ########4  |  85% 
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | 5          |   5% [A[A[A[A[A
+scipy-1.17.1         | 14.5 MB   | ####5      |  45% [A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | #5         |  15% [A[A[A
+
+pandas-3.0.6         | 13.5 MB   | ####5      |  45% [A[A
+scipy-1.17.1         | 14.5 MB   | #####6     |  56% [Apython-3.11.16       | 17.6 MB   | ########## | 100% 
+
+
+libgdal-core-3.12.3  | 9.3 MB    | #9         |  19% [A[A[A
+
+pandas-3.0.6         | 13.5 MB   | #####4     |  55% [A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | #1         |  11% [A[A[A[A[A
+scipy-1.17.1         | 14.5 MB   | #######2   |  72% [A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | ##5        |  26% [A[A[A
+
+pandas-3.0.6         | 13.5 MB   | ######9    |  69% [A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | #7         |  18% [A[A[A[A[A
+scipy-1.17.1         | 14.5 MB   | #########4 |  94% [A
+
+
+
+
+
+libspatialite-5.1.0  | 8.3 MB    |            |   0% [A[A[A[A[A[A
+
+pandas-3.0.6         | 13.5 MB   | ########6  |  86% [A[A
+scipy-1.17.1         | 14.5 MB   | ########## | 100% [A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | ##1        |  22% [A[A[A[A[A
+
+
+
+
+
+libspatialite-5.1.0  | 8.3 MB    | 4          |   4% [A[A[A[A[A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | ##9        |  29% [A[A[A
+
+pandas-3.0.6         | 13.5 MB   | ########## | 100% [A[A
+
+pandas-3.0.6         | 13.5 MB   | ########## | 100% [A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | ##5        |  26% [A[A[A[A[A
+
+
+
+
+
+
+rasterio-1.4.4       | 7.7 MB    |            |   0% [A[A[A[A[A[A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | ###2       |  33% [A[A[A
+
+
+
+
+
+libspatialite-5.1.0  | 8.3 MB    | #4         |  15% [A[A[A[A[A[A
+
+
+
+
+
+
+
+numpy-2.4.6          | 7.4 MB    |            |   0% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+rasterio-1.4.4       | 7.7 MB    | 6          |   7% [A[A[A[A[A[A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | ##9        |  30% [A[A[A[A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | ###7       |  38% [A[A[A
+
+
+
+
+
+
+
+numpy-2.4.6          | 7.4 MB    | ###5       |  35% [A[A[A[A[A[A[A[A
+
+
+
+
+
+libspatialite-5.1.0  | 8.3 MB    | ##2        |  23% [A[A[A[A[A[A
+
+
+
+
+
+
+rasterio-1.4.4       | 7.7 MB    | ##7        |  27% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+numpy-2.4.6          | 7.4 MB    | #######9   |  80% [A[A[A[A[A[A[A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | ###4       |  34% [A[A[A[A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | ####2      |  42% [A[A[A
+
+
+
+
+
+libspatialite-5.1.0  | 8.3 MB    | ##9        |  29% [A[A[A[A[A[A
+
+
+
+
+
+
+
+numpy-2.4.6          | 7.4 MB    | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | ####2      |  43% [A[A[A[A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | ####9      |  49% [A[A[A
+
+
+
+
+
+
+rasterio-1.4.4       | 7.7 MB    | ###7       |  38% [A[A[A[A[A[A[A
+
+
+
+
+
+
+rasterio-1.4.4       | 7.7 MB    | #####5     |  56% [A[A[A[A[A[A[A
+
+
+
+
+
+libspatialite-5.1.0  | 8.3 MB    | ####1      |  41% [A[A[A[A[A[A
+
+
+
+
+
+
+
+
+proj-9.7.1           | 2.9 MB    |            |   1% [A[A[A[A[A[A[A[A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | ####7      |  47% [A[A[A[A[A
+
+
+
+
+
+
+rasterio-1.4.4       | 7.7 MB    | #######4   |  74% [A[A[A[A[A[A[A
+
+
+
+
+
+libspatialite-5.1.0  | 8.3 MB    | ####6      |  47% [A[A[A[A[A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | #####3     |  53% [A[A[A
+
+
+
+
+
+
+
+
+proj-9.7.1           | 2.9 MB    | #########8 |  99% [A[A[A[A[A[A[A[A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | #####1     |  52% [A[A[A[A[A
+
+
+
+
+
+
+
+
+proj-9.7.1           | 2.9 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+libspatialite-5.1.0  | 8.3 MB    | #####4     |  55% [A[A[A[A[A[A
+
+
+
+
+
+
+rasterio-1.4.4       | 7.7 MB    | ########## | 100% [A[A[A[A[A[A[A
+
+
+
+
+
+
+rasterio-1.4.4       | 7.7 MB    | ########## | 100% [A[A[A[A[A[A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | #####7     |  58% [A[A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | #####5     |  56% [A[A[A[A[A
+
+
+
+
+
+
+
+
+
+fonttools-4.66.0     | 2.6 MB    |            |   1% [A[A[A[A[A[A[A[A[A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | ######1    |  62% [A[A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | ######2    |  63% [A[A[A[A[A
+
+
+
+
+
+libspatialite-5.1.0  | 8.3 MB    | ######6    |  66% [A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+hdf5-2.2.0           | 2.5 MB    |            |   1% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+fonttools-4.66.0     | 2.6 MB    | ##4        |  24% [A[A[A[A[A[A[A[A[A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | ######7    |  68% [A[A[A
+
+
+
+
+
+
+
+
+
+
+hdf5-2.2.0           | 2.5 MB    | ####1      |  42% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+fonttools-4.66.0     | 2.6 MB    | ####6      |  47% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+libspatialite-5.1.0  | 8.3 MB    | #######7   |  78% [A[A[A[A[A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | ######7    |  67% [A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+hdf5-2.2.0           | 2.5 MB    | ########1  |  81% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+fonttools-4.66.0     | 2.6 MB    | ########9  |  90% [A[A[A[A[A[A[A[A[A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | #######1   |  72% [A[A[A
+
+
+
+
+
+
+
+
+
+
+hdf5-2.2.0           | 2.5 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+libspatialite-5.1.0  | 8.3 MB    | ########7  |  87% [A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+fonttools-4.66.0     | 2.6 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | #######3   |  74% [A[A[A[A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | #######7   |  78% [A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+libjxl-0.11.2        | 1.1 MB    | 1          |   1% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+pytables-3.11.1      | 1.5 MB    | 1          |   1% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | #######7   |  78% [A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+pytables-3.11.1      | 1.5 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+libjxl-0.11.2        | 1.1 MB    | ###4       |  34% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | ########5  |  86% [A[A[A
+
+
+
+
+
+libspatialite-5.1.0  | 8.3 MB    | ########## | 100% [A[A[A[A[A[A
+
+
+
+
+
+libspatialite-5.1.0  | 8.3 MB    | ########## | 100% [A[A[A[A[A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | ########5  |  86% [A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+pillow-12.3.0        | 942 KB    | 1          |   2% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+libjxl-0.11.2        | 1.1 MB    | #####4     |  55% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | #########  |  90% [A[A[A[A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | #########  |  90% [A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+pillow-12.3.0        | 942 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pyogrio-0.12.1       | 870 KB    | 1          |   2% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pyogrio-0.12.1       | 870 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+libjxl-0.11.2        | 1.1 MB    | #######4   |  74% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | ########## | 100% [A[A[A[A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | ########## | 100% [A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pyproj-3.7.2         | 859 KB    | 1          |   2% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+libjxl-0.11.2        | 1.1 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+libjxl-0.11.2        | 1.1 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+shapely-2.1.2        | 603 KB    | 2          |   3% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+shapely-2.1.2        | 603 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | #########4 |  94% [A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pyproj-3.7.2         | 859 KB    | #4         |  15% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+unicodedata2-18.0.0  | 408 KB    | 3          |   4% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pyproj-3.7.2         | 859 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | #########8 |  99% [A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | ########## | 100% [A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+unicodedata2-18.0.0  | 408 KB    | ###1       |  31% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+unicodedata2-18.0.0  | 408 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+scikit-learn-1.9.1   | 8.9 MB    | ########## | 100% [A[A[A[A
+scipy-1.17.1         | 14.5 MB   | ########## | 100% [Apython-3.11.16       | 17.6 MB   | ########## | 100% 
+
+
+
+
+
+
+
+
+proj-9.7.1           | 2.9 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+rasterio-1.4.4       | 7.7 MB    | ########## | 100% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+numpy-2.4.6          | 7.4 MB    | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+hdf5-2.2.0           | 2.5 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+pytables-3.11.1      | 1.5 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+pytables-3.11.1      | 1.5 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+libspatialite-5.1.0  | 8.3 MB    | ########## | 100% [A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+fonttools-4.66.0     | 2.6 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pyogrio-0.12.1       | 870 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pyogrio-0.12.1       | 870 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+pillow-12.3.0        | 942 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+pillow-12.3.0        | 942 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+libjxl-0.11.2        | 1.1 MB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+pandas-3.0.6         | 13.5 MB   | ########## | 100% [A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pyproj-3.7.2         | 859 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+pyproj-3.7.2         | 859 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+shapely-2.1.2        | 603 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+shapely-2.1.2        | 603 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+unicodedata2-18.0.0  | 408 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+unicodedata2-18.0.0  | 408 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+libgdal-core-3.12.3  | 9.3 MB    | ########## | 100% [A[A[A
+
+
+
+
+matplotlib-base-3.11 | 8.4 MB    | ########## | 100% [A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A                                                     
+                                                     [A
+
+                                                     [A[A
+
+
+                                                     [A[A[A
+
+
+
+                                                     [A[A[A[A
+
+
+
+
+                                                     [A[A[A[A[A
+
+
+
+
+
+                                                     [A[A[A[A[A[A
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A
+
+[A[A
+
+
+[A[A[A
+
+
+
+[A[A[A[A
+
+
+
+
+[A[A[A[A[A
+
+
+
+
+
+[A[A[A[A[A[A
+
+
+
+
+
+
+[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A
+
+[A[A done
+Preparing transaction: / - \ | / - \ | / - \ done
+Verifying transaction: / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / done
+Executing transaction: \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | done
+Installing pip dependencies: - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | Ran pip subprocess with arguments:
+['C:\\Users\\renan\\anaconda3\\envs\\netseg-pandana\\python.exe', '-m', 'pip', 'install', '-U', '-r', 'C:\\Users\\renan\\OneDrive\\Documentos\\GitHub\\segregation_brazil_pysal\\network_segregation\\condaenv._xkp8bxj.requirements.txt', '--exists-action=b']
+Pip subprocess output:
+Collecting segregation==2.5.3 (from -r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1))
+  Using cached segregation-2.5.3-py3-none-any.whl.metadata (2.2 kB)
+Collecting deprecation (from segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1))
+  Using cached deprecation-2.1.0-py2.py3-none-any.whl.metadata (4.6 kB)
+Requirement already satisfied: geopandas>=0.9 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (1.1.4)
+Requirement already satisfied: joblib in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (1.6.0)
+Collecting libpysal (from segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1))
+  Using cached libpysal-4.14.1-py3-none-any.whl.metadata (5.0 kB)
+Requirement already satisfied: mapclassify in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (2.10.0)
+Requirement already satisfied: matplotlib in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (3.11.2)
+Requirement already satisfied: numpy in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (2.4.6)
+Requirement already satisfied: pandas in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (3.0.6)
+Requirement already satisfied: scikit-learn>=0.21.3 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (1.9.1)
+Requirement already satisfied: scipy in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (1.17.1)
+Collecting seaborn (from segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1))
+  Downloading seaborn-0.13.2-py3-none-any.whl.metadata (5.4 kB)
+Collecting tqdm (from segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1))
+  Downloading tqdm-4.70.1-py3-none-any.whl.metadata (57 kB)
+Collecting numba (from segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1))
+  Downloading numba-0.67.0-cp311-cp311-win_amd64.whl.metadata (2.8 kB)
+Requirement already satisfied: pyproj>=3 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (3.7.2)
+Requirement already satisfied: packaging in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from geopandas>=0.9->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (26.3)
+Requirement already satisfied: shapely>=2.0.0 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from geopandas>=0.9->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (2.1.2)
+Requirement already satisfied: python-dateutil>=2.8.2 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from pandas->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (2.9.0.post0)
+Requirement already satisfied: tzdata in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from pandas->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (2026.4)
+Requirement already satisfied: certifi in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from pyproj>=3->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (2026.7.22)
+Requirement already satisfied: six>=1.5 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from python-dateutil>=2.8.2->pandas->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (1.17.0)
+Requirement already satisfied: narwhals>=2.0.1 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from scikit-learn>=0.21.3->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (2.26.0)
+Requirement already satisfied: threadpoolctl>=3.5.0 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from scikit-learn>=0.21.3->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (3.7.0)
+Requirement already satisfied: cloudpickle>=3.0 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from joblib->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (3.1.2)
+Collecting beautifulsoup4>=4.13.0 (from libpysal->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1))
+  Downloading beautifulsoup4-4.15.0-py3-none-any.whl.metadata (3.8 kB)
+Requirement already satisfied: jinja2 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from libpysal->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (3.1.6)
+Collecting platformdirs>=3.11.0 (from libpysal->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1))
+  Downloading platformdirs-4.11.13-py3-none-any.whl.metadata (5.5 kB)
+Requirement already satisfied: requests>=2.32.0 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from libpysal->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (2.34.2)
+Collecting soupsieve>=1.6.1 (from beautifulsoup4>=4.13.0->libpysal->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1))
+  Downloading soupsieve-2.10-py3-none-any.whl.metadata (4.4 kB)
+Requirement already satisfied: typing-extensions>=4.0.0 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from beautifulsoup4>=4.13.0->libpysal->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (4.16.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from requests>=2.32.0->libpysal->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (3.5.1)
+Requirement already satisfied: idna<4,>=2.5 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from requests>=2.32.0->libpysal->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (3.20)
+Requirement already satisfied: urllib3<3,>=1.26 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from requests>=2.32.0->libpysal->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (2.8.0)
+Requirement already satisfied: MarkupSafe>=2.0 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from jinja2->libpysal->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (3.0.3)
+Requirement already satisfied: networkx>=3.2 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from mapclassify->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (3.6.1)
+Requirement already satisfied: contourpy>=1.0.1 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from matplotlib->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from matplotlib->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (0.12.1)
+Requirement already satisfied: fonttools>=4.28.2 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from matplotlib->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (4.66.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from matplotlib->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (1.5.1)
+Requirement already satisfied: pillow>=9 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from matplotlib->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (12.3.0)
+Requirement already satisfied: pyparsing>=3 in C:\Users\renan\anaconda3\envs\netseg-pandana\Lib\site-packages (from matplotlib->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1)) (3.3.3)
+Collecting llvmlite<0.50,>=0.49.0dev0 (from numba->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1))
+  Downloading llvmlite-0.49.0-cp311-cp311-win_amd64.whl.metadata (4.9 kB)
+Collecting colorama (from tqdm->segregation==2.5.3->-r C:\Users\renan\OneDrive\Documentos\GitHub\segregation_brazil_pysal\network_segregation\condaenv._xkp8bxj.requirements.txt (line 1))
+  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Using cached segregation-2.5.3-py3-none-any.whl (141 kB)
+Using cached deprecation-2.1.0-py2.py3-none-any.whl (11 kB)
+Using cached libpysal-4.14.1-py3-none-any.whl (2.5 MB)
+Downloading beautifulsoup4-4.15.0-py3-none-any.whl (109 kB)
+Downloading platformdirs-4.11.13-py3-none-any.whl (25 kB)
+Downloading soupsieve-2.10-py3-none-any.whl (38 kB)
+Downloading numba-0.67.0-cp311-cp311-win_amd64.whl (2.8 MB)
+   ---------------------------------------- 2.8/2.8 MB 41.2 MB/s  0:00:00
+Downloading llvmlite-0.49.0-cp311-cp311-win_amd64.whl (41.9 MB)
+   ---------------------------------------- 41.9/41.9 MB 64.9 MB/s  0:00:00
+Downloading seaborn-0.13.2-py3-none-any.whl (294 kB)
+Downloading tqdm-4.70.1-py3-none-any.whl (80 kB)
+Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Installing collected packages: soupsieve, platformdirs, llvmlite, deprecation, colorama, tqdm, numba, beautifulsoup4, seaborn, libpysal, segregation
+
+Successfully installed beautifulsoup4-4.15.0 colorama-0.4.6 deprecation-2.1.0 libpysal-4.14.1 llvmlite-0.49.0 numba-0.67.0 platformdirs-4.11.13 seaborn-0.13.2 segregation-2.5.3 soupsieve-2.10 tqdm-4.70.1
+
+done
+#
+# To activate this environment, use
+#
+#     $ conda activate netseg-pandana
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+

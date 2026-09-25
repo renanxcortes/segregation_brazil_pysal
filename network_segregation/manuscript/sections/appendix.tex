@@ -1,0 +1,39 @@
+\section{Robustness}\label{app:robust}
+
+\begin{table}[H]
+\centering\footnotesize
+\caption{Network versus Euclidean indices under alternative specifications (\nCities{} municipalities). ``Mean
+gap (\%)'' is the mean of $100\,(I^{N} - I^{E})/I^{E}$; ``Share gap $>$ 0'' is the share of cities in which the
+network index is higher. PP: \emph{preta}+\emph{parda}. Population-matched: Euclidean radii shrunk tract by tract
+to match the population of 2-km network environments.}\label{tab:robust}
+\input{tables/robustness.tex}
+\end{table}
+
+\begin{table}[H]
+\centering\footnotesize
+\caption{Street-network topology across the \nCities{} municipalities.}\label{tab:topodesc}
+\resizebox{\textwidth}{!}{\input{tables/topology_desc.tex}}
+\end{table}
+
+Configurational fragmentation is estimated from random samples of 500 targets and 2,000 origins per city. Doubling
+both samples changes $F$ by less than 0.02 in Porto Alegre, Curitiba and Salvador.
+
+\section{Cross-check against the native PySAL network route}\label{app:pandana}
+
+Using the \texttt{pandana} library, the PySAL \texttt{segregation} package can also build network-based
+local environments itself \citep{cortes2026segregation}. That route aggregates population at the network node nearest to
+each tract and ignores the distance between the tract point and the node. For Porto Alegre, Curitiba and Salvador
+it yields network $H$ within 0.001 of our estimates (Table~\ref{tab:pandana}).
+
+\begin{table}[H]
+\centering\small
+\caption{Network $H$ from our tract-to-tract weights and from \texttt{segregation}'s native \texttt{pandana}
+route.}\label{tab:pandana}
+\input{tables/crosscheck.tex}
+\end{table}
+
+\section{City-level results}\label{app:cities}
+
+{\footnotesize
+\input{tables/city_results.tex}
+}

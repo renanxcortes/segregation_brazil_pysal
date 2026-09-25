@@ -1,0 +1,103 @@
+\section{Introduction}\label{sec:intro}
+
+Straight-line distance is the default abstraction of applied spatial analysis. It is a useful simplification,
+but people do not move across a featureless plane: they walk along streets, around blocks, over bridges and up
+stairways, and the configuration of that network conditions whom they can easily meet. In segregation research
+the abstraction enters through the definition of the ``local environment'' that spatial indices compare with the
+city as a whole \citep{reardon2004measures}. Most applications define that environment with Euclidean distance.
+\citet{knaap2024segregated} showed, for every metropolitan area in the United States, that replacing Euclidean
+distance with walking distance along the street network raises the spatial information theory index in almost
+every metro, by about a fifth on average, and reshuffles the ranking of the most segregated places. They also
+showed that the size of the gap is associated with the topology of the street network.
+
+This paper asks whether the same holds in Brazil, where there are strong reasons to expect the street network to
+matter even more. Brazilian cities combine colonial cores, modernist plans, sprawling peripheral \emph{loteamentos},
+self-built favelas on steep hillsides and, since the 1990s, gated condominiums (\emph{condom\'inios fechados}) that
+interrupt the public street grid \citep{coy2006gated}. In the most comprehensive configurational comparison to
+date, \citet{medeiros2013urbis} found that the street networks of the 27 Brazilian state capitals are among the
+most fragmented of 164 cities worldwide: a ``patchwork'' of locally coherent pieces that are poorly articulated
+with one another. If segregation is, in part, a restriction on the possibility of interaction
+\citep{netto2015segregated}, then a patchwork city should look more segregated when the local environment is
+measured along the network than when it is measured as the crow flies.
+
+We compute racial segregation for the \nCities{} Brazilian municipalities with at least 300,000 inhabitants,
+using the 2022 Census colour-or-race counts for urban census tracts and pedestrian networks from OpenStreetMap.
+For each city we build two local environments that differ \emph{only} in the distance metric: the same 2-km
+triangular kernel is applied to Euclidean and to network distances. We ask two questions. First, how different
+are segregation levels and rankings under the two metrics (RQ1)? Second, which properties of the street network
+are associated with the gap (RQ2)? To RQ2 we add a Brazil-specific predictor, a metric analogue of the
+space-syntax \emph{synergy} measure that underlies Medeiros's diagnosis of fragmentation. Because network
+environments contain fewer people than Euclidean environments of the same radius, part of any gap could be a
+scale effect rather than a barrier effect \citep{saporito2026reconsidering}; we therefore also report a
+population-matched comparison in which each tract's Euclidean environment is shrunk until it holds as many
+people as its network environment.
+
+The paper makes three contributions: the first nationwide Euclidean-versus-network comparison of segregation for
+a country of the Global South; a test of whether configurational fragmentation, a long-standing theme of
+Brazilian urban morphology, helps explain the gap; and a fully reproducible workflow built on the open-source
+PySAL \texttt{segregation} package \citep{cortes2026segregation,cortes2020open,rey2021comparative,rey2022pysal}.
+Consistent with \citet{knaap2024segregated}, we treat the comparison descriptively; a formal inferential test of
+the gap is left for future work.
+
+\section{Background}\label{sec:background}
+
+\subsection{Measuring segregation in space}
+
+Spatial segregation indices replace the question ``who lives in the same tract?'' with ``who lives nearby?''.
+\citet{white1983measurement} introduced distance decay into the measurement of segregation, and
+\citet{wong1993spatial} showed that indices based on the adjacency of areal units depend on unit size and shape.
+\citet{reardon2004measures} provided a general framework in which any theoretically motivated proximity function
+defines each person's local environment; among the resulting measures, the spatial information theory index $H$
+has the most desirable properties. \citet{reardon2008geographic} used the bandwidth of the proximity function to
+describe the geographic scale of segregation. In Brazil, \citet{feitosa2007global} developed kernel-based global
+and local spatial indices and applied them to S\~ao Jos\'e dos Campos. In all of these, proximity is almost always
+Euclidean.
+
+\subsection{Street networks and social interaction}
+
+A second literature argues that street networks structure the opportunities for contact.
+\citet{grannis1998importance} showed that residential (``trivial'') streets bound neighbourhood networks, and
+\citet{grannis2005tcommunities} that pedestrian-connected ``T-communities'' predict racial composition in three US
+cities. \citet{roberto2018spatial} incorporated road connectivity into segregation measurement and found higher
+segregation in Pittsburgh under network distance. \citet{knaap2024segregated} scaled this comparison to all US
+metros and related the gap to network topology measured with OSMnx \citep{boeing2017osmnx} and momepy
+\citep{fleischmann2019momepy}: circuity widens the gap, intersection density narrows it, and cyclomatic
+complexity (redundancy) dampens the effect of circuity. Global comparisons show that street-network form varies
+far more outside North America: grids are the exception, and circuity and orientation entropy are higher
+\citep{boeing2019urban,boeing2022street}. Recently, \citet{saporito2026reconsidering} cautioned that network-based
+environments of a given radius contain fewer people, so that part of the network--Euclidean difference may reflect
+the population size of local environments rather than barriers to movement.
+
+\subsection{The configuration of Brazilian street networks}
+
+Brazilian research on urban form has long emphasised configuration. Drawing on space syntax,
+\citet{holanda2002espaco} interpreted the plan of Bras\'ilia as a ``space of exception'' whose dispersed,
+hierarchical layout separates social groups. \citet{medeiros2013urbis} compared axial maps of 164 cities, including
+all 27 Brazilian capitals, and concluded that Brazilian cities are exceptionally fragmented: patchworks of
+internally coherent pieces whose local and global structures are poorly articulated (low \emph{synergy}), a
+labyrinthine configuration that hampers movement between parts of the city. \citet{netto2015segregated} reframed
+segregation as a restriction on interaction produced jointly by residential location, the street network and
+mobility, with evidence from a Brazilian city. Two recent studies bring the street grid directly into segregation
+measurement: \citet{saboya2025chasm} propose CHASM, an exposure measure computed on street segments, and
+\citet{goncalves2024uncovering} use a network-based potential-accessibility index to reveal racial and income
+segregation patterns in Pelotas. At the scale of informal settlements, \citet{carvalho2023segregation} show that
+favelas are themselves internally segregated. Using OSM, \citet{spadon2018topological} characterised the street
+networks of the 645 municipalities of S\~ao Paulo state by topological features. Finally, the spread of gated
+condominiums has privatised parts of the street network and fragmented the urban fabric \citep{coy2006gated}.
+Together these works motivate three expectations: (H1) segregation is higher under network than under Euclidean
+distance; (H2) the gap is larger where circuity, dead-end streets and configurational fragmentation are higher;
+and (H3) the gap is smaller where intersection density and meshedness are higher.
+
+\subsection{Race, space and access in Brazilian cities}
+
+Racial residential segregation in Brazil is moderate by US standards but real and entangled with class
+\citep{telles2004race}; a nationwide analysis of 2010 census tracts found it highest in the South and Southeast
+\citep{sousafilho2023segregacao}. The consequences of location are mediated by the transport network. The IPEA
+\emph{Acesso a Oportunidades} project shows that white and high-income residents of the 20 largest Brazilian
+cities reach more jobs, schools and health services than black and low-income residents by every transport mode
+\citep{pereira2019desigualdades,tomasiello2024racial}, and that transport policy can widen these gaps
+\citep{pereira2019distributional}. \citet{bittencourt2021cumulative} show that accessibility and segregation
+reinforce each other in four metropolises, and \citet{boisjoly2020accessibility} document large accessibility
+differences across four cities. This literature measures travel along networks
+\citep{pereira2021r5r} but takes residential segregation as given; our study brings the network into the
+measurement of segregation itself.

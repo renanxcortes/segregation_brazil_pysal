@@ -1,0 +1,19 @@
+\begin{abstract}
+Spatial segregation indices usually define each resident's local environment with straight-line distance,
+although people move along streets. Following \citet{knaap2024segregated}, we compare racial segregation measured
+with Euclidean and with pedestrian network distance for the \nCities{} Brazilian municipalities with at least
+300,000 inhabitants, using 2022 Census colour-or-race counts for \nTractsUrban{} urban tracts and OpenStreetMap
+walking networks. The two local environments share an identical 2-km kernel and differ only in the distance
+metric. With network distance, the multigroup spatial information theory index is higher in every city, by
+\meanPdH\% on average, and the ranking of the most segregated cities changes, with hilly and island cities such
+as Florian\'opolis and Vit\'oria climbing. However, 2-km walking environments contain only about \envPopRatio\% of
+the population of 2-km circles. When Euclidean environments are shrunk to hold the same population, the gap
+vanishes (mean difference \meanPdHPopmatch\%). Across cities the gap and the share of reachable population are
+associated with dead-end streets, circuity and meshedness, but not with a metric analogue of the space-syntax
+fragmentation that characterises Brazilian street grids. Street networks thus shape measured segregation mainly
+by setting the effective scale of neighbourhoods, which argues for population-matched comparisons and points to
+local street permeability as a planning lever. All analyses use the open-source PySAL \texttt{segregation}
+package and are fully reproducible.
+\end{abstract}
+\noindent\textbf{Keywords:} residential segregation; street networks; spatial weights; urban morphology;
+OpenStreetMap; Brazil; PySAL

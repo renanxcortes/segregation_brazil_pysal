@@ -1,0 +1,53 @@
+\section{Discussion}\label{sec:discussion}
+
+Our first result replicates, and amplifies, the central finding of \citet{knaap2024segregated}. When local
+environments are defined by walking distance, racial segregation in large Brazilian cities is higher in every
+case, by \meanPdH\% on average, and the ranking of the most segregated places changes. Cities built on hills,
+islands and valleys (Florian\'opolis, Vit\'oria, Juiz de Fora) climb the ranking. Analysts who compare cities
+with Euclidean spatial indices would therefore reach different conclusions about where segregation is most
+intense. This is consistent with the Brazilian configurational literature, which describes Brazilian street
+networks as unusually fragmented and labyrinthine \citep{medeiros2013urbis,holanda2002espaco}.
+
+Our second result qualifies the first. Once the population of local environments is held constant, the gap
+vanishes. Walking along the network does not reveal a different social composition next door. It reveals a
+smaller neighbourhood, and smaller neighbourhoods are, as the multiscalar literature shows, more segregated
+\citep{reardon2008geographic}. This supports the concern raised by \citet{saporito2026reconsidering} and changes
+how the network--Euclidean gap should be read. It is not evidence that streets act as barriers that sort groups
+within a given population radius. It is evidence that street networks set the \emph{effective scale} at which
+residents experience their city: in dendritic, circuitous, cul-de-sac-rich fabrics, a 2-km walk reaches
+as little as \ratioMin\% of the people a 2-km circle would. That is still a finding about urban design. Where the network
+is poorly connected, the local environment of an average resident is smaller and therefore more homogeneous,
+which matters for everyday exposure to other groups \citep{netto2015segregated}. But it calls for a different
+framing, and for population-based (or population-matched) comparisons whenever network and Euclidean indices are
+contrasted.
+
+Third, we find no support for configurational fragmentation, as we operationalise it, as a predictor of the gap.
+Neither the gap nor the share of reachable population is associated with $F$. What matters is the local
+texture of the network: dead ends, circuity and meshedness. These are exactly the features that gated
+condominiums and closed \emph{loteamentos} produce \citep{coy2006gated}. One interpretation is that
+local-environment indices at a 2-km scale are sensitive to local permeability and blind to city-wide
+articulation, the property that synergy captures. Another is that our metric analogue does not capture what
+space-syntax synergy measures on axial maps. Testing CHASM-type segment-based measures \citep{saboya2025chasm},
+which build the street grid into exposure itself, is a natural next step.
+
+\paragraph{Limitations.} First, OpenStreetMap coverage of informal settlements is uneven: stairways and alleys
+in favelas are often missing, which lengthens network paths and may inflate the gap there, so our estimates for
+hillside cities are best read as upper bounds. Second, tracts are represented by a single interior point, and
+\nSnapFar{} of the \nTractsUrban{} tracts lie more than 500~m from the nearest network node. Third, we consider the
+walking network only; public transport would lengthen reach and probably reduce the gap
+\citep{pereira2021r5r,bittencourt2021cumulative}. Fourth, the units are municipalities, not functional urban
+areas, and results are subject to the modifiable areal unit problem. Finally, following the design of this paper,
+we do not test whether the gaps are larger than would be expected by chance. The random-labelling framework of
+\citet{rey2021comparative} and \citet{knaap2024segregated} can be applied directly to our cached weights.
+
+\section{Conclusion}\label{sec:conclusion}
+
+Measured with walking distance, racial segregation in the \nCities{} largest Brazilian municipalities is
+uniformly higher than when measured as the crow flies, and rankings of the most segregated cities change. But
+the difference disappears once local environments are matched in population. The street network shapes measured
+segregation mainly by shrinking the neighbourhood rather than by separating groups within it. Dead ends and
+circuity, not city-wide configurational fragmentation, are associated with that shrinkage. For measurement, this
+means that network and Euclidean indices should be compared at equal population scale. For planning, it points to
+the permeability of the local street fabric, the connectivity of peripheral \emph{loteamentos} and gated enclaves,
+as the lever through which urban design conditions everyday exposure between racial groups. Future work should
+add inferential tests of the gap, multiscalar profiles, and public-transport networks.

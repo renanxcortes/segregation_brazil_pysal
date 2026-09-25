@@ -1,0 +1,15 @@
+data/
+outputs/cache/
+__pycache__/
+.pytest_cache/
+manuscript/*.aux
+manuscript/*.bbl
+manuscript/*.blg
+manuscript/*.log
+manuscript/*.out
+manuscript/*.fdb_latexmk
+manuscript/*.fls
+manuscript/*.synctex.gz
+
+# osmnx HTTP cache (Overpass responses); one file is >100 MB
+cache/

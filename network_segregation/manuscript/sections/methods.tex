@@ -1,0 +1,111 @@
+\section{Data and methods}\label{sec:methods}
+
+\subsection{Cities, tracts and population groups}
+
+The study covers the \nCities{} municipalities with a 2022 Census population of at least 300,000, a set that
+includes all 27 state capitals. The spatial units are 2022 census tracts (\emph{setores censit\'arios}). We keep
+tracts classified as urban (\texttt{SITUACAO} = \emph{Urbana}) with at least one resident, \nTractsUrban{} tracts
+holding \sharePopUrban\% of the population of the \nCities{} municipalities. We restrict the analysis to urban
+tracts because several municipalities (e.g.\ Porto Velho or Manaus) contain very large rural tracts whose
+centroids lie kilometres from any street, which would inflate network distances for reasons unrelated to urban
+design. Population counts come from the Census tract aggregates for colour or race: \emph{branca}, \emph{preta},
+\emph{amarela}, \emph{parda} and \emph{ind\'igena}. Cells suppressed for confidentiality are set to zero.
+
+\subsection{Street networks}
+
+For each municipality we download the OpenStreetMap pedestrian network (all ways usable on foot, including
+footpaths and stairways) with OSMnx \citep{boeing2017osmnx} for the union of its urban tracts buffered by 2~km, so
+that walking paths may leave the urban footprint. Graphs are simplified, projected to the SIRGAS~2000 UTM zone of
+the city, made undirected, and reduced to their largest connected component. Each tract is represented by a
+point guaranteed to lie inside the polygon and snapped to the nearest network node; the snap distance is kept and
+added to network distances.
+
+\subsection{Local environments and the segregation index}
+
+Let $d_{ij}$ be the distance between tracts $i$ and $j$. We use two distances: Euclidean $d^{E}_{ij}$, and network
+$d^{N}_{ij} = s_i + \ell(n_i, n_j) + s_j$, where $n_i$ is the node nearest to tract $i$, $s_i$ the snap distance and
+$\ell$ the shortest-path length. Because the snapped path is itself a path between the two points,
+$d^{N}_{ij} \geq d^{E}_{ij}$. Both distances enter the same triangular kernel,
+\begin{equation}
+  w_{ij} = \begin{cases} 1 - d_{ij}/b & \text{if } d_{ij} \le b,\\ 0 & \text{otherwise,}\end{cases}
+  \qquad w_{ii} = 1,
+  \label{eq:kernel}
+\end{equation}
+with bandwidth $b = 2{,}000$~m, as in \citet{knaap2024segregated}. The local environment of tract $i$ is the
+spatially weighted population $\tilde{\tau}_{im} = \sum_j w_{ij}\tau_{jm}$ of each group $m$, and
+$\tilde{\pi}_{im} = \tilde{\tau}_{im} / \sum_m \tilde{\tau}_{im}$. The entropy of each local environment is
+$\tilde{E}_i = -\sum_m \tilde{\pi}_{im}\ln\tilde{\pi}_{im}$, and the spatial information theory index is
+\begin{equation}
+  H = 1 - \frac{1}{T E}\sum_i \tilde{t}_i \tilde{E}_i ,
+  \label{eq:H}
+\end{equation}
+where $\tilde t_i$ is the local population, $T$ the total population and $E$ the city-wide entropy
+\citep{reardon2004measures}. $H$ equals 0 when every local environment has the city's composition and 1 when every
+local environment contains a single group. We compute $H$ over the five colour-or-race groups (a group absent from
+a city contributes zero). As secondary measures we compute the spatial versions of dissimilarity, isolation and
+entropy for the \emph{preta}+\emph{parda} population. All indices are computed with the PySAL \texttt{segregation}
+package \citep{cortes2026segregation,cortes2020open}. We build the weighted local environments with a sparse
+matrix product identical to the one the package applies to a \texttt{libpysal} weights object, which a unit test
+verifies to machine precision, and then call the package's estimators. For each city we record
+$H^{E}$, $H^{N}$, the gap $\Delta H = H^{N} - H^{E}$ and the relative gap $\%\Delta H = 100\,\Delta H / H^{E}$.
+
+\paragraph{Population-matched environments.} Because $d^{N}_{ij} \ge d^{E}_{ij}$, a network environment of radius
+$b$ always contains fewer (weighted) people than a Euclidean one, and smaller environments are, other things equal,
+less diverse. Following the concern raised by \citet{saporito2026reconsidering}, we also compare $H^{N}$ with a
+Euclidean index computed from \emph{population-matched} environments: for each tract we find, by bisection, the
+Euclidean radius $b_i \le 2{,}000$~m at which the kernel-weighted population of its Euclidean environment equals
+that of its 2-km network environment, and recompute $H$ with these tract-specific radii. Any remaining gap cannot
+be attributed to the number of people in local environments.
+
+\subsection{Network topology and configurational fragmentation}
+
+Topology is measured on all network nodes lying inside the urban footprint (the union of populated urban
+tracts). We keep every piece rather than only the largest component, because planned cities such as Palmas
+consist of superblocks that connect through streets outside the footprint. Table~\ref{tab:topodef} lists the
+measures, which follow \citet{knaap2024segregated}. Densities are expressed per km$^2$ of footprint.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Street-network topology measures ($v$ nodes, $e$ edges, $p$ connected components).}\label{tab:topodef}
+\begin{tabular}{p{4.2cm}p{9.3cm}}
+\toprule
+Measure & Definition \\
+\midrule
+Intersection density & nodes with degree $\ge 3$ per km$^2$ \\
+Street density & km of street per km$^2$ \\
+Mean street length & mean edge length (m) \\
+Streets per node & mean node degree (parallel edges counted) \\
+Circuity & $\sum$ edge length $/ \sum$ straight-line length between edge endpoints \\
+Dead-end, 3-way, 4-way shares & share of nodes with degree 1, 3 and 4 \\
+Cyclomatic number & $e - v + p$ (independent loops; network redundancy) \\
+Meshedness & $(e - v + p)/(2v - 5)$ (share of the maximum possible number of loops) \\
+Gamma & $e / 3(v - 2)$ \\
+Fragmentation $F$ & $1 - \operatorname{corr}(\ln L_i, G_i)$, see text \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Configurational fragmentation.} Space syntax diagnoses a ``patchwork'' city by the weak correlation
+(low \emph{synergy}) between the local and global integration of its street segments \citep{medeiros2013urbis}.
+Axial maps are not available for \nCities{} cities, so we compute a metric analogue on the OSM graph. For a node
+$i$, local reach $L_i$ is the total street length whose two endpoints lie within 800~m of network distance from
+$i$. Global closeness $G_i$ is the reciprocal of the mean network distance from $i$ to 500 randomly drawn urban
+nodes. Synergy is the Pearson correlation between $\ln L_i$ and $G_i$ over 2,000 randomly drawn urban nodes,
+and fragmentation is $F = 1 - \text{synergy}$. Routing uses the full buffered network. High $F$ means that
+locally well-connected places are not necessarily well connected to the city as a whole. We stress that $F$
+approximates the space-syntax measure with metric distances rather than replicating it.
+
+\subsection{Analytical strategy}
+
+For RQ1 we describe the distributions of $H^{E}$, $H^{N}$, $\Delta H$ and $\%\Delta H$, their Pearson and Spearman
+correlations and the change in the ranking of the most segregated cities, and we repeat the comparison with
+bandwidths of 1 and 3~km, an exponential kernel ($w = e^{-3d/b}$), the secondary indices and the
+population-matched environments. For RQ2 we estimate, across cities,
+\begin{equation}
+  y_c = \alpha + \mathbf{x}_c'\boldsymbol\beta + \varepsilon_c ,
+\end{equation}
+with $y_c \in \{\Delta H, \%\Delta H\}$. $\mathbf{x}_c$ contains log intersection density, circuity, meshedness,
+log cyclomatic number, dead-end share, log population density and $H^{E}$, plus the cyclomatic$\times$circuity
+interaction of \citet{knaap2024segregated}. We then add $F$ and compare the fit. Normally distributed regressors
+are standardised and skewed ones logged. Standard errors are heteroskedasticity-robust (HC3). With
+$N = \nCities{}$ the models are descriptive associations, not causal estimates.

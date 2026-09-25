@@ -1,0 +1,95 @@
+Warning 3: Cannot find gdalvrt.xsd (GDAL_DATA is not defined)
+ok   1721000 Palmas
+Warning 3: Cannot find header.dxf (GDAL_DATA is not defined)
+C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\pyogrio\core.py:38: RuntimeWarning: Could not detect GDAL data files. Set GDAL_DATA environment variable to the correct path.
+  _init_gdal_data()
+ok   3552502 Suzano
+ok   3554102 Taubaté
+ok   3505708 Barueri
+ok   3205309 Vitória
+ok   3154606 Ribeirão das Neves
+ok   4314407 Pelotas
+ok   4125506 São José dos Pinhais
+ok   3551009 São Vicente
+ok   1506807 Santarém
+ok   3170107 Uberaba
+ok   2610707 Paulista
+ok   4104808 Cascavel
+ok   4304606 Canoas
+ok   3541000 Praia Grande
+ok   2609600 Olinda
+ok   3516200 Franca
+ok   3201308 Cariacica
+ok   2303709 Caucaia
+ok   4119905 Ponta Grossa
+ok   4202404 Blumenau
+ok   1200401 Rio Branco
+ok   3523107 Itaquaquecetuba
+ok   2933307 Vitória da Conquista
+ok   3506003 Bauru
+ok   2604106 Caruaru
+ok   2611101 Petrolina
+ok   3510609 Carapicuíba
+ok   3513801 Diadema
+ok   5201108 Anápolis
+ok   1400100 Boa Vista
+ok   4115200 Maringá
+ok   3106705 Betim
+ok   3143302 Montes Claros
+ok   3529401 Mauá
+ok   2504009 Campina Grande
+ok   3548500 Santos
+ok   3538709 Piracicaba
+ok   1600303 Macapá
+ok   3305109 São João de Meriti
+ok   3525904 Jundiaí
+ok   3530607 Mogi das Cruzes
+ok   1100205 Porto Velho
+ok   3205200 Vila Velha
+ok   4305108 Caxias do Sul
+ok   1500800 Ananindeua
+ok   3549805 São José do Rio Preto
+ok   3303302 Niterói
+ok   3301009 Campos dos Goytacazes
+ok   3300456 Belford Roxo
+ok   3205002 Serra
+ok   5201405 Aparecida de Goiânia
+ok   4205407 Florianópolis
+ok   3136702 Juiz de Fora
+ok   4113700 Londrina
+ok   2800308 Aracaju
+ok   4209102 Joinville
+ok   2910800 Feira de Santana
+ok   3118601 Contagem
+ok   2607901 Jaboatão dos Guararapes
+ok   5103403 Cuiabá
+ok   3549904 São José dos Campos
+ok   3543402 Ribeirão Preto
+ok   3170206 Uberlândia
+ok   3552205 Sorocaba
+ok   3534401 Osasco
+ok   3547809 Santo André
+ok   2408102 Natal
+ok   3303500 Nova Iguaçu
+ok   3301702 Duque de Caxias
+ok   3548708 São Bernardo do Campo
+ok   2507507 João Pessoa
+ok   2211001 Teresina
+ok   5002704 Campo Grande
+ok   3304904 São Gonçalo
+ok   2704302 Maceió
+ok   2111300 São Luís
+ok   3509502 Campinas
+ok   3518800 Guarulhos
+ok   1501402 Belém
+ok   4314902 Porto Alegre
+ok   5208707 Goiânia
+ok   2611606 Recife
+ok   4106902 Curitiba
+ok   1302603 Manaus
+ok   3106200 Belo Horizonte
+ok   2927408 Salvador
+ok   2304400 Fortaleza
+ok   5300108 Brasília
+ok   3304557 Rio de Janeiro
+ok   3550308 São Paulo

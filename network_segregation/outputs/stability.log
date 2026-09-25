@@ -1,0 +1,10 @@
+Warning 3: Cannot find gdalvrt.xsd (GDAL_DATA is not defined)
+Warning 3: Cannot find header.dxf (GDAL_DATA is not defined)
+C:\Users\renan\anaconda3\envs\netseg\Lib\site-packages\pyogrio\core.py:38: RuntimeWarning: Could not detect GDAL data files. Set GDAL_DATA environment variable to the correct path.
+  _init_gdal_data()
+COD_MUNICIPIO
+2927408    0.014746
+4106902    0.012696
+4314902    0.005235
+Name: fragmentation, dtype: float64
+STABLE

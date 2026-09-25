@@ -1,0 +1,36 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,booktabs,graphicx,longtable,float}
+\usepackage[margin=1in]{geometry}
+\usepackage[round,authoryear]{natbib}
+\usepackage[hidelinks]{hyperref}
+\bibliographystyle{apalike}
+\input{tables/numbers.tex}
+
+\title{Segregated by Design in Brazil? Street-Network Topology and the Measurement of Racial Segregation}
+\author{Renan Xavier Cortes}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\input{sections/abstract.tex}
+
+\input{sections/intro_background.tex}
+\input{sections/methods.tex}
+\input{sections/results.tex}
+\input{sections/discussion.tex}
+
+\section*{Code and data availability}
+All code is in a self-contained companion repository (URL withheld during review) and reproduces every number,
+table and figure from public inputs. Census tract counts and geometries are from IBGE (2022 Census). Street
+networks are \copyright{} OpenStreetMap contributors (ODbL); download dates are recorded per city. Unit tests
+verify, among other things, that our local-environment computation reproduces the PySAL \texttt{segregation}
+\texttt{w=} path to machine precision.
+
+\bibliography{references}
+
+\appendix
+\input{sections/appendix.tex}
+\end{document}
